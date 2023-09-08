@@ -1,0 +1,44 @@
+<div *ngIf="selectedGame" class="container mt-5">
+  <div class="row">
+    <div class="col-md-5">
+      <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid mb-3">
+      <div class="game-images mb-3">
+        <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail mr-2" width="100">
+      </div>
+      <button class="btn btn-success btn-lg btn-block">
+        <i class="fa fa-shopping-cart"></i> Buy Now - ${{ selectedGame.price }}
+      </button>
+    </div>
+    <div class="col-md-7">
+      <h1>{{ selectedGame.title }}</h1>
+      <p><strong>Description:</strong> {{ selectedGame.description }}</p>
+      <p><strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}</p>
+      <p><strong>Developer:</strong> {{ selectedGame.developer }}</p>
+      <p><strong>Average Rating:</strong> {{ selectedGame.averageRating }}</p>
+      <p><strong>Number of Local Players:</strong> {{ selectedGame.numberOfLocalPlayers }}</p>
+      <p><strong>Has Multiplayer Support:</strong> {{ selectedGame.hasMultiplayerSupport ? 'Yes' : 'No' }}</p>
+      <h3>System Requirements</h3>
+      <p><strong>Minimum:</strong> {{ selectedGame.minimumSystemRequirements }}</p>
+      <p><strong>Recommended:</strong> {{ selectedGame.recommendedSystemRequirements }}</p>
+      <h3>DLCs</h3>
+      <ul class="list-group mb-3">
+          <li *ngFor="let dlc of selectedGame.dlcs" class="list-group-item">
+              {{ dlc.dlcName }} - Release Date: {{ dlc.releaseDate | date }} - Price: ${{ dlc.price }}
+          </li>
+      </ul>
+      <h3>Game Genres</h3>
+      <ul class="list-group mb-3">
+          <li *ngFor="let genre of selectedGame.gameGenres" class="list-group-item">{{ genre.genre.name }}</li>
+      </ul>
+      
+      <h3>Game Platforms</h3>
+      <ul class="list-group mb-3">
+          <li *ngFor="let platform of selectedGame.gamePlatforms" class="list-group-item">{{ platform.platform.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger mt-5">
+  <p>{{ errorMessage }}</p>
+</div>

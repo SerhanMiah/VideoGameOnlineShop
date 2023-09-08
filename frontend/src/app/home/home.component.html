@@ -1,34 +1,82 @@
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to GameShop</h1>
-      <p>Your ultimate destination for the latest video games.</p>
-      <button class="explore-btn">Explore Now</button>
-    </div>
-  </section>
-  
-  <!-- Top Games Showcase -->
-  <section class="top-games">
-    <h2>Top Games</h2>
-    <div class="game-grid">
-      <div class="game-card">
-        <img src="path/to/game1.jpg" alt="Game 1">
-        <h3>Game 1</h3>
+<!-- src/app/home/home.component.html -->
+
+<div class="container-fluid p-0">
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center d-flex align-items-center bg-primary text-white py-5">
+      <div class="container">
+          <h1>Welcome to GameShop</h1>
+          <p class="lead">Your ultimate destination for the best video games.</p>
+          <a [routerLink]="['/games']" class="btn btn-light mt-3">Browse Games</a>
       </div>
-      <!-- ... Repeat for other games ... -->
-    </div>
   </section>
-  
-  <!-- Upcoming Games Promo -->
-  <section class="upcoming">
-    <h2>Coming Soon</h2>
-    <div class="upcoming-highlight">
-      <img src="path/to/upcoming-game.jpg" alt="Upcoming Game">
-      <div class="upcoming-info">
-        <h3>Upcoming Game Name</h3>
-        <p>Some description about the upcoming game.</p>
-        <button class="preorder-btn">Pre-Order Now</button>
+
+  <!-- Featured Games Section -->
+  <!-- <section id="featured-games" class="games-section py-5">
+      <div class="container">
+          <h2 class="text-center mb-5">Featured Games</h2>
+          <div class="row">
+              <div class="col-md-4 mb-4" *ngFor="let game of games">
+                  <div class="card h-100 shadow-sm">
+                      <img [src]="game.image" alt="{{ game.name }}" class="card-img-top">
+                      <div class="card-body d-flex flex-column">
+                          <h5 class="card-title mb-2">{{ game.name }}</h5>
+                          <p class="card-text flex-grow-1">{{ game.description }}</p>
+                          <button class="btn btn-primary mt-2">Buy Now</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
+  </section> -->
+
+  <!-- Latest News or Updates Section (Optional) -->
+  <section class="news-section py-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-5">Latest News</h2>
+          <!-- Sample news items. Replace with dynamic data if needed. -->
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                  <h5>New Game Release: XYZ!</h5>
+                  <p>Discover the brand-new game XYZ, now available for purchase...</p>
+                  <a href="#" class="text-primary">Read more</a>
+              </div>
+              <!-- ... Repeat for other news items ... -->
+          </div>
+      </div>
   </section>
-  
+
+  <!-- Footer -->
+  <footer class="footer-section bg-dark py-4">
+      <div class="container">
+          <div class="row">
+              <!-- Logo -->
+              <div class="col-md-4 mb-3">
+                  <img src="footer-logo.png" alt="GameShop Logo" class="img-fluid">
+              </div>
+              <!-- Links -->
+              <div class="col-md-4 mb-3">
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-light">Privacy Policy</a></li>
+                      <li><a href="#" class="text-light">Terms of Service</a></li>
+                  </ul>
+              </div>
+              <!-- Social Links -->
+              <div class="col-md-4 mb-3">
+                  <a href="#" class="text-light mr-2">
+                      <img src="facebook-icon.png" alt="Facebook" width="30">
+                  </a>
+                  <a href="#" class="text-light mr-2">
+                      <img src="twitter-icon.png" alt="Twitter" width="30">
+                  </a>
+                  <a href="#" class="text-light">
+                      <img src="instagram-icon.png" alt="Instagram" width="30">
+                  </a>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+</div>
+
+<!-- No need for scripts here as they should be globally included in the main HTML file of your Angular app. -->

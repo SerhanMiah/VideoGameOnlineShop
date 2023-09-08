@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using backend.Models.Product;
 using Microsoft.EntityFrameworkCore;
 using VideoGameAppBackend.Models;
 using VideoGameAppBackend.Models.Product;
@@ -58,29 +59,50 @@ namespace VideoGameAppBackend.Data.SeedData
 
             builder.Entity<Platform>().HasData(gamePlatforms);
 
+
+            var gameTags = new List<GameTag>
+            {
+                new GameTag { TagId = 1, TagName = "Fantasy" },
+                new GameTag { TagId = 2, TagName = "Medieval" },
+                new GameTag { TagId = 3, TagName = "Story Rich" },
+                new GameTag { TagId = 4, TagName = "Sci-Fi" },
+                new GameTag { TagId = 5, TagName = "Post-Apocalyptic" },
+                new GameTag { TagId = 6, TagName = "Horror" },
+                new GameTag { TagId = 7, TagName = "Survival" },
+                new GameTag { TagId = 8, TagName = "Retro" },
+                new GameTag { TagId = 9, TagName = "Puzzle" },
+                new GameTag { TagId = 10, TagName = "Platformer" },
+                new GameTag { TagId = 11, TagName = "Shooter" },
+                new GameTag { TagId = 12, TagName = "Strategy" },
+                new GameTag { TagId = 13, TagName = "RPG" },
+                new GameTag { TagId = 14, TagName = "VR" },
+                new GameTag { TagId = 15, TagName = "Multiplayer" },
+                new GameTag { TagId = 16, TagName = "Singleplayer" },
+                new GameTag { TagId = 17, TagName = "Racing" },
+                new GameTag { TagId = 18, TagName = "Sports" },
+                new GameTag { TagId = 19, TagName = "Open World" },
+                new GameTag { TagId = 20, TagName = "Sandbox" },
+                new GameTag { TagId = 21, TagName = "City Builder" },
+                new GameTag { TagId = 22, TagName = "Management" },
+                new GameTag { TagId = 23, TagName = "Simulation" },
+                new GameTag { TagId = 24, TagName = "Turn-Based" },
+                new GameTag { TagId = 25, TagName = "Roguelike" },
+                new GameTag { TagId = 26, TagName = "Narrative" },
+                new GameTag { TagId = 27, TagName = "Visual Novel" },
+                new GameTag { TagId = 28, TagName = "Anime" },
+                new GameTag { TagId = 29, TagName = "Pixel Art" },
+                new GameTag { TagId = 30, TagName = "Crafting" }
+            };
+
+            builder.Entity<GameTag>().HasData(gameTags);
+
+
             // Games
             var games = new List<Game>
             {
                 new Game
                 {
                     Id = 1,
-                    Title = "Cyberpunk 2077",
-                    Price = 59.99m,
-                    ReleaseDate = new DateTime(2020, 12, 10),
-                    Description = "Cyberpunk 2077 is an open-world, action-adventure story set in Night City.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=ixl31324UxE",
-                    Developer = "CD Projekt Red",
-                    AverageRating = 4.2,
-                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-3570K or AMD FX-8310, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780 3GB or AMD Radeon RX 470, Storage: 70 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790 or AMD Ryzen 3 3200G, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060 6GB or AMD Radeon R9 Fury, Storage: SSD + 70 GB available space",
-                    HasMultiplayerSupport = false,
-                    NumberOfLocalPlayers = 1,
-                    DiscountedPrice = null,
-                    AgeRatingId = 2
-                },
-                new Game
-                {
-                    Id = 2,
                     Title = "The Witcher 3: Wild Hunt",
                     Price = 29.99m,
                     ReleaseDate = new DateTime(2015, 5, 19),
@@ -93,143 +115,80 @@ namespace VideoGameAppBackend.Data.SeedData
                     HasMultiplayerSupport = false,
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
-                    AgeRatingId = 2
+                    AgeRatingId = 2,
+                    CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp"
+                },
+                    new Game
+                {
+                    Id = 2,
+                    Title = "Red Dead Redemption 2",
+                    Price = 49.99m,
+                    ReleaseDate = new DateTime(2018, 10, 26),
+                    Description = "Red Dead Redemption 2 is an action-adventure game set in the Wild West.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
+                    Developer = "Rockstar Games",
+                    AverageRating = 4.9,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2500K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770, Storage: 150 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 150 GB available space",
+                    HasMultiplayerSupport = true,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 2,
+                    CoverImage = "https://www.rockstargames.com/reddeadredemption2/rockstar_games/r_d_r_logo.jpg"
                 },
                 new Game
                 {
                     Id = 3,
-                    Title = "Red Dead Redemption 2",
-                    Price = 49.99m,
-                    ReleaseDate = new DateTime(2018, 10, 26),
-                    Description = "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=Dw_oH5oiUSE",
-                    Developer = "Rockstar Games",
-                    AverageRating = 4.9,
-                    MinimumSystemRequirements = "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 280, Storage: 150 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K 3.5 GHz or AMD Ryzen 5 1500X 3.5 GHz, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 480 4GB, Storage: 150 GB available space",
-                    HasMultiplayerSupport = true,
+                    Title = "Cyberpunk 2077",
+                    Price = 59.99m,
+                    ReleaseDate = new DateTime(2020, 12, 10),
+                    Description = "Cyberpunk 2077 is a role-playing video game developed and published by CD Projekt.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=vjF9GgrY9c0",
+                    Developer = "CD Projekt Red",
+                    AverageRating = 4.0,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-3570K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780, Storage: 70 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 70 GB available space",
+                    HasMultiplayerSupport = false,
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
-                    AgeRatingId = 2
+                    AgeRatingId = 2,
+                    CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg"
                 },
                 new Game
                 {
                     Id = 4,
-                    Title = "The Legend of Zelda: Breath of the Wild",
-                    Price = 59.99m,
-                    ReleaseDate = new DateTime(2017, 3, 3),
-                    Description = "The Legend of Zelda: Breath of the Wild is an action-adventure game set in an open world.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=zw47_q9wbBE",
-                    Developer = "Nintendo",
-                    AverageRating = 4.7,
-                    MinimumSystemRequirements = "N/A",
-                    RecommendedSystemRequirements = "N/A",
+                    Title = "Doom Eternal",
+                    Price = 39.99m,
+                    ReleaseDate = new DateTime(2020, 3, 20),
+                    Description = "Doom Eternal is a first-person shooter video game developed by id Software and published by Bethesda Softworks.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=FkklG9MA0vM",
+                    Developer = "id Software",
+                    AverageRating = 4.5,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2400, Memory: 8 GB RAM, Graphics: NVIDIA GTX 670, Storage: 50 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700K, Memory: 8 GB RAM, Graphics: NVIDIA GTX 1060, Storage: 50 GB available space",
                     HasMultiplayerSupport = false,
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
-                    AgeRatingId = 1
+                    AgeRatingId = 2,
+                    CoverImage = "https://bethesda.net/game/doom2016"
                 },
                 new Game
                 {
                     Id = 5,
-                    Title = "Grand Theft Auto V",
-                    Price = 29.99m,
-                    ReleaseDate = new DateTime(2013, 9, 17),
-                    Description = "Grand Theft Auto V is an action-adventure game set in an open world.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=3DBrG2YjqQA",
-                    Developer = "Rockstar North",
-                    AverageRating = 4.7,
-                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core 2 Quad CPU Q6600 2.4 GHz or AMD Phenom 9850 Quad-Core Processor 2.5 GHz, Memory: 4 GB RAM, Graphics: NVIDIA 9800 GT 1GB or AMD HD 4870 1GB, Storage: 72 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5 3470 3.2 GHz or AMD X8 FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GTX 660 2GB or AMD HD7870 2GB, Storage: 72 GB available space",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 1,
-                    DiscountedPrice = null,
-                    AgeRatingId = 4
-                },
-                new Game
-                {
-                    Id = 6,
-                    Title = "Minecraft",
-                    Price = 26.99m,
-                    ReleaseDate = new DateTime(2011, 11, 18),
-                    Description = "Minecraft is a sandbox game that allows players to build and explore virtual worlds.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=92AoX5OyiU4",
-                    Developer = "Mojang Studios",
-                    AverageRating = 4.5,
-                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4690 or AMD A10-7800 or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 700 Series or AMD Radeon Rx 200 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6500U or AMD A8-6600K or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 900 Series or AMD Radeon Rx 300 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 4,
-                    DiscountedPrice = null,
-                    AgeRatingId = 1
-                },
-                 new Game
-                {
-                    Id = 7,
-                    Title = "FIFA 22",
-                    Price = 59.99m,
-                    ReleaseDate = new DateTime(2022, 9, 27),
-                    Description = "Experience the next installment of the popular FIFA football simulation game.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=Apm59G6LgYo",
-                    Developer = "EA Sports",
-                    AverageRating = 4.5,
-                    MinimumSystemRequirements = "N/A",
-                    RecommendedSystemRequirements = "N/A",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 4,
-                    DiscountedPrice = null,
-                    AgeRatingId = 7
-                },
-                new Game
-                {
-                    Id = 8,
-                    Title = "The Sims 4",
-                    Price = 39.99m,
-                    ReleaseDate = new DateTime(2014, 9, 2),
-                    Description = "Create unique Sims, build their perfect homes, and explore vibrant worlds in The Sims 4.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=mf19woWj1lQ",
-                    Developer = "Maxis",
+                    Title = "Assassin's Creed Valhalla",
+                    Price = 49.99m,
+                    ReleaseDate = new DateTime(2020, 11, 10),
+                    Description = "Assassin's Creed Valhalla is an action role-playing video game developed by Ubisoft Montreal.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=SSYlfRq4ysA",
+                    Developer = "Ubisoft",
                     AverageRating = 4.6,
-                    MinimumSystemRequirements = "OS: Windows XP (SP3), Processor: 1.8 GHz Intel Core 2 Duo, AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 2 GB RAM, Graphics: NVIDIA GeForce 6600 or ATI Radeon X1300 or Intel GMA X4500, Storage: 10 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 7, 8, 8.1, 10 (64-bit), Processor: Intel Core i5 or faster, AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GTX 650 or better, AMD Radeon HD 7770 or better, Storage: 18 GB available space",
+                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4460, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, Storage: 50 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1080, Storage: 50 GB available space",
                     HasMultiplayerSupport = false,
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
-                    AgeRatingId = 1
-                },
-                new Game
-                {
-                    Id = 9,
-                    Title = "Street Fighter V",
-                    Price = 19.99m,
-                    ReleaseDate = new DateTime(2016, 2, 16),
-                    Description = "Join the legendary Street Fighter tournament and prove your skills in intense battles.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=wYsujrF_Oj0",
-                    Developer = "Capcom",
-                    AverageRating = 4.3,
-                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i3-4160 @ 3.60GHz, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 480, GTX 570, GTX 670, or better, Storage: 60 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-4690K @3.50GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, GTX 1060, or better, Storage: 60 GB available space",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 2,
-                    DiscountedPrice = null,
-                    AgeRatingId = 8
-                },
-                new Game
-                {
-                    Id = 10,
-                    Title = "Resident Evil Village",
-                    Price = 59.99m,
-                    ReleaseDate = new DateTime(2021, 5, 7),
-                    Description = "Enter a world of survival horror and face terrifying creatures in Resident Evil Village.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=3S1QCcVee_Y",
-                    Developer = "Capcom",
-                    AverageRating = 4.8,
-                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-7500 or AMD Ryzen 3 1200, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1050 Ti with 4GB VRAM or AMD Radeon RX 560 with 4GB VRAM, DirectX: Version 12, Storage: 40 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-8700 or AMD Ryzen 5 3600, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1070 or AMD Radeon RX 5700, DirectX: Version 12, Storage: 40 GB available space",
-                    HasMultiplayerSupport = false,
-                    NumberOfLocalPlayers = 1,
-                    DiscountedPrice = null,
-                    AgeRatingId = 9
+                    AgeRatingId = 2,
+                    CoverImage = "https://www.ubisoft.com/en-gb/game/assassins-creed/valhalla"
                 }
             };
 
@@ -246,7 +205,7 @@ namespace VideoGameAppBackend.Data.SeedData
                     ReleaseDate = new DateTime(2015, 10, 13),
                     Price = 9.99m,
                     Description = "Embark on a new adventure as Geralt of Rivia in the Hearts of Stone expansion.",
-                    GameId = 2
+                    GameId = 1
                 },
                 new DLC
                 {
@@ -255,140 +214,87 @@ namespace VideoGameAppBackend.Data.SeedData
                     ReleaseDate = new DateTime(2016, 5, 31),
                     Price = 19.99m,
                     Description = "Visit the picturesque land of Toussaint in the Blood and Wine expansion.",
-                    GameId = 2
+                    GameId = 1
                 },
-                // DLCs for "Red Dead Redemption 2"
-                new DLC
+                   new DLC
                 {
                     Id = 3,
-                    DLCName = "Red Dead Redemption 2: Undead Nightmare",
-                    ReleaseDate = new DateTime(2022, 10, 25),
+                    DLCName = "RDR2: Frontier Tales",
+                    ReleaseDate = new DateTime(2019, 7, 21),
                     Price = 14.99m,
-                    Description = "Experience an undead nightmare in the world of Red Dead Redemption 2.",
-                    GameId = 3
+                    Description = "Experience new stories from the Wild West in the Frontier Tales expansion.",
+                    GameId = 2
                 },
                 new DLC
                 {
                     Id = 4,
-                    DLCName = "Red Dead Redemption 2: The Ballad of Gay Tony",
-                    ReleaseDate = new DateTime(2023, 2, 28),
-                    Price = 9.99m,
-                    Description = "Join the high-stakes world of nightclub entertainment in The Ballad of Gay Tony DLC.",
-                    GameId = 3
+                    DLCName = "RDR2: Legend of the East",
+                    ReleaseDate = new DateTime(2020, 3, 15),
+                    Price = 19.99m,
+                    Description = "Unlock the mysteries of the East in this exciting new DLC.",
+                    GameId = 2
                 },
-                // DLCs for "The Legend of Zelda: Breath of the Wild"
+
+                // DLCs for "Cyberpunk 2077"
                 new DLC
                 {
                     Id = 5,
-                    DLCName = "The Legend of Zelda: Breath of the Wild - Expansion Pass",
-                    ReleaseDate = new DateTime(2017, 6, 30),
-                    Price = 19.99m,
-                    Description = "Expand your adventure with two DLC packs for The Legend of Zelda: Breath of the Wild.",
-                    GameId = 4
+                    DLCName = "Cyberpunk: Night City Stories",
+                    ReleaseDate = new DateTime(2021, 6, 15),
+                    Price = 12.99m,
+                    Description = "Dive deeper into Night City with additional quests and characters.",
+                    GameId = 3
                 },
                 new DLC
                 {
                     Id = 6,
-                    DLCName = "The Legend of Zelda: Breath of the Wild - The Champions' Ballad",
-                    ReleaseDate = new DateTime(2017, 12, 7),
-                    Price = 9.99m,
-                    Description = "Embark on a new quest and discover the story of the champions in The Champions' Ballad DLC.",
-                    GameId = 4
+                    DLCName = "Cyberpunk: Beyond the Wall",
+                    ReleaseDate = new DateTime(2022, 1, 20),
+                    Price = 24.99m,
+                    Description = "Venture beyond the city limits and explore the wastelands.",
+                    GameId = 3
                 },
-                // DLCs for "Grand Theft Auto V"
+
+                // DLCs for "Doom Eternal"
                 new DLC
                 {
                     Id = 7,
-                    DLCName = "Grand Theft Auto V: The Diamond Casino Heist",
-                    ReleaseDate = new DateTime(2019, 12, 12),
-                    Price = 9.99m,
-                    Description = "Plan and execute the most daring heist in the history of Los Santos in The Diamond Casino Heist DLC.",
-                    GameId = 5
+                    DLCName = "Doom Eternal: Hell's Ascent",
+                    ReleaseDate = new DateTime(2021, 5, 10),
+                    Price = 19.99m,
+                    Description = "Climb through the new challenges and face tougher demons.",
+                    GameId = 4
                 },
                 new DLC
                 {
                     Id = 8,
-                    DLCName = "Grand Theft Auto V: The Cayo Perico Heist",
-                    ReleaseDate = new DateTime(2020, 12, 15),
-                    Price = 14.99m,
-                    Description = "Infiltrate the remote island of Cayo Perico and pull off a monumental heist in The Cayo Perico Heist DLC.",
-                    GameId = 5
+                    DLCName = "Doom Eternal: The Slayer's Return",
+                    ReleaseDate = new DateTime(2021, 12, 20),
+                    Price = 19.99m,
+                    Description = "Return to the origin of the Slayer and discover his roots.",
+                    GameId = 4
                 },
-                // DLCs for "Minecraft"
+
+                // DLCs for "Assassin's Creed Valhalla"
                 new DLC
                 {
                     Id = 9,
-                    DLCName = "Minecraft: Nether Update",
-                    ReleaseDate = new DateTime(2020, 6, 23),
-                    Price = 4.99m,
-                    Description = "Explore the dangerous Nether dimension with new mobs, biomes, and materials in the Nether Update DLC.",
-                    GameId = 6
+                    DLCName = "AC Valhalla: Rise of the Druids",
+                    ReleaseDate = new DateTime(2021, 5, 13),
+                    Price = 24.99m,
+                    Description = "Travel to Ireland and confront the Druid cult.",
+                    GameId = 5
                 },
                 new DLC
                 {
                     Id = 10,
-                    DLCName = "Minecraft: Caves & Cliffs Update",
-                    ReleaseDate = new DateTime(2021, 6, 8),
-                    Price = 9.99m,
-                    Description = "Discover new cave systems, mountain biomes, and blocks in the Caves & Cliffs Update DLC.",
-                    GameId = 6
-                },
-                              new DLC
-                {
-                    Id = 11,
-                    DLCName = "FIFA 22: Ultimate Team Expansion",
-                    ReleaseDate = new DateTime(2022, 9, 27),
-                    Price = 9.99m,
-                    Description = "Enhance your FIFA 22 Ultimate Team with new players, packs, and challenges.",
-                    GameId = 7
-                },
-                new DLC
-                {
-                    Id = 12,
-                    DLCName = "FIFA 22: Career Mode Expansion",
-                    ReleaseDate = new DateTime(2022, 9, 27),
-                    Price = 14.99m,
-                    Description = "Expand your FIFA 22 Career Mode experience with new features and gameplay enhancements.",
-                    GameId = 7
-                },
-                // DLCs for "The Sims 4"
-                new DLC
-                {
-                    Id = 13,
-                    DLCName = "The Sims 4: Seasons",
-                    ReleaseDate = new DateTime(2018, 6, 22),
-                    Price = 19.99m,
-                    Description = "Add weather, holidays, and seasonal activities to your Sims' lives in The Sims 4: Seasons.",
-                    GameId = 8
-                },
-                new DLC
-                {
-                    Id = 14,
-                    DLCName = "The Sims 4: Get Together",
-                    ReleaseDate = new DateTime(2015, 12, 8),
-                    Price = 14.99m,
-                    Description = "Explore a new world, meet new Sims, and join clubs in The Sims 4: Get Together.",
-                    GameId = 8
-                },
-                // DLCs for "Resident Evil Village"
-                new DLC
-                {
-                    Id = 15,
-                    DLCName = "Resident Evil Village: The Mercenaries",
-                    ReleaseDate = new DateTime(2021, 7, 1),
-                    Price = 9.99m,
-                    Description = "Take on challenging missions and survive against hordes of enemies in The Mercenaries DLC.",
-                    GameId = 10
-                },
-                new DLC
-                {
-                    Id = 16,
-                    DLCName = "Resident Evil Village: The Tragedy of Ethan Winters",
-                    ReleaseDate = new DateTime(2022, 1, 31),
-                    Price = 14.99m,
-                    Description = "Uncover the dark secrets of Ethan Winters' journey in The Tragedy of Ethan Winters DLC.",
-                    GameId = 10
+                    DLCName = "AC Valhalla: The Siege of Paris",
+                    ReleaseDate = new DateTime(2021, 8, 12),
+                    Price = 24.99m,
+                    Description = "Invade the fortified city of Paris and shape its future.",
+                    GameId = 5
                 }
+ 
             };
 
             builder.Entity<DLC>().HasData(dlcs);
@@ -410,111 +316,6 @@ namespace VideoGameAppBackend.Data.SeedData
                     ImageUrl = "https://static.wikia.nocookie.net/witcher/images/8/89/Tw3_Blood_and_Wine_cover_art.jpg/revision/latest?cb=20160414142032",
                     Caption = "The Witcher 3: Blood and Wine DLC Image",
                     DLCId = 2
-                },
-                // DLC Images for "Red Dead Redemption 2: Undead Nightmare"
-                new DLCImage
-                {
-                    Id = 3,
-                    ImageUrl = "https://example.com/dlc_image_3.jpg",
-                    Caption = "Red Dead Redemption 2: Undead Nightmare DLC Image",
-                    DLCId = 3
-                },
-                new DLCImage
-                {
-                    Id = 4,
-                    ImageUrl = "https://example.com/dlc_image_4.jpg",
-                    Caption = "Red Dead Redemption 2: The Ballad of Gay Tony DLC Image",
-                    DLCId = 4
-                },
-                // DLC Images for "The Legend of Zelda: Breath of the Wild - Expansion Pass"
-                new DLCImage
-                {
-                    Id = 5,
-                    ImageUrl = "https://example.com/dlc_image_5.jpg",
-                    Caption = "The Legend of Zelda: Breath of the Wild - Expansion Pass DLC Image",
-                    DLCId = 5
-                },
-                new DLCImage
-                {
-                    Id = 6,
-                    ImageUrl = "https://example.com/dlc_image_6.jpg",
-                    Caption = "The Legend of Zelda: Breath of the Wild - The Champions' Ballad DLC Image",
-                    DLCId = 6
-                },
-                // DLC Images for "Grand Theft Auto V: The Diamond Casino Heist"
-                new DLCImage
-                {
-                    Id = 7,
-                    ImageUrl = "https://example.com/dlc_image_7.jpg",
-                    Caption = "Grand Theft Auto V: The Diamond Casino Heist DLC Image",
-                    DLCId = 7
-                },
-                new DLCImage
-                {
-                    Id = 8,
-                    ImageUrl = "https://example.com/dlc_image_8.jpg",
-                    Caption = "Grand Theft Auto V: The Cayo Perico Heist DLC Image",
-                    DLCId = 8
-                },
-                // DLC Images for "Minecraft: Nether Update"
-                new DLCImage
-                {
-                    Id = 9,
-                    ImageUrl = "https://example.com/dlc_image_9.jpg",
-                    Caption = "Minecraft: Nether Update DLC Image",
-                    DLCId = 9
-                },
-                new DLCImage
-                {
-                    Id = 10,
-                    ImageUrl = "https://example.com/dlc_image_10.jpg",
-                    Caption = "Minecraft: Caves & Cliffs Update DLC Image",
-                    DLCId = 10
-                },
-                               // DLC Images for "FIFA 22: Ultimate Team Expansion"
-                new DLCImage
-                {
-                    Id = 11,
-                    ImageUrl = "https://example.com/dlc_image_11.jpg",
-                    Caption = "FIFA 22: Ultimate Team Expansion DLC Image",
-                    DLCId = 11
-                },
-                new DLCImage
-                {
-                    Id = 12,
-                    ImageUrl = "https://example.com/dlc_image_12.jpg",
-                    Caption = "FIFA 22: Career Mode Expansion DLC Image",
-                    DLCId = 12
-                },
-                // DLC Images for "The Sims 4: Seasons"
-                new DLCImage
-                {
-                    Id = 13,
-                    ImageUrl = "https://example.com/dlc_image_13.jpg",
-                    Caption = "The Sims 4: Seasons DLC Image",
-                    DLCId = 13
-                },
-                new DLCImage
-                {
-                    Id = 14,
-                    ImageUrl = "https://example.com/dlc_image_14.jpg",
-                    Caption = "The Sims 4: Get Together DLC Image",
-                    DLCId = 14
-                },
-                // DLC Images for "Resident Evil Village: The Mercenaries"
-                new DLCImage
-                {
-                    Id = 15,
-                    ImageUrl = "https://example.com/dlc_image_15.jpg",
-                    Caption = "Resident Evil Village: The Mercenaries DLC Image",
-                    DLCId = 15
-                },
-                new DLCImage
-                {
-                    Id = 16,
-                    ImageUrl = "https://example.com/dlc_image_16.jpg",
-                    Caption = "Resident Evil Village: The Tragedy of Ethan Winters DLC Image",
-                    DLCId = 16
                 }
             };
 

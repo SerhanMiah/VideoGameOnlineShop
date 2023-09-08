@@ -6,6 +6,7 @@ using VideoGameAppBackend.Models;
 using VideoGameAppBackend.Models.Payments;
 using VideoGameAppBackend.Models.Product;
 using System.Collections.Generic;
+using backend.Models.Product;
 
 namespace VideoGameAppBackend.Data
 {
@@ -36,6 +37,10 @@ namespace VideoGameAppBackend.Data
         public DbSet<GamePlatform> GamePlatforms { get; set; }
         public DbSet<AgeRating> AgeRatings { get; set; }
         public DbSet<Language> Languages { get; set; }
+
+        public DbSet<GameTag> Tags { get; set; }
+        public DbSet<GameGameTag> GameGameTags { get; set; }
+
 
         public DbSet<WishList> WishLists { get; set; }
 
@@ -136,6 +141,22 @@ namespace VideoGameAppBackend.Data
                 .WithOne(r => r.User)
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Set the relationships for the Game and Tag entities
+            builder.Entity<GameGameTag>()
+                .HasKey(ggt => new { ggt.GameId, ggt.GameTagId });
+
+            builder.Entity<GameGameTag>()
+                .HasOne(ggt => ggt.Game)
+                .WithMany(g => g.GameGameTags)
+                .HasForeignKey(ggt => ggt.GameId);
+
+            builder.Entity<GameGameTag>()
+                .HasOne(ggt => ggt.GameTag)
+                .WithMany(gt => gt.GameGameTags)
+                .HasForeignKey(ggt => ggt.GameTagId);
+
+
         }
     }
 }

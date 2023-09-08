@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  
+  onHover(event: Event) {
+    // Add any interactivity or effect when a game card is hovered
+  }
+
+  onLeave(event: Event) {
+    // Revert any effects when the hover effect ends
+  }
 
 }
