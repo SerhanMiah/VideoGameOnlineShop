@@ -1,1 +1,46 @@
-<p>cart works!</p>
+<div class="cart-container">
+
+    <h2>Your Cart</h2>
+
+    <!-- Check if there are items in the cart -->
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+        
+        <div class="cart-items">
+            <div class="cart-card" *ngFor="let item of cartItems">
+                
+                <!-- Game Image - Assuming Game object has an image property -->
+                <img [src]="item.Game?.image || 'default-image-path.jpg'" alt="Game Image" class="cart-image">
+
+                <!-- Game Details -->
+                <div class="cart-details">
+                    <h4>{{ item.Game?.name || 'Game Name' }}</h4>
+                    <div class="quantity-container">
+                        <label>Quantity:</label>
+                        <input [(ngModel)]="item.Quantity" type="number" min="1"/>
+                        <button class="update-btn" (click)="updateQuantity(item.Id, item.Quantity)">Update</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="cart-actions">
+                    <button class="remove-btn" (click)="removeFromCart(item.Id)">
+                        <i class="fas fa-trash-alt"></i> Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- This can be your checkout section -->
+        <div class="checkout-container">
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+
+    </div>
+
+    <!-- Empty cart message -->
+    <ng-template #emptyCart>
+        <div class="empty-cart-message">
+            <p>Your cart is empty. <a routerLink="/games">Start shopping</a> to fill it!</p>
+        </div>
+    </ng-template>
+</div>
