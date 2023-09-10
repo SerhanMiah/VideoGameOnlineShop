@@ -1,0 +1,92 @@
+/* Basic styling */
+.profile-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .profile-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-info {
+    margin-left: 20px;
+  }
+  
+  .profile-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .profile-data {
+    margin-bottom: 8px;
+  }
+  
+  .profile-data label {
+    font-weight: bold;
+  }
+  
+  /* Breadcrumb styling */
+  .main-breadcrumb {
+    background-color: transparent;
+  }
+  
+  /* Card styling */
+  .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  
+  .btn-outline-primary {
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  /* Breadcrumb separator */
+  .breadcrumb-item::before {
+    content: ">";
+    margin: 0 8px;
+    color: #007bff;
+  }
+  
+  /* Responsive layout for smaller screens */
+  @media (max-width: 768px) {
+    .profile-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-info {
+      margin-top: 20px;
+    }
+  }
+  

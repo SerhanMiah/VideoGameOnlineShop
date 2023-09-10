@@ -7,6 +7,14 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HomeComponent } from './home/home.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './cart/cart.component';  
+
 
 @NgModule({
   declarations: [
@@ -14,11 +22,20 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     NavigationBarComponent,
     HomeComponent,
     GameListComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    TabsModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

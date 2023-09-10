@@ -1,59 +1,66 @@
-/* Global styles */
+/* Container Styles */
 .container {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    margin-top: 20px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-
-h1, h3 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Image styling */
-.img-fluid {
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-}
-
-.game-images .img-thumbnail {
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    margin-bottom: 5px;
-}
-
-/* Button styling */
-.btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
-    box-shadow: 0px 0px 15px rgba(40,167,69,0.2);
-}
-
-.btn-success:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-}
-
-.fa-shopping-cart {
+  }
+  
+  /* Game Image Styles */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .game-images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .game-images img {
+    max-width: 100px;
+    height: auto;
     margin-right: 10px;
-}
-
-/* Information styling */
-p, li {
-    color: #555;
-}
-
-.list-group-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.alert-danger {
-    border-radius: 5px;
-    border: 1px solid #dc3545;
-    background-color: #f8d7da;
-}
-
+    margin-bottom: 10px;
+  }
+  
+  /* Buy Button Styles */
+  .btn-success {
+    margin-top: 20px;
+  }
+  
+  /* Game Information Styles */
+  .col-md-7 {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  /* System Requirements Styles */
+  h3 {
+    margin-top: 20px;
+  }
+  
+  /* DLC Styles */
+  .list-group-item {
+    border: none;
+    padding: 8px;
+    margin: 0;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .col-md-5 {
+      text-align: center;
+    }
+  
+    .col-md-7 {
+      margin-top: 20px;
+    }
+  }
+  

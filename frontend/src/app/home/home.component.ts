@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
+  games: any[] = []
   onHover(event: Event) {
     // Add any interactivity or effect when a game card is hovered
   }
