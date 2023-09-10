@@ -36,5 +36,14 @@
           <li *ngFor="let platform of selectedGame.gamePlatforms" class="list-group-item">{{ platform.platform.name }}</li>
       </ul>
     </div>
+
+    <div class="review-section mt-5">
+      <hr>
+      <h2>Player Reviews</h2>
+      <app-game-review [gameId]="selectedGame.id"></app-game-review>
+    </div>
+    
+    
+  
   </div>
 </div>

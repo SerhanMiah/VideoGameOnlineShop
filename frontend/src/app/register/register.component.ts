@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import axios from 'axios'; // Import Axios
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { setToken, setId } from '../helper/auth.helper';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,10 @@ import { setToken, setId } from '../helper/auth.helper';
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService  
+    ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -34,21 +39,27 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      const registrationData = this.registerForm.value;
+        const registrationData = this.registerForm.value;
 
-      axios.post('http://localhost:5177/api/account/register', registrationData)
-        .then((response) => {
-          console.log('Registration successful', response.data);
-          if (response.data && response.data.token) {
-            setToken(response.data.token); // Store the token
-          }
-          if (response.data && response.data.id) {
-            setId(response.data.id); // Store the user id
-          }
-        })
-        .catch((error) => {
-          console.error('Registration error', error);
-        });
+        axios.post('http://localhost:5177/api/account/register', registrationData)
+            .then((response) => {
+                console.log('Registration successful', response.data);
+                if (response.data && response.data.token) {
+                    setToken(response.data.token); // Store the token
+                }
+                if (response.data && response.data.id) {
+                    setId(response.data.id); // Store the user id
+                }
+                
+                this.toastr.success('Successfully registered!');  // Show success toaster message
+                
+            })
+            .catch((error) => {
+                console.error('Registration error', error);
+                this.toastr.error('Registration failed. Please try again.');  // Optionally show an error toaster here
+            });
     }
-  }
 }
+
+  }
+

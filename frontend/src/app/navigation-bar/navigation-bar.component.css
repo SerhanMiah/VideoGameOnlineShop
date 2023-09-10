@@ -1,5 +1,11 @@
 .top-bar {
   font-family: 'Arial', sans-serif;
+  
+}
+
+
+.navbar-collapse {
+  flex: none;
 }
 
 .navbar-brand {
@@ -7,6 +13,7 @@
   font-weight: bold;
   color: #f8f9fa !important;  
   transition: color 0.3s ease; 
+  
 }
 
 .navbar-brand:hover {
@@ -30,3 +37,5 @@
 body {
   padding-top: 70px;  
 }
+
+

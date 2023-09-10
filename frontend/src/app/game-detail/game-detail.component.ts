@@ -3,6 +3,7 @@ import axios from 'axios';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 // game.ts
 export interface Game {
   id: number;
@@ -114,7 +115,7 @@ export class GameDetailComponent implements OnInit {
               ...data,
               gameImages: data.gameImages ? data.gameImages.$values : [],  
               dlcs: data.dlcs ? data.dlcs.$values : [],
-              // ... other properties
+
           };
       }
       
@@ -131,15 +132,5 @@ export class GameDetailComponent implements OnInit {
   getSafeUrl(videoId: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
 }
-
-onBuyHover() {
-  // Add logic to change the button's appearance on hover (perhaps increase size slightly or change color).
-}
-
-onBuyLeave() {
-  // Revert the button's appearance when the mouse is no longer hovering over it.
-}
-
-
 
 }

@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { setToken, setId } from '../helper/auth.helper';
 import { LoginRequest, LoginResponse, ErrorResponse } from './login.model';
 
+import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +18,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
+
   ) { }
 
   ngOnInit() {
@@ -33,18 +38,21 @@ export class LoginComponent implements OnInit {
         .then((response) => {
           console.log('Login successful', response.data);
           if (response.data && response.data.token) {
-            setToken(response.data.token); // Store the token
+            setToken(response.data.token);
           }
           if (response.data && response.data.id) {
-            setId(response.data.id); // Store the user id
+            setId(response.data.id); 
           }
 
+          this.toastr.success('Logged in successfully!');  
           console.log('I have successfully logged in');
           this.router.navigate(['/']);
         })
         .catch((error) => {
           console.error('Login error', error);
+          this.toastr.error('Login failed. Please try again.');  
         });
     }
-  }
+}
+
 }

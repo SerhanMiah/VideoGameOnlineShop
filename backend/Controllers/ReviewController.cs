@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using VideoGameAppBackend.Models;
 using VideoGameAppBackend.Models.Product;
 using VideoGameAppBackend.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VideoGameAppBackend.Controllers
 {
@@ -48,6 +49,8 @@ namespace VideoGameAppBackend.Controllers
 
         // POST: api/Review
         [HttpPost]
+        [Authorize]
+
         public async Task<ActionResult<Review>> PostReview(Review review)
         {
             var user = await _context.Users.FindAsync(review.UserId);
@@ -102,6 +105,7 @@ namespace VideoGameAppBackend.Controllers
 
         // DELETE: api/Review/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteReview(int id)
         {
             var review = await _context.Reviews.FindAsync(id);

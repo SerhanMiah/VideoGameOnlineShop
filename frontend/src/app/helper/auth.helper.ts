@@ -26,7 +26,7 @@ export const getId = (): string | null => {
 
 export const getPayLoad = (): any => {
     const token = getToken();
-    console.log(token);
+    // console.log(token);
     if (!token) return;
     const splitToken = token.split('.');
     if (splitToken.length !== 3) return;

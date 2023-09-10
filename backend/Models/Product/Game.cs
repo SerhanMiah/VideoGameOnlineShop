@@ -85,6 +85,9 @@ namespace VideoGameAppBackend.Models
 
         public virtual ICollection<GameGameTag> GameGameTags { get; set; } = new List<GameGameTag>();
 
+        public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+
 
         public int AgeRatingId { get; set; }
         [ForeignKey("AgeRatingId")]

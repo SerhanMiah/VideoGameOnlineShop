@@ -8,6 +8,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GameReviewComponent } from './game-review/game-review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
 
 
   { path: 'games', component: GameListComponent },
-  { path: 'game/:id', component: GameDetailComponent }
+  { path: 'game/:id', component: GameDetailComponent },
+  { path: 'game/:id/review', component: GameReviewComponent },
 ];
 
 @NgModule({

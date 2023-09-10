@@ -2,6 +2,7 @@
 .container {
     margin-top: 20px;
     padding: 20px;
+    height: 100vh;
   }
   
   /* Game Image Styles */
@@ -36,6 +37,8 @@
     font-size: 24px;
     margin-top: 0;
   }
+
+
   
   p {
     margin-bottom: 10px;
@@ -64,3 +67,79 @@
     }
   }
   
+
+
+  /* Review Section */
+.review-section {
+  padding: 20px;
+  background-color: #f7f7f7;
+  margin-top: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.review-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Individual Reviews */
+/* Add some general styling for the review section */
+.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  border-top: 2px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+/* Styling for Add Review Form */
+form.needs-validation {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form.needs-validation .form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Styles for the reviews list */
+.list-unstyled {
+  padding-left: 0;
+}
+
+.card {
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.btn-danger.btn-sm {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Styling for star ratings */
+star-rating {
+  display: block;
+  margin-bottom: 1rem;
+}
