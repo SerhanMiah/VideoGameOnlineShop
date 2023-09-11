@@ -1,12 +1,13 @@
-/* General Styling */
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
+  margin: 0;
 }
 
 a {
   transition: color 0.3s ease;
+  color: inherit;
 }
 
 a:hover {
@@ -15,109 +16,82 @@ a:hover {
 
 .container-fluid {
   max-width: 1400px;
+  margin: auto;
 }
 
 /* Hero Section */
 .hero-section {
-  background-image: url('https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp');
+  background: url('https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp') no-repeat center/cover;
+  color: #19b6ea;
+  padding: 250px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: cover;
-  background-position: center;
-  min-height: 500px;
 }
 
-.hero-section h1 {
-  font-size: 3.5rem;
-  margin-bottom: 15px;
-}
-
-.hero-section p.lead {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.btn {
-  border-radius: 50px;
-  padding: 10px 30px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+.hero-section .content {
+  text-align: center;
 }
 
 /* Featured Games Section */
-.transition-effect:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.card {
-  border: none;
+.game-card {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.card h5 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-text {
-  font-size: 0.9rem;
-  color: #777;
+.card-image {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
 }
 
 /* News Section */
+.news-section {
+  background: #f9f9f9;
+  padding: 60px 0;
+}
+
 .news-item {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   background: #fff;
   transition: box-shadow 0.3s ease;
 }
 
 .news-item:hover {
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.news-item h5 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+.news-image {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
 }
 
-/* Footer Section */
-.footer-section {
-  color: #aaa;
+.read-more {
+  color: #007bff;
 }
 
-.footer-section a {
-  color: #aaa;
-}
-
-.footer-section a:hover {
-  color: #fff;
-}
-
-.footer-section img {
-  max-height: 60px;
-}
-
-/* Social Links */
-i.fab {
-  transition: color 0.3s ease;
-}
-
-i.fab:hover {
-  color: #fff;
-}
-
-/* Mobile Responsiveness */
+/* Responsiveness */
 @media (max-width: 768px) {
-  .hero-section h1 {
+  .hero-section .content h1 {
       font-size: 2.5rem;
   }
-
-  .hero-section p.lead {
-      font-size: 1.2rem;
-  }
-
   .news-item {
       margin-bottom: 20px;
   }

@@ -1,9 +1,18 @@
 <div class="container mt-5">
     <h2 class="mb-4">Video Game List</h2>
+
+    <!-- Search Bar -->
+    <div class="input-group mb-4">
+        <input type="text" class="form-control" placeholder="Search for a game...">
+        <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
     <div class="row">
         <div class="col-md-4 mb-4" *ngFor="let game of games">
-            <div class="card">
-                <img [src]="game.coverImageUrl" class="card-img-top" alt="{{ game.title }}" style="height: 300px; object-fit: cover;">
+            <div class="card game-card h-100">
+                <img [src]="game.coverImageUrl" class="card-img-top" alt="{{ game.title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ game.title }}</h5>
                     <p class="card-text">{{ game.description }}</p>
@@ -14,5 +23,4 @@
             </div>
         </div>
     </div>
-  </div>
-  
+</div>

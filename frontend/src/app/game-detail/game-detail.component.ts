@@ -62,7 +62,6 @@ export interface DLC {
   dlcName: string;
   releaseDate: Date;
   price: number;
-  // ... and any other properties you want
 }
 
 export interface Language {

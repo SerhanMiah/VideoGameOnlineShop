@@ -1,49 +1,68 @@
-<div *ngIf="selectedGame" class="container mt-5">
-  <div class="row">
-    <div class="col-md-5">
-      <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid mb-3">
-      <div class="game-images mb-3">
-        <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail mr-2" width="100">
-      </div>
-      <button class="btn btn-success btn-lg btn-block">
-        <i class="fa fa-shopping-cart"></i> Buy Now - ${{ selectedGame.price }}
-      </button>
-    </div>
-    <div class="col-md-7">
-      <h1>{{ selectedGame.title }}</h1>
-      <p><strong>Description:</strong> {{ selectedGame.description }}</p>
-      <p><strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}</p>
-      <p><strong>Developer:</strong> {{ selectedGame.developer }}</p>
-      <p><strong>Average Rating:</strong> {{ selectedGame.averageRating }}</p>
-      <p><strong>Number of Local Players:</strong> {{ selectedGame.numberOfLocalPlayers }}</p>
-      <p><strong>Has Multiplayer Support:</strong> {{ selectedGame.hasMultiplayerSupport ? 'Yes' : 'No' }}</p>
-      <h3>System Requirements</h3>
-      <p><strong>Minimum:</strong> {{ selectedGame.minimumSystemRequirements }}</p>
-      <p><strong>Recommended:</strong> {{ selectedGame.recommendedSystemRequirements }}</p>
-      <h3>DLCs</h3>
-      <ul class="list-group mb-3">
-          <li *ngFor="let dlc of selectedGame.dlcs" class="list-group-item">
-              {{ dlc.dlcName }} - Release Date: {{ dlc.releaseDate | date }} - Price: ${{ dlc.price }}
-          </li>
-      </ul>
-      <h3>Game Genres</h3>
-      <ul class="list-group mb-3">
-          <li *ngFor="let genre of selectedGame.gameGenres" class="list-group-item">{{ genre.genre.name }}</li>
-      </ul>
-      
-      <h3>Game Platforms</h3>
-      <ul class="list-group mb-3">
-          <li *ngFor="let platform of selectedGame.gamePlatforms" class="list-group-item">{{ platform.platform.name }}</li>
-      </ul>
+<div *ngIf="selectedGame" class="game-detail-container container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <!-- Main Cover Image -->
+            <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid mb-3">
+
+            <!-- Image Gallery -->
+            <div class="game-images mb-3 d-flex justify-content-center">
+                <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail mr-2" width="80">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <!-- Title with a gradient background for emphasis -->
+            <h1 class="game-title">{{ selectedGame.title }}</h1>
+
+            <!-- Special badge for the price -->
+            <div class="price-badge">
+                <h2>${{ selectedGame.price }}</h2>
+            </div>
+
+            <!-- Purchase Button -->
+            <button class="purchase-btn btn btn-lg btn-block">
+                <i class="fa fa-shopping-cart"></i> Buy Now
+            </button>
+
+            <!-- Release Date Info -->
+            <div class="mt-4">
+                <strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}
+            </div>
+        </div>
     </div>
 
-    <div class="review-section mt-5">
-      <hr>
-      <h2>Player Reviews</h2>
-      <app-game-review [gameId]="selectedGame.id"></app-game-review>
+    <!-- Information Tabs Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab">Reviews</a>
+                </li>
+            </ul>
+
+            <!-- Tab Contents -->
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Description Tab Content -->
+                <div class="tab-pane fade show active" id="pills-description" role="tabpanel">
+                    <p>{{ selectedGame.description }}</p>
+                </div>
+
+                <!-- Details Tab Content -->
+                <div class="tab-pane fade" id="pills-details" role="tabpanel">
+                    <p><strong>Developer:</strong> {{ selectedGame.developer }}</p>
+                    <!-- ... more details as needed ... -->
+                </div>
+
+                <!-- Reviews Tab Content -->
+                <div class="tab-pane fade" id="pills-reviews" role="tabpanel">
+                    <app-game-review [gameId]="selectedGame.id"></app-game-review>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    
-  
-  </div>
 </div>

@@ -1,72 +1,38 @@
-/* Footer Styles */
-.site-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  font-size: 0.9rem;
+/* Navigation Bar */
+app-navigation-bar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.body {
-  height: 100vh;
+/* Main Content */
+.main-container {
+  min-height: calc(100vh - 150px); /* Adjust this value according to your header and footer heights */
+  padding: 0 15px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
+/* Footer */
+footer {
+  background: linear-gradient(45deg, #2D324A, #1F2436);
+  position: relative;
 }
 
-.footer-brand {
-  margin-bottom: 20px;
+footer .footer-brand img {
+  max-width: 150px; /* Adjust as needed */
 }
 
-.footer-brand a {
-  color: white;
-  font-size: 1.5rem;
-  text-decoration: none;
+footer .footer-links a {
+  transition: color 0.3s ease;
 }
 
-.footer-links {
-  margin-bottom: 20px;
+footer .footer-links a:hover {
+  color: #FFD700; /* Gold color for hover */
 }
 
-.footer-links ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #ddd;
-}
-
-.footer-social a {
+footer .footer-social .social-icon {
+  font-size: 24px;
   margin-right: 10px;
-  color: white;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-.footer-social a:hover {
-  color: #ddd;
-}
-
-.footer-copyright {
-  margin-top: 20px;
-}
-
-.main {
-  height: 100vh;
+footer .footer-social .social-icon:hover {
+  color: #FFD700; /* Gold color for hover */
 }

@@ -2,81 +2,66 @@
 
 <div class="container-fluid p-0">
 
-    <!-- Hero Section -->
-    <section class="hero-section text-center d-flex align-items-center bg-primary text-white py-5">
-        <div class="container">
-            <h1>Welcome to GameShop</h1>
-            <p class="lead">Discover and experience the world's most amazing video games.</p>
-            <a [routerLink]="['/games']" class="btn btn-light btn-lg mt-3 shadow">Browse Games <i class="fas fa-gamepad ml-2"></i></a>
+    <!-- Hero Section with Parallax Effect -->
+    <section class="hero-section" style="background-image: url('https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Cyberpunk%202077/cyberpunk_2077_unreal_engine_5_wjauye.png');">
+        <div class="content text-center">
+            <h1 data-aos="fade-down">Welcome to GameShop</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Join us on a journey through pixelated adventures, epic quests, and unforgettable characters.</p>
+            <a [routerLink]="['/games']" class="btn btn-outline-light btn-lg" data-aos="zoom-in" data-aos-delay="400">Dive In <i class="fas fa-gamepad"></i></a>
         </div>
     </section>
-  
-    <!-- Featured Games Section -->
-    <section id="featured-games" class="games-section py-5">
+
+    <!-- Featured Games Section with Hover Effects -->
+    <section id="featured-games" data-aos="fade-up">
         <div class="container">
-            <h2 class="text-center mb-5">Featured Games</h2>
+            <h2 class="section-title">Spotlight Games</h2>
             <div class="row">
-                <div class="col-md-4 mb-4" *ngFor="let game of games">
-                    <div class="card h-100 shadow-sm transition-effect">
-                        <img [src]="game.image" alt="{{ game.name }}" class="card-img-top">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title mb-2">{{ game.name }}</h5>
-                            <p class="card-text flex-grow-1">{{ game.description }}</p>
-                            <button class="btn btn-primary mt-2">Buy Now <i class="fas fa-shopping-cart ml-2"></i></button>
+                <div class="col-md-4 game-hover" *ngFor="let game of games" data-aos="flip-left" data-aos-delay="100">
+                    <div class="game-card">
+                        <img [src]="game.image" alt="{{ game.name }}" class="card-image">
+                        <div class="card-content">
+                            <h5>{{ game.name }}</h5>
+                            <p>{{ game.shortDescription }}</p>
+                            <a href="#" class="btn btn-primary">Details <i class="fas fa-info-circle"></i></a>
+                        </div>
+                        <div class="card-overlay">
+                            <button class="btn btn-danger">Get Now <i class="fas fa-shopping-cart"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-  
-    <!-- Latest News or Updates Section -->
-    <section class="news-section py-5 bg-light">
+
+    <!-- Carousel for News or Updates Section -->
+    <!-- <section class="news-section">
         <div class="container">
-            <h2 class="text-center mb-5">Latest News <i class="fas fa-newspaper"></i></h2>
-            <div class="row">
-                <div class="col-md-4 mb-4 news-item">
-                    <img src="sample-news-image.jpg" alt="News Image" class="img-fluid mb-3 rounded">
-                    <h5>New Game Release: XYZ!</h5>
-                    <p>Experience the epic adventures in the brand-new game XYZ, now available...</p>
-                    <a href="#" class="text-primary">Read more <i class="fas fa-arrow-right ml-2"></i></a>
+            <h2 class="section-title"><i class="fas fa-bolt"></i> Hot Off The Press</h2>
+            <div id="newsCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" *ngFor="let news of newsItems">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img [src]="news.image" alt="{{ news.title }}" class="d-block w-100">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>{{ news.title }}</h5>
+                                <p>{{ news.summary }}</p>
+                                <a href="#" class="btn btn-secondary">Full Story <i class="fas fa-newspaper"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- ... Repeat for other news items ... -->
+                <a class="carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#newsCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
-    </section>
-  
-    <!-- Footer -->
-    <footer class="footer-section bg-dark py-4">
-        <div class="container">
-            <div class="row">
-                <!-- Logo -->
-                <div class="col-md-4 mb-3">
-                    <img src="https://res.cloudinary.com/danedskby/image/upload/v1665684253/pngwing.com_ogcodv.png" alt="GameShop Logo" class="img-fluid mb-2">
-                    <p class="text-muted">Dive into the world of gaming with us.</p>
-                </div>
-                <!-- Links -->
-                <div class="col-md-4 mb-3">
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-light"><i class="fas fa-file-alt mr-2"></i>Privacy Policy</a></li>
-                        <li><a href="#" class="text-light"><i class="fas fa-gavel mr-2"></i>Terms of Service</a></li>
-                    </ul>
-                </div>
-                <!-- Social Links -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="text-light mr-3">
-                        <i class="fab fa-facebook-f" style="font-size: 24px;"></i>
-                    </a>
-                    <a href="#" class="text-light mr-3">
-                        <i class="fab fa-twitter" style="font-size: 24px;"></i>
-                    </a>
-                    <a href="#" class="text-light">
-                        <i class="fab fa-instagram" style="font-size: 24px;"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-  
-  </div>
-  
+    </section> -->
+
+</div>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
-import { getId } from '../helper/auth.helper'; // Assuming getId gets the currently logged-in user's ID.
-
+import { getId } from '../helper/auth.helper'; 
 interface CartItem {
   Id: number;
   GameId: number;

@@ -1,145 +1,114 @@
-/* Container Styles */
-.container {
-    margin-top: 20px;
-    padding: 20px;
-    height: 100vh;
-  }
-  
-  /* Game Image Styles */
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .game-images {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .game-images img {
-    max-width: 100px;
-    height: auto;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Buy Button Styles */
-  .btn-success {
-    margin-top: 20px;
-  }
-  
-  /* Game Information Styles */
-  .col-md-7 {
-    font-size: 16px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-top: 0;
-  }
-
-
-  
-  p {
-    margin-bottom: 10px;
-  }
-  
-  /* System Requirements Styles */
-  h3 {
-    margin-top: 20px;
-  }
-  
-  /* DLC Styles */
-  .list-group-item {
-    border: none;
-    padding: 8px;
-    margin: 0;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .col-md-5 {
-      text-align: center;
-    }
-  
-    .col-md-7 {
-      margin-top: 20px;
-    }
-  }
-  
-
-
-  /* Review Section */
-.review-section {
+.game-detail-container {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7; 
   padding: 20px;
-  background-color: #f7f7f7;
-  margin-top: 50px;
-  border-radius: 5px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.review-section h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #333;
+.game-title {
+  font-weight: 800;
+  color: #333;
+  background: linear-gradient(to right, #f7f7f7, #e0e0e0);
   display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* Individual Reviews */
-/* Add some general styling for the review section */
-.my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
-  border-top: 2px solid #e9ecef;
-  padding-top: 1rem;
-}
-
-/* Styling for Add Review Form */
-form.needs-validation {
-  background-color: #f8f9fa;
-  padding: 1.5rem;
+  padding: 5px 10px;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-form.needs-validation .form-group {
-  margin-bottom: 1.5rem;
+.price-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #e62226;
+  border-radius: 15px;
+  margin-bottom: 15px;
 }
 
-/* Styles for the reviews list */
-.list-unstyled {
-  padding-left: 0;
-}
-
-.card {
-  margin-bottom: 1.5rem;
-  transition: box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.card-text {
-  color: #6c757d;
-  font-size: 1rem;
-}
-
-.btn-danger.btn-sm {
+h2 {
+  font-size: 24px;
+  font-weight: 700;
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  margin: 0;
 }
 
-/* Styling for star ratings */
-star-rating {
+.purchase-btn {
+  background-color: #333;
+  border-color: #333;
+  font-weight: 700;
+  color: #fff;
+  transition: background-color 0.3s;
+  position: relative; 
+  overflow: hidden;
+}
+
+.purchase-btn:hover {
+  background-color: #555;
+}
+
+.purchase-btn:before {
+  content: "";
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0.5;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.purchase-btn:hover:before {
+  transform: translateY(0);
+}
+
+.fa-shopping-cart {
+  margin-right: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced tabs */
+.nav-pills .nav-link {
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0 5px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Animations for hovering over game images */
+.game-images img:hover {
+  transform: scale(1.2);
+  z-index: 2;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder style for the review component */
+app-game-review {
   display: block;
-  margin-bottom: 1rem;
+  min-height: 200px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+app-game-review:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
