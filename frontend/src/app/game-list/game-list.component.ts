@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Import Router from Angular's router module, not 'axios'
+import { Router } from '@angular/router'; 
 import axios from 'axios';
 
 interface Game {
@@ -42,13 +42,13 @@ export class GameListComponent implements OnInit {
           title: string;
           description: string;
           price: number;
-          GameImage: { path: string; } // Assuming 'path' is a property of GameImage that contains the URL or relative path
+          GameImage: { path: string; } 
         }) => ({
           id: gameData.id,
           title: gameData.title,
           description: gameData.description,
           price: gameData.price,
-          coverImageUrl: gameData.GameImage?.path, // Using optional chaining in case GameImage is null
+          coverImageUrl: gameData.GameImage?.path, 
         }));
         
 

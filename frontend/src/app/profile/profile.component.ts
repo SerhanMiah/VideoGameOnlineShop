@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from './profile.model';
+import { Profile } from '../game-models';
 import { getToken, userIsAuthenticated } from '../helper/auth.helper';
 import axios from 'axios';
 

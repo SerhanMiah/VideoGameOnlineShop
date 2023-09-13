@@ -2,86 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-// game.ts
-export interface Game {
-  id: number;
-  title: string;
-  price: number;
-  releaseDate: Date;
-  description?: string;
-  gameGenres: GameGenre[];
-  gamePlatforms: GamePlatform[];
-  gameImages: GameImage[];
-  trailerUrl?: string;
-  developer?: string;
-  publisher?: string;
-  averageRating?: number;
-  minimumSystemRequirements?: string;
-  recommendedSystemRequirements?: string;
-  hasMultiplayerSupport: boolean;
-  numberOfLocalPlayers: number;
-  dlcs: DLC[];
-  discountedPrice?: number;
-  supportedLanguages: Language[];
-  ageRating: AgeRating;
-  esrbContentDescriptions?: string;
-  orderItems: OrderItem[];
-  coverImage: string;
-}
-
-export interface GameGenre {
-  gameId: number;
-  genre: Genre;
-}
-
-export interface GamePlatform {
-  gameId: number;
-  platform: Platform;
-}
-
-export interface Genre {
-  id: number;
-  name: string;
-}
-
-export interface Platform {
-  id: number;
-  name: string;
-}
-
-export interface GameImage {
-  id: number;
-  url: string;
-  gameId: number;
-}
-
-export interface DLC {
-  id: number;
-  dlcName: string;
-  releaseDate: Date;
-  price: number;
-}
-
-export interface Language {
-  id: number;
-  languageName: string;
-}
-
-export interface AgeRating {
-  id: number;
-  rating: string;
-  games: Game[];
-}
-
-export interface OrderItem {
-  id: number;
-  orderId: number;
-  game: Game;
-  quantity: number;
-}
-
+import { Game, DLC } from '../game-models';  
 
 @Component({
   selector: 'app-game-detail',
@@ -91,13 +12,13 @@ export interface OrderItem {
 export class GameDetailComponent implements OnInit {
   selectedGame: Game | undefined;
   errorMessage: string | undefined;
-  gameData: any;
 
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private router: Router 
   ) { }
+
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
     if (id === null) {
@@ -112,9 +33,8 @@ export class GameDetailComponent implements OnInit {
         if (data) {
           this.selectedGame = {
               ...data,
-              gameImages: data.gameImages ? data.gameImages.$values : [],  
-              dlcs: data.dlcs ? data.dlcs.$values : [],
-
+              gameImages: data.gameImages ? data.gameImages.$values : [],
+              dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
           };
       }
       
@@ -122,7 +42,20 @@ export class GameDetailComponent implements OnInit {
         console.error('There was an error fetching the game:', error);
         this.handleError(error);
     }
-}
+  }
+
+  private processDLCs(dlcs: any[]): DLC[] {
+    return dlcs.map(dlc => ({
+        id: dlc.id,
+        dlcName: dlc.dlcName,
+        releaseDate: new Date(dlc.releaseDate),
+        price: dlc.price,
+        description: dlc.description,
+        gameId: dlc.gameId,
+        dlcImages: dlc.dlcImages.$values,  
+        game: dlc.game
+    }));
+  }
 
   private handleError(error: any) {
     this.errorMessage = 'There was an issue fetching the game. Please try again later.';
@@ -130,6 +63,5 @@ export class GameDetailComponent implements OnInit {
 
   getSafeUrl(videoId: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
-}
-
+  }
 }

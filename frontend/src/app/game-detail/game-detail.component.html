@@ -9,12 +9,18 @@
                 <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail mr-2" width="80">
             </div>
         </div>
+
         <div class="col-md-7">
             <!-- Title with a gradient background for emphasis -->
             <h1 class="game-title">{{ selectedGame.title }}</h1>
 
+            <!-- Developer Info -->
+            <div class="mb-2">
+                <strong>Developer:</strong> {{ selectedGame.developer }}
+            </div>
+
             <!-- Special badge for the price -->
-            <div class="price-badge">
+            <div class="price-badge mb-2">
                 <h2>${{ selectedGame.price }}</h2>
             </div>
 
@@ -27,8 +33,46 @@
             <div class="mt-4">
                 <strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}
             </div>
+
+            <!-- System Requirements -->
+            <div class="mt-4">
+                <h4>System Requirements:</h4>
+                <p><strong>Minimum:</strong> {{ selectedGame.minimumSystemRequirements }}</p>
+                <p><strong>Recommended:</strong> {{ selectedGame.recommendedSystemRequirements }}</p>
+            </div>
         </div>
     </div>
+
+    <!-- DLC Section -->
+  <!-- DLC Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h2>DLCs:</h2>
+
+        <!-- Check if there are DLCs available -->
+        <ng-container *ngIf="selectedGame?.dlcs?.length; else noDLCs">
+            <ul class="list-unstyled">
+                <li *ngFor="let dlc of selectedGame.dlcs">
+                    <strong>{{ dlc.dlcName }}</strong> - ${{ dlc.price }} 
+                    <small class="text-muted">(Released: {{ dlc.releaseDate | date:'mediumDate' }})</small>
+                    <p>{{ dlc.description }}</p>
+                    <!-- Toggle DLC description visibility -->
+                    <!-- <button (click)="dlc.description = !dlc.description" class="btn btn-sm btn-link">
+                        {{ dlc.description ? 'Hide' : 'Show' }} Description
+                    </button> -->
+
+                    <!-- Display DLC description when toggled -->
+                    <!-- <p *ngIf="dlc.showDescription">{{ dlc.description }}</p> -->
+                </li>
+            </ul>
+        </ng-container>
+
+        <!-- Display a message when there are no DLCs -->
+        <ng-template #noDLCs>
+            <p>No DLCs available for this game.</p>
+        </ng-template>
+    </div>
+</div>
 
     <!-- Information Tabs Section -->
     <div class="row mt-5">
@@ -39,9 +83,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab">Details</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab">Reviews</a>
                 </li>
             </ul>
 
@@ -54,15 +95,18 @@
 
                 <!-- Details Tab Content -->
                 <div class="tab-pane fade" id="pills-details" role="tabpanel">
-                    <p><strong>Developer:</strong> {{ selectedGame.developer }}</p>
-                    <!-- ... more details as needed ... -->
-                </div>
-
-                <!-- Reviews Tab Content -->
-                <div class="tab-pane fade" id="pills-reviews" role="tabpanel">
-                    <app-game-review [gameId]="selectedGame.id"></app-game-review>
+                    <!-- ... additional details as needed ... -->
+                    <p><strong>Trailer:</strong> <a [href]="selectedGame.trailerUrl" target="_blank">Watch here</a></p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>Reviews:</h2>
+            <app-game-review [gameId]="selectedGame.id"></app-game-review>
         </div>
     </div>
 </div>

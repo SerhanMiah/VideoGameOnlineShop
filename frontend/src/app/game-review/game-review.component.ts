@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Review } from './review.model';
+import { Review } from '../game-models';
 import axios from 'axios';
 import { getToken, userIsAuthenticated } from '../helper/auth.helper';
 import { ToastrService } from 'ngx-toastr';
 
 interface RatingChangeEvent {
   rating: number;
-  // add other properties if needed
 }
 console.log(userIsAuthenticated());
 
