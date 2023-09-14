@@ -8,8 +8,6 @@ This project aims to develop a comprehensive Video Game Shop System with a backe
 
 ## Deployment
 
-## Pre-Deployment Setup:
-
 ### 1. Environment Setup:
 - Ensure [Node.js](https://nodejs.org/) is installed, as it's essential for Angular and TypeScript.
 - Make sure you have the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet) to compile and run the ASP.NET Core backend.
