@@ -8,12 +8,6 @@ This project aims to develop a comprehensive Video Game Shop System with a backe
 
 ## Deployment
 
-PCertainly! Here's the information you provided formatted in markdown, which is the typical format used for README files on platforms like GitHub:
-
----
-
-# Deployment Instructions
-
 ## Pre-Deployment Setup:
 
 ### 1. Environment Setup:
