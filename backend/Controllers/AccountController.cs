@@ -12,6 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using VideoGameAppBackend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using VideoGameAppBackend.Models.User;
 
 namespace VideoGameAppBackend.Controllers
 {
@@ -127,18 +128,26 @@ namespace VideoGameAppBackend.Controllers
                 return NotFound("User not found.");
             }
 
-            var profile = new
+            var profile = new UserViewModel
             {
-                user.Id,
-                user.Email,
-                user.UserName,
-                user.FirstName,
-                user.LastName,
-                user.Address,
-                user.City,
-                user.State,
-                user.PostalCode,
-                user.Country
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                City = user.City,
+                State = user.State,
+                PostalCode = user.PostalCode,
+                Country = user.Country,
+
+                // Assuming these properties are now in ApplicationUser model, if not, additional fetching required
+                FavoriteGame = user.FavoriteGame,
+                TotalGamesPlayed = user.TotalGamesPlayed,
+                Achievements = user.Achievements.ToList(), 
+                GameLibrary = user.GameLibrary.ToList(), 
+                Friends = user.UserFriends.Select(uf => uf.Friend).ToList(),
+                Bio = user.Bio
             };
 
             return Ok(profile);

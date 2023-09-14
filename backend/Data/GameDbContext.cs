@@ -7,6 +7,7 @@ using VideoGameAppBackend.Models.Payments;
 using VideoGameAppBackend.Models.Product;
 using System.Collections.Generic;
 using backend.Models.Product;
+using backend.Models.User;
 
 namespace VideoGameAppBackend.Data
 {
@@ -45,6 +46,9 @@ namespace VideoGameAppBackend.Data
         public DbSet<WishList> WishLists { get; set; }
 
         public DbSet<WishlistItem> WishlistItems { get; set; }
+
+
+        public DbSet<UserFriend> UserFriends { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -155,6 +159,26 @@ namespace VideoGameAppBackend.Data
                 .HasOne(ggt => ggt.GameTag)
                 .WithMany(gt => gt.GameGameTags)
                 .HasForeignKey(ggt => ggt.GameTagId);
+
+
+            // User Friend
+            builder.Entity<UserFriend>()
+                .HasKey(uf => new { uf.UserId, uf.FriendId });
+
+            builder.Entity<UserFriend>()
+                .HasOne(uf => uf.User)
+                .WithMany(u => u.UserFriends)  
+                .HasForeignKey(uf => uf.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Entity<UserFriend>()
+                .HasOne(uf => uf.Friend)
+                .WithMany()
+                .HasForeignKey(uf => uf.FriendId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
 
 
         }

@@ -1,114 +1,104 @@
+/* Main Game Detail Container */
 .game-detail-container {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f7f7; 
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
 }
 
+/* Game Title */
 .game-title {
-  font-weight: 800;
-  color: #333;
-  background: linear-gradient(to right, #f7f7f7, #e0e0e0);
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 5px;
+  font-size: 32px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Developer */
+.game-detail-container .mb-2 strong {
+  font-weight: bold;
+}
+
+/* Price Badge */
 .price-badge {
-  display: inline-block;
-  padding: 5px 15px;
-  background-color: #e62226;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-h2 {
   font-size: 24px;
-  font-weight: 700;
+  background-color: #007bff;
   color: #fff;
-  margin: 0;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
+/* Quantity Selector */
+.quantity-container label {
+  font-weight: bold;
+}
+
+/* Total Price Display */
+.total-price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Buttons Group */
+.buttons-group {
+  margin-top: 20px;
+}
+
+/* Add to Cart and Buy Now Buttons */
 .purchase-btn {
-  background-color: #333;
-  border-color: #333;
-  font-weight: 700;
+  background-color: #007bff;
   color: #fff;
-  transition: background-color 0.3s;
-  position: relative; 
-  overflow: hidden;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.purchase-btn:hover {
-  background-color: #555;
-}
-
-.purchase-btn:before {
-  content: "";
-  background: rgba(255, 255, 255, 0.3);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  opacity: 0.5;
-  transform: translateY(100%);
-  transition: transform 0.3s;
-}
-
-.purchase-btn:hover:before {
-  transform: translateY(0);
-}
-
-.fa-shopping-cart {
-  margin-right: 8px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Enhanced tabs */
-.nav-pills .nav-link {
-  border-radius: 5px;
-  padding: 10px;
-  transition: background-color 0.3s, color 0.3s;
-  margin: 0 5px;
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .nav-link:hover {
-  background-color: #333;
+.btn-success {
+  background-color: #28a745;
   color: #fff;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.tab-content {
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+/* Offers */
+.offers {
+  margin-top: 10px;
 }
 
-/* Animations for hovering over game images */
-.game-images img:hover {
-  transform: scale(1.2);
-  z-index: 2;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+/* DLC Section */
+.dlc-section h2 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* Placeholder style for the review component */
-app-game-review {
-  display: block;
-  min-height: 200px;
-  background-color: #e9e9e9;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+/* DLCs List */
+.dlc-section ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-app-game-review:hover {
-  transform: scale(1.02);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+.dlc-section li {
+  margin-bottom: 20px;
+}
+
+.dlc-section small {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Information Tabs Section */
+.info-tabs .nav-link {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Reviews Section */
+.reviews h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Cart Item Count */
+.cart-item-count {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
 }

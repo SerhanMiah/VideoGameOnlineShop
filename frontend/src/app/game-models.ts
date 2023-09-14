@@ -127,6 +127,12 @@ export interface Profile {
     state: string;
     postalCode: string;
     country: string;
+    favoriteGame?: string;
+    totalGamesPlayed?: number; 
+    achievements?: string[]; 
+    gameLibrary?: string[];
+    friends?: ApplicationUser[]; 
+    bio?: string; 
 }
 
 export interface ApplicationUser {

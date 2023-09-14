@@ -1,102 +1,79 @@
-<div *ngIf="userProfile" class="profile-container">
-  <h2 class="profile-title">Gamer Profile</h2>
-  
-  <div class="profile-details">
-      <img class="profile-picture" 
-           src="https://res.cloudinary.com/danedskby/image/upload/v1685812690/eshejrw1caywra0njcgt.png" 
-           alt="{{ userProfile.firstName }}'s Avatar">
-      
-      <div class="profile-info">
-          <h3 class="profile-name">{{ userProfile.firstName }}</h3>
-          <div class="profile-data">
-              <label>Email:</label>
-              <span>{{ userProfile.email }}</span>
+<div class="container">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Gamer</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ userProfile.firstName }}'s Profile</li>
+      </ol>
+  </nav>
+
+  <div class="row gutters-sm">
+      <!-- Left Sidebar - User Info & Actions -->
+      <div class="col-md-4 mb-3">
+          <div class="card">
+              <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://res.cloudinary.com/danedskby/image/upload/v1685812709/geq5tvfxiw7yz2euspzp.png" alt="{{ userProfile.firstName }}'s Avatar" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                          <h4>{{ userProfile.firstName }} {{ userProfile.lastName }}</h4>
+                          <p class="text-secondary mb-1">{{ userProfile.city }}, {{ userProfile.state }}</p>
+                          <button class="btn btn-primary">Add Friend</button>
+                          <button class="btn btn-outline-primary">Message</button>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="profile-data">
-              <label>Platform:</label>
-              <span>{{ userProfile.firstName }}</span>
+          
+          <div class="card mt-3">
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><i class="fas fa-envelope mr-2"></i>Email</h6>
+                      <span class="text-secondary">{{ userProfile.email }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><i class="fas fa-gamepad mr-2"></i>Total Games Played</h6>
+                      <span class="text-secondary">{{ userProfile.totalGamesPlayed }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h6 class="mb-0"><i class="fas fa-star mr-2"></i>Favorite Game</h6>
+                      <span class="text-secondary">{{ userProfile.favoriteGame }}</span>
+                  </li>
+              </ul>
           </div>
-          <div class="profile-data">
-              <label>Favorite Game:</label>
-              <span>{{ userProfile.firstName }}</span>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="col-md-8">
+          <!-- Game Statistics Card -->
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Game Statistics</h5>
+                  <!-- Add game statistics based on your data -->
+              </div>
+          </div>
+
+          <div class="row gutters-sm">
+              <!-- Achievements Card -->
+              <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                      <div class="card-body">
+                          <h6 class="d-flex align-items-center mb-3"><i class="fas fa-trophy mr-2"></i>Achievements</h6>
+                          <!-- Add achievements based on your data -->
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Friends Card -->
+              <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                      <div class="card-body">
+                          <h6 class="d-flex align-items-center mb-3"><i class="fas fa-users mr-2"></i>Friends</h6>
+                          <!-- Add friends list or friend-related information based on your data -->
+                      </div>
+                  </div>
+              </div>
           </div>
       </div>
   </div>
-</div>
-
-<div class="container">
-    <div class="main-body">
-    
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">Gamer</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Gamer Profile</li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
-    
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://res.cloudinary.com/danedskby/image/upload/v1685812690/eshejrw1caywra0njcgt.png" alt="{{ userProfile.firstName }}" class="rounded-circle" width="150">
-                    <div class="mt-3">
-                      <h4>{{ userProfile.firstName }}</h4>
-                      <p class="text-secondary mb-1">{{ userProfile.firstName }}</p>
-                      <p class="text-muted font-size-sm">{{ userProfile.firstName }}</p>
-                      <button class="btn btn-primary">Add Friend</button>
-                      <button class="btn btn-outline-primary">Message</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mt-3">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><i class="fas fa-gamepad mr-2"></i>Total Games Played</h6>
-                    <!-- <span class="text-secondary">{{ userProfile.totalGamesPlayed }}</span> -->
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><i class="fas fa-star mr-2"></i>Favorite Game</h6>
-                    <!-- <span class="text-secondary">{{ userProfile.favoriteGame }}</span> -->
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><i class="fas fa-list-alt mr-2"></i>Game Library</h6>
-                    <!-- <span class="text-secondary">{{ userProfile.gameLibrary }}</span> -->
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <h5 class="card-title">Game Statistics</h5>
-                  <!-- Add game statistics based on your data -->
-                </div>
-              </div>
-
-              <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="fas fa-trophy mr-2"></i>Achievements</h6>
-                      <!-- Add achievements based on your data -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="fas fa-users mr-2"></i>Friends</h6>
-                      <!-- Add friends list or friend-related information based on your data -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
 </div>

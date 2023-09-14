@@ -1,5 +1,8 @@
+<!-- Main Game Detail Container -->
 <div *ngIf="selectedGame" class="game-detail-container container mt-5">
+    <!-- Main Game Info Row -->
     <div class="row">
+        <!-- Cover Image and Image Gallery Column -->
         <div class="col-md-5">
             <!-- Main Cover Image -->
             <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid mb-3">
@@ -10,31 +13,46 @@
             </div>
         </div>
 
+        <!-- Game Details Column -->
         <div class="col-md-7">
-            <!-- Title with a gradient background for emphasis -->
             <h1 class="game-title">{{ selectedGame.title }}</h1>
-
-            <!-- Developer Info -->
             <div class="mb-2">
                 <strong>Developer:</strong> {{ selectedGame.developer }}
             </div>
-
-            <!-- Special badge for the price -->
             <div class="price-badge mb-2">
                 <h2>${{ selectedGame.price }}</h2>
             </div>
 
-            <!-- Purchase Button -->
-            <button class="purchase-btn btn btn-lg btn-block">
-                <i class="fa fa-shopping-cart"></i> Buy Now
-            </button>
+            <!-- Quantity Selector -->
+            <div class="quantity-container d-flex align-items-center mb-3">
+                <label for="game-quantity" class="mr-2">Quantity:</label>
+                <input id="game-quantity" [(ngModel)]="selectedQuantity" type="number" min="1" value="1"/>
+            </div>
 
-            <!-- Release Date Info -->
+            <!-- Total Price Display -->
+            <div class="total-price mb-3">
+                <strong>Total Price:</strong> ${{ selectedGame.price * selectedQuantity | number:'1.2-2' }}
+            </div>
+
+            <!-- Add to Cart and Buy Now Buttons -->
+            <div class="buttons-group">
+                <button (click)="addToCart(selectedGame.id, selectedQuantity)" class="purchase-btn btn btn-lg btn-block">
+                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                </button>
+                
+                <button (click)="directPurchase(selectedGame.id, selectedQuantity)" class="btn btn-success mb-2">
+                    <i class="fa fa-credit-card"></i> Buy Now
+                </button>
+            </div>
+            
+            <!-- Display Potential Discount or Offers -->
+            <div class="offers mt-2">
+                <p class="text-muted">Get a 10% discount on purchases above $100!</p>
+            </div>
+
             <div class="mt-4">
                 <strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}
             </div>
-
-            <!-- System Requirements -->
             <div class="mt-4">
                 <h4>System Requirements:</h4>
                 <p><strong>Minimum:</strong> {{ selectedGame.minimumSystemRequirements }}</p>
@@ -44,38 +62,28 @@
     </div>
 
     <!-- DLC Section -->
-  <!-- DLC Section -->
-<div class="row mt-5">
-    <div class="col-12">
-        <h2>DLCs:</h2>
-
-        <!-- Check if there are DLCs available -->
-        <ng-container *ngIf="selectedGame?.dlcs?.length; else noDLCs">
-            <ul class="list-unstyled">
-                <li *ngFor="let dlc of selectedGame.dlcs">
-                    <strong>{{ dlc.dlcName }}</strong> - ${{ dlc.price }} 
-                    <small class="text-muted">(Released: {{ dlc.releaseDate | date:'mediumDate' }})</small>
-                    <p>{{ dlc.description }}</p>
-                    <!-- Toggle DLC description visibility -->
-                    <!-- <button (click)="dlc.description = !dlc.description" class="btn btn-sm btn-link">
-                        {{ dlc.description ? 'Hide' : 'Show' }} Description
-                    </button> -->
-
-                    <!-- Display DLC description when toggled -->
-                    <!-- <p *ngIf="dlc.showDescription">{{ dlc.description }}</p> -->
-                </li>
-            </ul>
-        </ng-container>
-
-        <!-- Display a message when there are no DLCs -->
-        <ng-template #noDLCs>
-            <p>No DLCs available for this game.</p>
-        </ng-template>
+    <div class="dlc-section row mt-5">
+        <div class="col-12">
+            <h2>DLCs:</h2>
+            <!-- DLCs List -->
+            <ng-container *ngIf="selectedGame?.dlcs?.length; else noDLCs">
+                <ul class="list-unstyled">
+                    <li *ngFor="let dlc of selectedGame.dlcs">
+                        <strong>{{ dlc.dlcName }}</strong> - ${{ dlc.price }} 
+                        <small class="text-muted">(Released: {{ dlc.releaseDate | date:'mediumDate' }})</small>
+                        <p>{{ dlc.description }}</p>
+                    </li>
+                </ul>
+            </ng-container>
+            <!-- Placeholder for No DLCs -->
+            <ng-template #noDLCs>
+                <p>No DLCs available for this game.</p>
+            </ng-template>
+        </div>
     </div>
-</div>
 
     <!-- Information Tabs Section -->
-    <div class="row mt-5">
+    <div class="info-tabs row mt-5">
         <div class="col-12">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
@@ -85,17 +93,13 @@
                     <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab">Details</a>
                 </li>
             </ul>
-
-            <!-- Tab Contents -->
             <div class="tab-content" id="pills-tabContent">
                 <!-- Description Tab Content -->
                 <div class="tab-pane fade show active" id="pills-description" role="tabpanel">
                     <p>{{ selectedGame.description }}</p>
                 </div>
-
                 <!-- Details Tab Content -->
                 <div class="tab-pane fade" id="pills-details" role="tabpanel">
-                    <!-- ... additional details as needed ... -->
                     <p><strong>Trailer:</strong> <a [href]="selectedGame.trailerUrl" target="_blank">Watch here</a></p>
                 </div>
             </div>
@@ -103,10 +107,15 @@
     </div>
 
     <!-- Reviews Section -->
-    <div class="row mt-5">
+    <div class="reviews row mt-5">
         <div class="col-12">
             <h2>Reviews:</h2>
             <app-game-review [gameId]="selectedGame.id"></app-game-review>
         </div>
     </div>
+
+    <!-- Cart Item Count -->
+    <!-- <div class="cart-item-count">
+        Cart Items: {{ cartItemsCount }}
+    </div> -->
 </div>

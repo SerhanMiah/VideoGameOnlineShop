@@ -1,29 +1,42 @@
+<!-- Display a Message for Unauthenticated Users -->
+<div *ngIf="!isUserAuthenticated" class="alert alert-warning">
+  Please <a href="/login">login</a> or <a href="/register">register</a> to add a review.
+</div>
+
 <!-- Check if User is Authenticated to Show Review Form -->
-<div  class="my-5">
+<div *ngIf="isUserAuthenticated" class="my-5">
   <h2 class="mb-4">Add a Review:</h2>
   <form (ngSubmit)="addReview()" class="needs-validation" novalidate>
     <div class="form-group">
       <label for="rating">Rating:</label>
-      <star-rating 
-          [rating]="newReview.rating"
-          (ratingChange)="handleRatingChange($event)"
-          [starType]="'icon'"
-          [size]="'medium'"
-          [showHalfStars]="true"
-          [getHalfStarVisible]="getHalfStarVisible"
-          [disabled]="false"></star-rating>
-  
+      <star-rating
+        [rating]="newReview.rating"
+        (ratingChange)="handleRatingChange($event)"
+        [starType]="'icon'"
+        [size]="'medium'"
+        [showHalfStars]="true"
+        [getHalfStarVisible]="getHalfStarVisible"
+        [disabled]="false"
+      ></star-rating>
     </div>
     <div class="form-group">
       <label for="comment">Comment:</label>
-      <textarea [(ngModel)]="newReview.comment" name="comment" class="form-control" id="comment" rows="3" placeholder="Comment" required></textarea>
+      <textarea
+        [(ngModel)]="newReview.comment"
+        name="comment"
+        class="form-control"
+        id="comment"
+        rows="3"
+        placeholder="Comment"
+        required
+      ></textarea>
       <div class="invalid-feedback">Please provide a comment.</div>
     </div>
     <input type="submit" value="Add Review" class="btn btn-primary">
   </form>
 </div>
 
-<!-- Reviews Section -->
+<!-- Reviews Section (visible for all) -->
 <div class="my-5">
   <h2 class="mb-4">Reviews:</h2>
   <ul class="list-unstyled">
@@ -34,7 +47,7 @@
             <!-- Display the actual rating from the review -->
             <star-rating [rating]="review.rating"></star-rating>
           </h5>
-          <p class="card-text"><strong>Comment:</strong> {{review.comment}}</p>
+          <p class="card-text"><strong>Comment:</strong> {{ review.comment }}</p>
           <button class="btn btn-danger btn-sm" (click)="deleteReview(review.id)">Delete</button>
         </div>
       </div>
