@@ -3,8 +3,7 @@
 
 # Project Overview
 
-This project aims to develop a comprehensive Video Game Shop System with a backend built using ASP.NET, LINQ queries, and C#, and a frontend implemented in TypeScript and Angular. The system will manage video games, user profiles, and their relationships, including one-to-many and many-to-many relationships.
-
+I'm building my first e-commerce app using ASP.NET, C#, TypeScript, and Angular. Security will be managed with JWT tokens on both the backend and frontend, using local storage. The system will handle various relationships between video games and users, planned out with Lucid Diagram and Excalidraw.
 
 ## Deployment
 
@@ -69,14 +68,7 @@ To see the full features for Theatre, please feel free to log in using the follo
  * email: test@email.com
  * password: Password@
 
-
-
-## Code Installation:
-
-Clone or download the repo then in your Terminal run the following commands:
-
-
-## The Brief
+# The Brief
 
 * Build a full-stack application integrating both the backend and the frontend.
 * Utilize an ASP.NET Core API to interact with data from a SQL Server database.
@@ -85,8 +77,6 @@ Clone or download the repo then in your Terminal run the following commands:
 * Ensure a comprehensive product, which likely entails multiple relationships and CRUD functionality for at least a couple of models/entities.
 * Draft thoughtful user stories/wireframes that are detailed enough to guide you in distinguishing between core MVP features and optional enhancements.
 * Deploy your application online ensuring it's publicly accessible.
-
-
 
 ## Technologies used:
 
