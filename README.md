@@ -70,9 +70,12 @@ PCertainly! Here's the information you provided formatted in markdown, which is 
 ### 5. Verification:
 - Open your preferred web browser and enter the provided URLs to interact with the backend services and frontend interface.
 
-**Note**: Adjust configurations or URLs based on any personalized settings for your project.
-
 ---
+
+To see the full features for Theatre, please feel free to log in using the following credentials:
+
+ * email: test@email.com
+ * password: Password@
 
 
 
@@ -82,6 +85,14 @@ Clone or download the repo then in your Terminal run the following commands:
 
 
 ## The Brief
+
+* Build a full-stack application integrating both the backend and the frontend.
+* Utilize an ASP.NET Core API to interact with data from a SQL Server database.
+* Use Entity Framework Core for ORM and data access.
+* Consume your API with a separate frontend built with Angular and TypeScript.
+* Ensure a comprehensive product, which likely entails multiple relationships and CRUD functionality for at least a couple of models/entities.
+* Draft thoughtful user stories/wireframes that are detailed enough to guide you in distinguishing between core MVP features and optional enhancements.
+* Deploy your application online ensuring it's publicly accessible.
 
 
 
