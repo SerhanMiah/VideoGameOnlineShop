@@ -26,7 +26,7 @@ PCertainly! Here's the information you provided formatted in markdown, which is 
 
 ### 2. Repository Setup:
 - Either clone or download the source code from the provided GitHub repository link.
-
+- Link to GitHub repository [https://github.com/SerhanMiah/VideoGameOnlineShop]
 ## Deployment Steps:
 
 ### 1. Backend Preparation:
