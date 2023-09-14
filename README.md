@@ -8,6 +8,71 @@ This project aims to develop a comprehensive Video Game Shop System with a backe
 
 ## Deployment
 
+PCertainly! Here's the information you provided formatted in markdown, which is the typical format used for README files on platforms like GitHub:
+
+---
+
+# Deployment Instructions
+
+## Pre-Deployment Setup:
+
+### 1. Environment Setup:
+- Ensure [Node.js](https://nodejs.org/) is installed, as it's essential for Angular and TypeScript.
+- Make sure you have the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet) to compile and run the ASP.NET Core backend.
+- Install the Angular Command Line Interface:
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+### 2. Repository Setup:
+- Either clone or download the source code from the provided GitHub repository link.
+
+## Deployment Steps:
+
+### 1. Backend Preparation:
+- Navigate to the directory containing the ASP.NET Core solution or project file:
+  ```bash
+  cd Backend
+  ```
+- Restore the required .NET packages:
+  ```bash
+  dotnet restore
+  ```
+
+### 2. Frontend Preparation:
+- Switch to the Angular application directory (commonly named "Frontend"):
+  ```bash
+  cd FrontendOrClientAppName
+  ```
+- Install the required Angular dependencies:
+  ```bash
+  npm install
+  ```
+### 3. Running the Backend:
+- Ensure you're in the Backend directory, then start the application:
+  ```bash
+  cd ../Backend
+  dotnet run
+  ```
+- This will initialize the backend, typically accessible at https://localhost:5177.
+
+### 4. Launching the Frontend:
+- Shift to the Frontend directory:
+  ```bash
+  cd Frontend
+  ```
+- Use Angular CLI to serve the application:
+  ```bash
+  ng serve
+  ```
+- This initiates the Angular app, generally available at http://localhost:4200.
+
+### 5. Verification:
+- Open your preferred web browser and enter the provided URLs to interact with the backend services and frontend interface.
+
+**Note**: Adjust configurations or URLs based on any personalized settings for your project.
+
+---
 
 
 
