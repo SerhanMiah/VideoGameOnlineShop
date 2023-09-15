@@ -110,36 +110,31 @@ This project consisted of four phase
 
 ### Planning the Project: Building a Solid Foundation:
 
-In the inaugural phase of our exciting Video Game Management System project, we embarked on a journey to create a robust backend infrastructure. This journey was not just about code; it was about envisioning, designing, and organizing the very essence of our application. We turned to the digital canvas of Excalidraw to sketch out our dreams.
-
-## Laying the Groundwork with Excalidraw:
-
-Imagine the power of Excalidraw—a digital playground where we visualized the architecture of our application. It was here that we designed and meticulously organized the essential models and classes that would form the backbone of our system. We outlined the relationships between video games, user profiles, and more, ensuring that every piece would fit seamlessly into the puzzle.
+In first phase of the Video Game e-commerical project, I embarked on a journey to create a robust backend infrastructure, using C#, ASP.net and Enitity Framework. Installing all the necessary packages for the backend and frontend. I used nuget packag manager to install Enitity framework packages and linked the database to MS SQL server management studio. This journey was not just about code; it was about envisioning, designing, and organizing the very essence of the application. I turned to the digital canvas of Excalidraw to sketch out the gaming application and using EDR flowchart to have an idea on how the relationships were being made.
 
 
 ## Embracing the Power of SQL Server:
 
-For our data storage needs, we chose SQL Server—a dependable companion on our journey. With SQL Server, we could create and manage our local database, providing a stable foundation for our application's data.
+For data storage needs, I chose SQL Server—a dependable companion on this application journey. With SQL Server, I could create and manage our local database, providing a stable foundation for our application's data. MVC is used to create the model of the database which are constructed as classes, I started very basic and moved to add more and more classes often linking these classes with forigen keys and pairing these classes with ICollection method. Using C# OOP and understanding how public, private and readonly accessor will be used with the classes. As the bulk of the class relates to the gaming class, I decided to seperate some of the classes to small sections, making it more manageable. Also to have the option to reuse these classes for other object. Once the classes was created pairing the database to the backend locally. I want to have full flexibility when using an SQL package as SQL server offered a robust connection to online database like Azure, AWS and others. I felt confident with using SQL Server for this project and as a new learning experience since I used Table Plus and MySQL for local databases. 
 
 ## NuGet Packages and JWT:
 
-To supercharge our backend, we harnessed the incredible capabilities of NuGet packages. These packages became our tools, empowering us to streamline tasks, enhance security, and accelerate development. Among them, JWT (JSON Web Tokens) stood out as our trusty guardian, ensuring the utmost security for user authentication.
+To supercharge the backend, I harnessed the incredible capabilities of NuGet packages. These packages became our tools, empowering us to streamline tasks, enhance security, and accelerate development. Among them, JWT (JSON Web Tokens) stood out as our trusty guardian, ensuring the utmost security for user authentication. I used Enitity and Identify nuget packages to connect the local host default connection and use Identify for the application user which is an inbuilt into the entitiy framework.
 
-Our journey was just beginning, but it was already filled with promise and potential. With a clear plan, a vision translated into Excalidraw sketches, and the technology stack we needed, we were ready to dive headfirst into the exciting world of backend development for our Video Game Management System.
 
 ### Phase 2 Designing the Database and Crafting Models:
 
-In the second phase of our venture into building the Video Game Management System, the foundation and conceptualizations of the inaugural phase were put to the test. Here, we delved into the realms of database design and model creation.
+In the second phase of our venture into building the Video Game shop, the foundation and conceptualizations of the inaugural phase were put to the test. Here, I delved into the realms of database design and model creation.
 
 Solidifying Our Database with MS SQL Server Management:
-Our chosen technology, Microsoft SQL Server Management, played a pivotal role. Given the intricate relationships between video games and user profiles, it was crucial to ensure our database could handle complex queries and maintain data integrity.
+Microsoft SQL Server Management, played a pivotal role. Given the intricate relationships between video games, user profiles, reviews and shopping cart, it was crucial to ensure our database could handle complex queries and maintain data integrity.
 
 Schema Creation: We designed tables keeping normalization in mind, ensuring data redundancy was minimized. Tables for video games, user profiles, and relational tables were meticulously crafted to cater to both one-to-many and many-to-many relationships.
 
 Stored Procedures and Triggers: Leveraging the power of MS SQL Server Management, we set up stored procedures to streamline complex operations. Triggers were also designed to maintain consistency and prevent potential data anomalies.
 
 Crafting Models and Classes with C# ASP.NET Entity Framework:
-Entity Framework (EF) is a gem in the .NET ecosystem, allowing developers to interact with their databases using object-relational mapping (ORM). Our models became the representatives of our database tables, simplifying data operations and making them more intuitive.
+Entity Framework (EF) is a gem in the .NET ecosystem, allowing myself to interact with the databases using object-relational mapping (ORM). Our models became the representatives of our database tables, simplifying data operations and making them more intuitive as time passes.
 
 Creating Entities: For every table in our database, a corresponding model was built in C#. These models, adorned with necessary attributes and annotations, made data validation and relationships seamless.
 
@@ -147,10 +142,10 @@ DBContext Creation: The DBContext is the bridge between our application and the 
 
 LINQ Queries: With the power of LINQ, querying became a delightful experience. From fetching a particular video game's details to updating user profiles, LINQ brought clarity and efficiency to our database operations.
 
-Upon creating the database, I employed seeding data as a method to test the application's responsiveness across both frontend and backend. I firmly hold the belief that if the backend functions optimally, it paves the way for a smoother frontend experience. This is especially true when executing HTTP requests for data retrieval, creation, updating, and deletion in a real-world application setting.
+Upon creating the database, I employed seeding data as a method to test the application's responsiveness across both frontend and backend. I firmly hold the belief that if the backend functions optimally, it paves the way for a smoother frontend experience. This is especially true when executing HTTP requests for data retrieval, creation, updating, and deletion in a real-world application setting. 
 
 
-Managing and integrating the middleware was crucial for enabling CORS and ensuring smooth interactivity across different origins. Additionally, by utilizing tools like Swagger, we could efficiently test the API controllers and their HTTP requests. Insomnia further supplemented this process, allowing us to validate back-and-forth data exchanges seamlessly.
+Managing and integrating the middleware was crucial for enabling CORS and ensuring smooth interactivity across different origins. Additionally, by utilizing tools like Swagger, I could efficiently test the API controllers and their HTTP requests. Insomnia further supplemented this process, allowing us to validate back-and-forth data exchanges seamlessly.
 
 
 ### Key Learnings from Phase 2:
@@ -167,18 +162,20 @@ Phase 2, though challenging, was a testament to the importance of meticulous pla
 
 This phase was all about bringing our backend services and frontend interface together. Angular, a component-based framework, facilitated the smooth interaction between the user and our ASP.NET backend.
 
-API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communication between the frontend and backend. Every video game and user action had its corresponding API endpoint, ensuring full system functionality.
+Started by creating seeding data using the models of games and its relationships. I started to build a few seeding data to test the application both the backend and frontend. Using insomia, I wanted to test if the application is able to retrieve the information from the required endpoints and HTTP request.
 
+API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communication between the frontend and backend. Every video game and user action had its corresponding API endpoint, ensuring full system functionality. The same functionality based on the user's login, register and profile and the ability to generate JWT token for authenticating users. 
 
+These endpoints creation was created in the Controller section and was seperated into different parts. The Auth controller was a struggle as I wanted to use JWT token to authenticate 
 
-
-
-
-
+Once these tests were carried out I started using swagger to see if I was able to retrieve the data in JSON format. I also used bearer token to authenticate the user in insomia and console log to see if the user were logged in. For a more dramatic feel I switched to toaster 
 
 ### Phase 4 Styling the Frontend
 
+Over the past few days, I have poured my creative energy into designing a website that truly reflects my personal style. By leveraging the powerful combination of Bootstrap, Tailwind, CSS and SASS, I was able to add a level of sophistication and polish to the site's design that truly sets it apart.
 
+In addition to aesthetics, I also devoted time to optimizing the site for mobile devices through code refactoring and implementation of CSS media.
+These enhancements have truly elevated the site's functionality and aesthetics to new heights, making it a truly immersive and engaging experience for all who visit.
 
 
 
@@ -193,6 +190,8 @@ API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communicatio
 
 ### Win
 * Successful Integration: Bringing together a C# backend and an Angular frontend was no small feat. However, my meticulous planning and design made integration smoother than anticipated.
+* Updating the Cart when a registered user is logged in and hits the buy button in the game detail component page.
+* Having a greater understanding on how OOP works and how it is used both in the frontend and backend. 
 
 
 
@@ -200,6 +199,7 @@ API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communicatio
 
 ### Challenges
 * TypeScript Learning Curve: Transitioning from JS to TS presented initial hurdles, especially around strict typing and interfaces.
+* Learning TS and Angular while making this application was incredibly changling. From more experience developers I was told not to use any, however in certain situation this became impossible for my skillset and looking develop my skills futher using TS for future projects
 
 
 
@@ -216,13 +216,14 @@ API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communicatio
 ## Future Content and Improvements:
 
 * Authentication Flow: Initial iterations had some bugs around the JWT authentication flow, which were subsequently ironed out.
+* Using Swipe and other payment API method for the application. 
 
-* Authentication Flow: Initial iterations had some bugs around the JWT authentication flow, which were subsequently ironed out.
 
 
 
 ## Key learnings
 
 * Coming from a JavaScript background, TypeScript's nuances were both challenging and enlightening. Static typing, although initially restrictive, proved invaluable in catching errors early. Angular's component-based architecture presented a paradigm shift but enabled more organized and modular code.
+
 
 Embracing continuous learning was pivotal. Every challenge faced was an opportunity to delve deeper into the technology stack and emerge with a clearer understanding. Iterative development, feedback, and a focus on the user experience were crucial to the project's success.
