@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingModule } from 'angular-star-rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     LoginComponent,
     ProfileComponent,
     CartComponent,
-    GameReviewComponent
+    GameReviewComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

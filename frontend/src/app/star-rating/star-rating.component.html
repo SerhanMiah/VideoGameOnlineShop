@@ -1,0 +1,10 @@
+<div class="stars">
+    <span *ngFor="let star of [1,2,3,4,5]; let i = index" 
+          (mouseenter)="hoverRating(i+1)" 
+          (mouseleave)="hoverRating(0)" 
+          [class.filled]="i < rating" 
+          (click)="setRating(i+1)">
+      &#9733; <!-- This is the default star, but consider using SVG or font icons for more customization -->
+    </span>
+  </div>
+  

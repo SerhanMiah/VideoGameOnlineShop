@@ -23,6 +23,11 @@ export class GameDetailComponent implements OnInit {
     private cartService: CartService // Inject the CartService
   ) {}
 
+  newReview = {
+    rating: 0,
+      // any other properties for the review
+  };
+
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
     if (id === null) {

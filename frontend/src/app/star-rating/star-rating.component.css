@@ -1,0 +1,23 @@
+.stars {
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .stars span {
+    font-size: 24px; /* Adjust the size as per your requirement */
+    color: #ccc; /* Default color of the star */
+    transition: color 0.3s; /* Smooth transition effect */
+    margin-right: 5px; /* Adjust spacing between stars */
+  }
+  
+  .stars span:hover,
+  .stars span.filled {
+    color: gold; /* Filled color of the star */
+  }
+  
+  /* For smoother filling effect, use this if you choose to */
+  .stars span:hover ~ span.filled,
+  .stars span:hover ~ span {
+    color: #ccc;
+  }
+  
