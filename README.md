@@ -110,12 +110,16 @@ This project consisted of four phase
 
 ### Planning the Project: Building a Solid Foundation:
 
-In first phase of the Video Game e-commerical project, I embarked on a journey to create a robust backend infrastructure, using C#, ASP.net and Enitity Framework. Installing all the necessary packages for the backend and frontend. I used nuget packag manager to install Enitity framework packages and linked the database to MS SQL server management studio. This journey was not just about code; it was about envisioning, designing, and organizing the very essence of the application. I turned to the digital canvas of Excalidraw to sketch out the gaming application and using EDR flowchart to have an idea on how the relationships were being made.
+In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships.
 
 
 ## Embracing the Power of SQL Server:
 
-For data storage needs, I chose SQL Server—a dependable companion on this application journey. With SQL Server, I could create and manage our local database, providing a stable foundation for our application's data. MVC is used to create the model of the database which are constructed as classes, I started very basic and moved to add more and more classes often linking these classes with forigen keys and pairing these classes with ICollection method. Using C# OOP and understanding how public, private and readonly accessor will be used with the classes. As the bulk of the class relates to the gaming class, I decided to seperate some of the classes to small sections, making it more manageable. Also to have the option to reuse these classes for other object. Once the classes was created pairing the database to the backend locally. I want to have full flexibility when using an SQL package as SQL server offered a robust connection to online database like Azure, AWS and others. I felt confident with using SQL Server for this project and as a new learning experience since I used Table Plus and MySQL for local databases. 
+For our application's data storage, I opted for SQL Server—a reliable choice that facilitated the creation and management of our local database, laying a stable groundwork for our app data. I utilized MVC to shape the database models, which were initially structured as simple classes. Over time, these evolved, with more classes being added, often interconnected via foreign keys. I paired these classes with the ICollection method.
+
+The principles of C# Object-Oriented Programming (OOP) played a pivotal role, especially in determining the use of public, private, and readonly accessors within the classes. Given that a significant portion was related to the gaming class, I modularized some classes into smaller sections for better manageability and potential reuse. After setting up the classes, I integrated the local database with the backend.
+
+SQL Server was chosen not only for its stability but also for its flexibility in supporting robust connections to cloud databases like Azure, AWS, and more. This project became an enriching learning curve, especially as my prior experience was mainly with Table Plus and MySQL for local databases.
 
 ## NuGet Packages and JWT:
 
@@ -124,29 +128,31 @@ To supercharge the backend, I harnessed the incredible capabilities of NuGet pac
 
 ### Phase 2 Designing the Database and Crafting Models:
 
-In the second phase of our venture into building the Video Game shop, the foundation and conceptualizations of the inaugural phase were put to the test. Here, I delved into the realms of database design and model creation.
+Certainly! Let's simplify and streamline the information:
 
-Solidifying Our Database with MS SQL Server Management:
-Microsoft SQL Server Management, played a pivotal role. Given the intricate relationships between video games, user profiles, reviews and shopping cart, it was crucial to ensure our database could handle complex queries and maintain data integrity.
+---
 
-Schema Creation: We designed tables keeping normalization in mind, ensuring data redundancy was minimized. Tables for video games, user profiles, and relational tables were meticulously crafted to cater to both one-to-many and many-to-many relationships.
+**Video Game Shop Project - Phase Two**
 
-Stored Procedures and Triggers: Leveraging the power of MS SQL Server Management, we set up stored procedures to streamline complex operations. Triggers were also designed to maintain consistency and prevent potential data anomalies.
+**Controllers Creation & Testing**: Based on our early designs, we built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. 
 
-Crafting Models and Classes with C# ASP.NET Entity Framework:
-Entity Framework (EF) is a gem in the .NET ecosystem, allowing myself to interact with the databases using object-relational mapping (ORM). Our models became the representatives of our database tables, simplifying data operations and making them more intuitive as time passes.
+**Database Design with MS SQL Server Management**: Given the intricate data relationships in our app—spanning from video games to user reviews—we needed a robust database system. SQL Server Management was chosen for this task. We created well-structured tables to avoid data redundancy and maintain easy-to-understand relationships, both simple and complex.
 
-Creating Entities: For every table in our database, a corresponding model was built in C#. These models, adorned with necessary attributes and annotations, made data validation and relationships seamless.
+**Using Stored Procedures & Triggers**: We used stored procedures for efficient data operations and triggers to ensure data consistency.
 
-DBContext Creation: The DBContext is the bridge between our application and the database. We created a custom DBContext to manage our entities and their relationships.
+**Building Models with C# ASP.NET Entity Framework**:
 
-LINQ Queries: With the power of LINQ, querying became a delightful experience. From fetching a particular video game's details to updating user profiles, LINQ brought clarity and efficiency to our database operations.
+- **Entity Creation**: For each database table, we created a corresponding model in C#.
+  
+- **DBContext**: This serves as the liaison between our app and the database, ensuring smooth data operations.
 
-Upon creating the database, I employed seeding data as a method to test the application's responsiveness across both frontend and backend. I firmly hold the belief that if the backend functions optimally, it paves the way for a smoother frontend experience. This is especially true when executing HTTP requests for data retrieval, creation, updating, and deletion in a real-world application setting. 
+- **LINQ for Data Operations**: With LINQ, database operations, from data retrieval to updates, became straightforward and efficient.
 
+**Testing with Seeding Data**: To ensure our app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations.
 
-Managing and integrating the middleware was crucial for enabling CORS and ensuring smooth interactivity across different origins. Additionally, by utilizing tools like Swagger, I could efficiently test the API controllers and their HTTP requests. Insomnia further supplemented this process, allowing us to validate back-and-forth data exchanges seamlessly.
+**Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. We extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
 
+---
 
 ### Key Learnings from Phase 2:
 Database Design: Understanding the intricacies of relationships and ensuring a scalable and efficient design is paramount. A good schema today can prevent many potential headaches in the future.
@@ -158,17 +164,19 @@ The Power of LINQ: A potent tool in a developer's arsenal, LINQ is both versatil
 Phase 2, though challenging, was a testament to the importance of meticulous planning. The schemas, models, and classes we designed and implemented are now ready to support the next stages of our Video Game Management System. The road ahead is exciting, and we eagerly look forward to the challenges and triumphs that lie in wait.
 
 
-### Phase 3: Integrating Backend and Frontend:
+### Phase 3: Bridging Backend with Frontend:
 
-This phase was all about bringing our backend services and frontend interface together. Angular, a component-based framework, facilitated the smooth interaction between the user and our ASP.NET backend.
+In this phase, we integrated our backend services with the frontend interface. We employed Angular—a component-based framework—to ensure seamless communication with our ASP.NET backend.
 
-Started by creating seeding data using the models of games and its relationships. I started to build a few seeding data to test the application both the backend and frontend. Using insomia, I wanted to test if the application is able to retrieve the information from the required endpoints and HTTP request.
+**Seeding & Initial Tests**: I initiated the process by populating our system with test data derived from the video game models and their associated relationships. Using tools like Insomnia, I verified if the application correctly accessed information via designated endpoints and HTTP requests.
 
-API Creation: Leveraging ASP.NET, we crafted RESTful APIs to enable communication between the frontend and backend. Every video game and user action had its corresponding API endpoint, ensuring full system functionality. The same functionality based on the user's login, register and profile and the ability to generate JWT token for authenticating users. 
+**API Development**: Using ASP.NET, we developed RESTful APIs to bridge the gap between our frontend and backend. This included endpoints for every video game function, user interactions, and specific features like user login, registration, profile management, and JWT token generation for user authentication.
 
-These endpoints creation was created in the Controller section and was seperated into different parts. The Auth controller was a struggle as I wanted to use JWT token to authenticate 
+**Endpoint Organization**: We structured our endpoints within the Controller section, categorizing them to maintain clarity. Developing the Auth controller posed some challenges, particularly in integrating JWT tokens for authentication.
 
-Once these tests were carried out I started using swagger to see if I was able to retrieve the data in JSON format. I also used bearer token to authenticate the user in insomia and console log to see if the user were logged in. For a more dramatic feel I switched to toaster 
+**Validation and Testing**: With Swagger, I validated data retrieval in JSON format. Additionally, I used bearer tokens in Insomnia and console logs to check user authentication. To enhance user feedback and provide a dynamic user experience, I integrated toaster notifications.
+
+---
 
 ### Phase 4 Styling the Frontend
 
