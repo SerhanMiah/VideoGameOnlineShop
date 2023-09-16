@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Review } from '../game-models';
 import { ToastrService } from 'ngx-toastr';
-import { ReviewService } from '../review.service';
+import { ReviewService } from './review.service';
 import { userIsAuthenticated } from '../helper/auth.helper';
 
 interface RatingChangeEvent {
@@ -17,6 +17,7 @@ export class GameReviewComponent implements OnInit {
   @Input() gameId: number | undefined;
   reviews: Review[] = [];
   newReview!: Review;
+  currentUserId: number = 1;
 
   constructor(
     private toastr: ToastrService,
@@ -93,6 +94,12 @@ export class GameReviewComponent implements OnInit {
     } catch (error) {
       this.toastr.error('Error while deleting the review. Please try again.');
     }
+  }
+
+  
+
+  isReviewOwner(reviewUserId: number): boolean {
+    return this.currentUserId === reviewUserId;
   }
 
   handleRatingChange(event: RatingChangeEvent) {

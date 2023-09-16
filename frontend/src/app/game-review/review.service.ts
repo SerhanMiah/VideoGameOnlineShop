@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Review } from './game-models';
+import { Review } from '../game-models';
 import { Observable } from 'rxjs';
 import axios from 'axios';
 
@@ -57,6 +57,22 @@ export class ReviewService {
         });
     });
   }
+  editReview(review: Review): Observable<Review> {
+    return new Observable<Review>((observer) => {
+        axios
+            .put<Review>(`http://localhost:5177/api/review/${review.id}`, review, {
+                headers: this.getAuthHeaders()
+            })
+            .then((response) => {
+                observer.next(response.data);
+                observer.complete();
+            })
+            .catch((error) => {
+                observer.error(error);
+            });
+    });
+}
+
 
   deleteReview(id: number): Observable<void> {
     return new Observable<void>((observer) => {

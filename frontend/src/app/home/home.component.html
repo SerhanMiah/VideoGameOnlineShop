@@ -2,30 +2,31 @@
 
 <div class="container-fluid p-0">
 
-    <!-- Hero Section with Parallax Effect -->
-    <section class="hero-section" style="background-image: url('https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Cyberpunk%202077/cyberpunk_2077_unreal_engine_5_wjauye.png');">
-        <div class="content text-center">
+    <!-- Hero Section with Parallax Effect and Overlay Gradient -->
+    <section class="hero-section position-relative">
+        <img src="https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Cyberpunk%202077/cyberpunk_2077_unreal_engine_5_wjauye.png" alt="Cyberpunk" class="img-fluid w-100">
+        <div class="overlay"></div> <!-- Adds a gradient effect -->
+        <div class="content text-center position-absolute top-50 start-50 translate-middle">
             <h1 data-aos="fade-down">Welcome to GameShop</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Join us on a journey through pixelated adventures, epic quests, and unforgettable characters.</p>
+            <p data-aos="fade-up" data-aos-delay="200">Embark on pixelated adventures, epic quests, and stories you'll never forget.</p>
             <a [routerLink]="['/games']" class="btn btn-outline-light btn-lg" data-aos="zoom-in" data-aos-delay="400">Dive In <i class="fas fa-gamepad"></i></a>
         </div>
     </section>
 
-    <!-- Featured Games Section with Hover Effects -->
+    <!-- Featured Games Grid with a Modern Touch -->
     <section id="featured-games" data-aos="fade-up">
         <div class="container">
-            <h2 class="section-title">Spotlight Games</h2>
-            <div class="row">
-                <div class="col-md-4 game-hover" *ngFor="let game of games" data-aos="flip-left" data-aos-delay="100">
-                    <div class="game-card">
-                        <img [src]="game.image" alt="{{ game.name }}" class="card-image">
-                        <div class="card-content">
+            <h2 class="section-title mb-5">Spotlight Games</h2>
+            <div class="row gx-4 gy-4">
+                <div class="col-md-3 game-hover" *ngFor="let game of games" data-aos="fade-up" data-aos-delay="100">
+                    <div class="game-card position-relative">
+                        <img [src]="game.image" alt="{{ game.name }}" class="card-image img-fluid w-100 rounded">
+                        <div class="card-content p-3 position-absolute bottom-0 start-0">
                             <h5>{{ game.name }}</h5>
                             <p>{{ game.shortDescription }}</p>
-                            <a href="#" class="btn btn-primary">Details <i class="fas fa-info-circle"></i></a>
                         </div>
-                        <div class="card-overlay">
-                            <button class="btn btn-danger">Get Now <i class="fas fa-shopping-cart"></i></button>
+                        <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="#" class="btn btn-danger">Get Now <i class="fas fa-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>

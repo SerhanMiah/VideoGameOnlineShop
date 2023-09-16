@@ -3,7 +3,7 @@ import axios from 'axios';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game, DLC } from '../game-models';
-import { CartService } from '../CartService'
+import { CartService } from '../cart/CartService'
 
 @Component({
   selector: 'app-game-detail',

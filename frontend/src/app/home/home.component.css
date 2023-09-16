@@ -1,98 +1,78 @@
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  margin: 0;
-}
-
-a {
-  transition: color 0.3s ease;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
+/* General Styles */
 .container-fluid {
-  max-width: 1400px;
-  margin: auto;
+  padding: 0;
 }
 
 /* Hero Section */
 .hero-section {
-  background: url('https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp') no-repeat center/cover;
-  color: #19b6ea;
-  padding: 250px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1); 
+  transition: transform 0.5s;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  z-index: 1; 
 }
 
 .hero-section .content {
-  text-align: center;
+  z-index: 2; 
+  color: #ffffff;
 }
 
 /* Featured Games Section */
-.section-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 40px;
+#featured-games {
+  padding: 5rem 0; 
 }
 
 .game-card {
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px; 
+  transition: transform 0.3s;
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); 
 }
 
-.card-image {
-  max-width: 100%;
-  margin-bottom: 20px;
-  border-radius: 4px;
+.game-card img.card-image {
+  transition: opacity 0.3s;
 }
 
-/* News Section */
-.news-section {
-  background: #f9f9f9;
-  padding: 60px 0;
+.game-card:hover img.card-image {
+  opacity: 0.9; 
 }
 
-.news-item {
-  padding: 20px;
-  background: #fff;
-  transition: box-shadow 0.3s ease;
+.card-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
 }
 
-.news-item:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.card-overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-.news-image {
-  max-width: 100%;
-  margin-bottom: 20px;
-  border-radius: 4px;
+.game-card:hover .card-overlay {
+  display: flex; 
 }
 
-.read-more {
-  color: #007bff;
+.btn-danger {
+  background-color: #f44336; 
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-  .hero-section .content h1 {
-      font-size: 2.5rem;
-  }
-  .news-item {
-      margin-bottom: 20px;
-  }
-}
+

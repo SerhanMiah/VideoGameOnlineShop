@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
 import { getId } from '../helper/auth.helper';
-import { CartService } from '../CartService';
+import { CartService } from './CartService';
+import { BehaviorSubject } from 'rxjs';
 
 interface CartItem {
   Id?: number;
@@ -20,6 +21,8 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   userId = getId();
   totalAmount: number = 0;
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+
 
   constructor(
     private toastr: ToastrService,
@@ -38,21 +41,24 @@ export class CartComponent implements OnInit {
     axios
       .get<CartItem[]>(`http://localhost:5177/api/shoppingCart/GetCartItems?userId=${this.userId}`)
       .then((response) => {
-        this.cartItems = response.data;
-        this.calculateTotalAmount();
+        if (Array.isArray(response.data)) {
+          this.cartService.setCartItems(response.data);
+        } else {
+          console.error('API did not return an array:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching cart items:', error);
         this.toastr.error('Error fetching cart items. Please try again.');
       });
-  }
+}
 
-  addToCart(gameId: number, quantity: number): void {
-    // Assuming you want to add a new cart item without an Id.
-    this.cartService.addToCart({ GameId: gameId, Quantity: quantity });
-    this.toastr.success('Item added to cart!');
-  }
 
+  addToCart(newItem: CartItem): void {
+    const currentItems = this.cartItemsSubject.value || [];
+    this.cartItemsSubject.next([...currentItems, newItem]);
+  }
+  
   removeFromCart(gameId: number): void {
     this.cartService.removeFromCart(gameId);
   }
