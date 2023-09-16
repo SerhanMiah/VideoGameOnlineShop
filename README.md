@@ -3,7 +3,7 @@
 
 # Project Overview
 
-I'm building my first e-commerce app using ASP.NET, C#, TypeScript, and Angular. Security will be managed with JWT tokens on both the backend and frontend, using local storage. The system will handle various relationships between video games and users, planned out with Lucid Diagram and Excalidraw.
+Building my first e-commerce app using ASP.NET, C#, TypeScript, and Angular. Security will be managed with JWT tokens on both the backend and frontend, using local storage. The system will handle various relationships between video games and users, planned out with Lucid Diagram and Excalidraw.
 
 ## Deployment
 
@@ -134,7 +134,7 @@ Certainly! Let's simplify and streamline the information:
 
 **Video Game Shop Project - Phase Two**
 
-**Controllers Creation & Testing**: Based on our early designs, we built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. 
+**Controllers Creation & Testing**: Based on our early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. 
 
 **Database Design with MS SQL Server Management**: Given the intricate data relationships in our app—spanning from video games to user reviews—we needed a robust database system. SQL Server Management was chosen for this task. We created well-structured tables to avoid data redundancy and maintain easy-to-understand relationships, both simple and complex.
 
