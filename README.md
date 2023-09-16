@@ -128,14 +128,6 @@ To supercharge the backend, I harnessed the incredible capabilities of NuGet pac
 
 ### Phase 2 Designing the Database and Crafting Models:
 
-Certainly! Let's simplify and streamline the information:
-
----
-
-**Video Game Shop Project - Phase Two**
-
-**Controllers Creation & Testing**: Based on our early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. 
-
 **Database Design with MS SQL Server Management**: Given the intricate data relationships in our app—spanning from video games to user reviews—we needed a robust database system. SQL Server Management was chosen for this task. We created well-structured tables to avoid data redundancy and maintain easy-to-understand relationships, both simple and complex.
 
 **Using Stored Procedures & Triggers**: We used stored procedures for efficient data operations and triggers to ensure data consistency.
@@ -148,14 +140,16 @@ Certainly! Let's simplify and streamline the information:
 
 - **LINQ for Data Operations**: With LINQ, database operations, from data retrieval to updates, became straightforward and efficient.
 
-**Testing with Seeding Data**: To ensure our app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations.
+**Controllers Creation & Testing**: Based on our early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. I started with GET request and created unique endpoints commonly starting with GET request for all possible game
+
+**Testing with Seeding Data**: To ensure the app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations. Starting with a small data set I created necessary seeding data for games and all the relationship for Game, these include: Genre, Rating, DLC, GameImages. I adopted more enum as games would have several genres or rating, rather writing these again and again using enum provided a solid solution for multiple choices. 
 
 **Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. We extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
 
 ---
 
 ### Key Learnings from Phase 2:
-Database Design: Understanding the intricacies of relationships and ensuring a scalable and efficient design is paramount. A good schema today can prevent many potential headaches in the future.
+Database Design: Understanding the intricacies of relationships and ensuring a scalable and efficient design is paramount. A good schema today can prevent many potential headaches in the future. It helped having an EDR Flowchat to look back on and my excalidraw to come up with the relationship between models. 
 
 Entity Framework: Leveraging EF can drastically simplify database operations, but it's crucial to understand its inner workings to prevent inefficiencies.
 
@@ -170,9 +164,9 @@ In this phase, we integrated our backend services with the frontend interface. W
 
 **Seeding & Initial Tests**: I initiated the process by populating our system with test data derived from the video game models and their associated relationships. Using tools like Insomnia, I verified if the application correctly accessed information via designated endpoints and HTTP requests.
 
-**API Development**: Using ASP.NET, we developed RESTful APIs to bridge the gap between our frontend and backend. This included endpoints for every video game function, user interactions, and specific features like user login, registration, profile management, and JWT token generation for user authentication.
+**API Development**: Using ASP.NET, I developed RESTful APIs to bridge the gap between our frontend and backend. This included endpoints for every video game function, user interactions, and specific features like user login, registration, profile management, and JWT token generation for user authentication.
 
-**Endpoint Organization**: We structured our endpoints within the Controller section, categorizing them to maintain clarity. Developing the Auth controller posed some challenges, particularly in integrating JWT tokens for authentication.
+**Endpoint Organization**: I structured our endpoints within the Controller section, categorizing them to maintain clarity. Developing the Auth controller posed some challenges, particularly in integrating JWT tokens for authentication.
 
 **Validation and Testing**: With Swagger, I validated data retrieval in JSON format. Additionally, I used bearer tokens in Insomnia and console logs to check user authentication. To enhance user feedback and provide a dynamic user experience, I integrated toaster notifications.
 
