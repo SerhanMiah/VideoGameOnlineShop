@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-import axios from 'axios';
+import { HttpClient } from '@angular/common/http'; // Import this
 
 interface Game {
   id: number;
@@ -18,10 +18,11 @@ interface Game {
 export class GameListComponent implements OnInit {
   games: Game[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {} // Inject HttpClient here
+
   async ngOnInit(): Promise<void> {
     try {
-        const { data } = await axios.get('http://localhost:5177/api/Game');
+        const data: any = await this.http.get('http://localhost:5177/api/Game').toPromise();
 
         // Check if data exists
         if (!data) {
@@ -52,7 +53,6 @@ export class GameListComponent implements OnInit {
         }));
         
 
-        // Log the mapped games for verification
         console.log('Mapped games:', this.games);
 
     } catch (error) {
@@ -60,7 +60,6 @@ export class GameListComponent implements OnInit {
     }
   }
 
-  // Updated onSelect to use the router to navigate to the game details page
   onSelect(game: Game): void {
     this.router.navigate(['/game', game.id]);
   }

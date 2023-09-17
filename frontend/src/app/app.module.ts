@@ -22,6 +22,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
