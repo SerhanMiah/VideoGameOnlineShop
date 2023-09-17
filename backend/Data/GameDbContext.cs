@@ -179,6 +179,10 @@ namespace VideoGameAppBackend.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
 
+            builder.Entity<Review>()
+                .Property(r => r.ReviewDate)
+                .HasConversion(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+
 
 
         }

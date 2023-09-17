@@ -34,7 +34,7 @@ namespace VideoGameAppBackend.Models.Product
 
         public virtual ApplicationUser? User { get; set; }
 
-        public DateTime ReviewDate { get; set; } = DateTime.Now; 
+        public DateTime ReviewDate { get; set; } = DateTime.UtcNow;
     }
 }
 

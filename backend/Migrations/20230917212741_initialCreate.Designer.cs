@@ -2,9 +2,9 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VideoGameAppBackend.Data;
 
 #nullable disable
@@ -12,49 +12,48 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20230907083534_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230917212741_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "76a3abba-ecce-48b9-94b2-2bf4051cde83",
+                            Id = "bc5e02d0-2dbf-4315-a8bc-b1c245b72bf7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -64,19 +63,19 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -89,19 +88,19 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -113,17 +112,17 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -135,10 +134,10 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -149,24 +148,24 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "fe682112-d074-4768-ad25-5865af0ec009",
-                            RoleId = "76a3abba-ecce-48b9-94b2-2bf4051cde83"
+                            UserId = "b5382978-5731-41d2-aceb-069d674323f1",
+                            RoleId = "bc5e02d0-2dbf-4315-a8bc-b1c245b72bf7"
                         });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -176,82 +175,95 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
+
+                    b.Property<string>("AchievementsDb")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Address")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("text");
 
                     b.Property<string>("City")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Country")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("FavoriteGame")
+                        .HasColumnType("text");
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("PostalCode")
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("character varying(10)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("State")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<int>("TotalGamesPlayed")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -260,18 +272,18 @@ namespace VideoGameBackend.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "fe682112-d074-4768-ad25-5865af0ec009",
+                            Id = "b5382978-5731-41d2-aceb-069d674323f1",
                             AccessFailedCount = 0,
+                            AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "f7088b49-6f03-497d-a8d1-d192847f25f1",
+                            ConcurrencyStamp = "4d1e35d8-e137-4d52-bda6-ce7971ac3c5a",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -279,18 +291,20 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIypW6Ri6R8IyrtIlMTTsx3Qq3NTMSUvMfmwCG6EGX1HiVRFpQgSKSfJ8OB9yHBorA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJjdq1rZM9sphAJm08s4nTPrTL16s+xMKHDwYovPrWICfwhm6QMSKsmucO0GfmBXag==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09e4ec42-1be0-438f-b0d4-f23caa69dbf5",
+                            SecurityStamp = "94137d90-7d26-4157-80d6-d83c7b2cf2d3",
+                            TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "84f1b1e7-ad65-491c-985e-502551ac513c",
+                            Id = "cbfe4045-e0db-4749-a914-7b683375fd79",
                             AccessFailedCount = 0,
+                            AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "71b2e319-8140-4920-98fc-9cc73a773bfa",
+                            ConcurrencyStamp = "e8c549ad-d301-4a34-9e65-e3bcb6f49af6",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -298,9 +312,10 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBaBfnaQCr44pGBrLZwN3zDPYOoIGnU5O1t0KIMy6UbeV/UASz9VdrRGFqUNrLxd9w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL2WduZxjp6zFHD94BGeufZapXaP2T3zG+tcMG/94JnpOCGmhcz9pJ96pBeK1rS7EA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7517bc29-0abf-4a9e-8e23-d2aba2b25dd8",
+                            SecurityStamp = "347dd64e-a3e0-4a1e-a26a-cde33d5b8071",
+                            TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -310,66 +325,77 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AgeRatingId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("text");
 
                     b.Property<double?>("AverageRating")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Developer")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.Property<decimal?>("DiscountedPrice")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("ESRBContentDescriptions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("GameImageId")
-                        .HasColumnType("int");
+                        .HasColumnType("text");
 
                     b.Property<bool>("HasMultiplayerSupport")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("MinimumSystemRequirements")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("NumberOfLocalPlayers")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Publisher")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.Property<string>("RecommendedSystemRequirements")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("TrailerUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AgeRatingId");
 
-                    b.HasIndex("GameImageId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Games");
 
@@ -378,23 +404,9 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 1,
                             AgeRatingId = 2,
-                            AverageRating = 4.2000000000000002,
-                            Description = "Cyberpunk 2077 is an open-world, action-adventure story set in Night City.",
-                            Developer = "CD Projekt Red",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-3570K or AMD FX-8310, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780 3GB or AMD Radeon RX 470, Storage: 70 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790 or AMD Ryzen 3 3200G, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060 6GB or AMD Radeon R9 Fury, Storage: SSD + 70 GB available space",
-                            ReleaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cyberpunk 2077",
-                            TrailerUrl = "https://www.youtube.com/watch?v=ixl31324UxE"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AgeRatingId = 2,
                             AverageRating = 4.7999999999999998,
+                            CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp",
+                            CreatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(953),
                             Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -404,135 +416,84 @@ namespace VideoGameBackend.Migrations
                             RecommendedSystemRequirements = "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i7-3770 3.4 GHz or AMD FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 290, Storage: 35 GB available space",
                             ReleaseDate = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Witcher 3: Wild Hunt",
-                            TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs"
+                            TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
+                            UpdatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(957)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AgeRatingId = 2,
+                            AverageRating = 4.9000000000000004,
+                            CoverImage = "https://www.rockstargames.com/reddeadredemption2/rockstar_games/r_d_r_logo.jpg",
+                            CreatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(986),
+                            Description = "Red Dead Redemption 2 is an action-adventure game set in the Wild West.",
+                            Developer = "Rockstar Games",
+                            HasMultiplayerSupport = true,
+                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2500K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770, Storage: 150 GB available space",
+                            NumberOfLocalPlayers = 1,
+                            Price = 49.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 150 GB available space",
+                            ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Red Dead Redemption 2",
+                            TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
+                            UpdatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(987)
                         },
                         new
                         {
                             Id = 3,
                             AgeRatingId = 2,
-                            AverageRating = 4.9000000000000004,
-                            Description = "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.",
-                            Developer = "Rockstar Games",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 280, Storage: 150 GB available space",
+                            AverageRating = 4.0,
+                            CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg",
+                            CreatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(990),
+                            Description = "Cyberpunk 2077 is a role-playing video game developed and published by CD Projekt.",
+                            Developer = "CD Projekt Red",
+                            HasMultiplayerSupport = false,
+                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-3570K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780, Storage: 70 GB available space",
                             NumberOfLocalPlayers = 1,
-                            Price = 49.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K 3.5 GHz or AMD Ryzen 5 1500X 3.5 GHz, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 480 4GB, Storage: 150 GB available space",
-                            ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Red Dead Redemption 2",
-                            TrailerUrl = "https://www.youtube.com/watch?v=Dw_oH5oiUSE"
+                            Price = 59.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 70 GB available space",
+                            ReleaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Cyberpunk 2077",
+                            TrailerUrl = "https://www.youtube.com/watch?v=vjF9GgrY9c0",
+                            UpdatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(991)
                         },
                         new
                         {
                             Id = 4,
-                            AgeRatingId = 1,
-                            AverageRating = 4.7000000000000002,
-                            Description = "The Legend of Zelda: Breath of the Wild is an action-adventure game set in an open world.",
-                            Developer = "Nintendo",
+                            AgeRatingId = 2,
+                            AverageRating = 4.5,
+                            CoverImage = "https://bethesda.net/game/doom2016",
+                            CreatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(994),
+                            Description = "Doom Eternal is a first-person shooter video game developed by id Software and published by Bethesda Softworks.",
+                            Developer = "id Software",
                             HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "N/A",
+                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2400, Memory: 8 GB RAM, Graphics: NVIDIA GTX 670, Storage: 50 GB available space",
                             NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "N/A",
-                            ReleaseDate = new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "The Legend of Zelda: Breath of the Wild",
-                            TrailerUrl = "https://www.youtube.com/watch?v=zw47_q9wbBE"
+                            Price = 39.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700K, Memory: 8 GB RAM, Graphics: NVIDIA GTX 1060, Storage: 50 GB available space",
+                            ReleaseDate = new DateTime(2020, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Doom Eternal",
+                            TrailerUrl = "https://www.youtube.com/watch?v=FkklG9MA0vM",
+                            UpdatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(994)
                         },
                         new
                         {
                             Id = 5,
-                            AgeRatingId = 4,
-                            AverageRating = 4.7000000000000002,
-                            Description = "Grand Theft Auto V is an action-adventure game set in an open world.",
-                            Developer = "Rockstar North",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core 2 Quad CPU Q6600 2.4 GHz or AMD Phenom 9850 Quad-Core Processor 2.5 GHz, Memory: 4 GB RAM, Graphics: NVIDIA 9800 GT 1GB or AMD HD 4870 1GB, Storage: 72 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 29.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5 3470 3.2 GHz or AMD X8 FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GTX 660 2GB or AMD HD7870 2GB, Storage: 72 GB available space",
-                            ReleaseDate = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Grand Theft Auto V",
-                            TrailerUrl = "https://www.youtube.com/watch?v=3DBrG2YjqQA"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AgeRatingId = 1,
-                            AverageRating = 4.5,
-                            Description = "Minecraft is a sandbox game that allows players to build and explore virtual worlds.",
-                            Developer = "Mojang Studios",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4690 or AMD A10-7800 or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 700 Series or AMD Radeon Rx 200 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space",
-                            NumberOfLocalPlayers = 4,
-                            Price = 26.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6500U or AMD A8-6600K or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 900 Series or AMD Radeon Rx 300 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space",
-                            ReleaseDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Minecraft",
-                            TrailerUrl = "https://www.youtube.com/watch?v=92AoX5OyiU4"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AgeRatingId = 7,
-                            AverageRating = 4.5,
-                            Description = "Experience the next installment of the popular FIFA football simulation game.",
-                            Developer = "EA Sports",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "N/A",
-                            NumberOfLocalPlayers = 4,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "N/A",
-                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "FIFA 22",
-                            TrailerUrl = "https://www.youtube.com/watch?v=Apm59G6LgYo"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AgeRatingId = 1,
+                            AgeRatingId = 2,
                             AverageRating = 4.5999999999999996,
-                            Description = "Create unique Sims, build their perfect homes, and explore vibrant worlds in The Sims 4.",
-                            Developer = "Maxis",
+                            CoverImage = "https://www.ubisoft.com/en-gb/game/assassins-creed/valhalla",
+                            CreatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(1072),
+                            Description = "Assassin's Creed Valhalla is an action role-playing video game developed by Ubisoft Montreal.",
+                            Developer = "Ubisoft",
                             HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows XP (SP3), Processor: 1.8 GHz Intel Core 2 Duo, AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 2 GB RAM, Graphics: NVIDIA GeForce 6600 or ATI Radeon X1300 or Intel GMA X4500, Storage: 10 GB available space",
+                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4460, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, Storage: 50 GB available space",
                             NumberOfLocalPlayers = 1,
-                            Price = 39.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7, 8, 8.1, 10 (64-bit), Processor: Intel Core i5 or faster, AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GTX 650 or better, AMD Radeon HD 7770 or better, Storage: 18 GB available space",
-                            ReleaseDate = new DateTime(2014, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "The Sims 4",
-                            TrailerUrl = "https://www.youtube.com/watch?v=mf19woWj1lQ"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AgeRatingId = 8,
-                            AverageRating = 4.2999999999999998,
-                            Description = "Join the legendary Street Fighter tournament and prove your skills in intense battles.",
-                            Developer = "Capcom",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i3-4160 @ 3.60GHz, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 480, GTX 570, GTX 670, or better, Storage: 60 GB available space",
-                            NumberOfLocalPlayers = 2,
-                            Price = 19.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-4690K @3.50GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, GTX 1060, or better, Storage: 60 GB available space",
-                            ReleaseDate = new DateTime(2016, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Street Fighter V",
-                            TrailerUrl = "https://www.youtube.com/watch?v=wYsujrF_Oj0"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AgeRatingId = 9,
-                            AverageRating = 4.7999999999999998,
-                            Description = "Enter a world of survival horror and face terrifying creatures in Resident Evil Village.",
-                            Developer = "Capcom",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-7500 or AMD Ryzen 3 1200, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1050 Ti with 4GB VRAM or AMD Radeon RX 560 with 4GB VRAM, DirectX: Version 12, Storage: 40 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-8700 or AMD Ryzen 5 3600, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1070 or AMD Radeon RX 5700, DirectX: Version 12, Storage: 40 GB available space",
-                            ReleaseDate = new DateTime(2021, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Resident Evil Village",
-                            TrailerUrl = "https://www.youtube.com/watch?v=3S1QCcVee_Y"
+                            Price = 49.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1080, Storage: 50 GB available space",
+                            ReleaseDate = new DateTime(2020, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Assassin's Creed Valhalla",
+                            TrailerUrl = "https://www.youtube.com/watch?v=SSYlfRq4ysA",
+                            UpdatedAt = new DateTime(2023, 9, 17, 21, 27, 41, 661, DateTimeKind.Utc).AddTicks(1072)
                         });
                 });
 
@@ -540,17 +501,17 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.HasKey("Id");
 
@@ -561,183 +522,81 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            GameId = 1,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Cyberpunk%202077/cyberpunk_2077_unreal_engine_5_wjauye.png"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GameId = 1,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547906/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-phantom-liberty_fuqyge.webp"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GameId = 1,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk_2077_bztuyy.webp"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GameId = 1,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk-2077-witcher-map_uj800z.webp"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GameId = 1,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp"
-                        },
-                        new
-                        {
                             Id = 6,
-                            GameId = 2,
+                            GameId = 1,
                             Url = "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/5/13/1431520130189/8bfad8ae-5a24-4617-988e-ccafee83324f-1020x612.jpeg?width=700&quality=85&auto=format&fit=max&s=8a7d3e78ea1329d9442f2b175bc7eb14"
                         },
                         new
                         {
                             Id = 7,
-                            GameId = 2,
+                            GameId = 1,
                             Url = "https://s1.dmcdn.net/v/7dQua1X-34xfWvryS/x1080"
                         },
                         new
                         {
                             Id = 8,
-                            GameId = 2,
+                            GameId = 1,
                             Url = "https://venturebeat.com/wp-content/uploads/2022/12/witcher-5.jpg?w=791&resize=1200%2C910&strip=all"
                         },
                         new
                         {
                             Id = 9,
-                            GameId = 2,
+                            GameId = 1,
                             Url = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp"
                         },
                         new
                         {
                             Id = 10,
-                            GameId = 2,
+                            GameId = 1,
                             Url = "https://assetsio.reedpopcdn.com/Site_qTBBJD0.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 11,
-                            GameId = 3,
-                            Url = "https://assetsio.reedpopcdn.com/red-dead-redemption-2-review-1540465569009.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp"
+                            GameId = 2,
+                            Url = "https://link-to-first-image-for-RDR2.com"
                         },
                         new
                         {
                             Id = 12,
-                            GameId = 3,
-                            Url = "https://gaming-cdn.com/images/products/5679/616x353/red-dead-redemption-2-pc-game-rockstar-cover.jpg?v=1647026658"
+                            GameId = 2,
+                            Url = "https://link-to-second-image-for-RDR2.com"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 16,
                             GameId = 3,
-                            Url = "https://assets1.ignimgs.com/thumbs/userUploaded/2018/10/25/rdr21280-1540446855527.jpg"
+                            Url = "https://link-to-first-image-for-cyberpunk2077.com"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 17,
                             GameId = 3,
-                            Url = "https://images.pushsquare.com/5cd7243587ddd/red-dead-redemption-2-how-to-start-a-new-game-guide-1.large.jpg"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            GameId = 3,
-                            Url = "https://i.ytimg.com/vi/HVRzx17WHVk/maxresdefault.jpg"
+                            Url = "https://link-to-second-image-for-cyberpunk2077.com"
                         },
                         new
                         {
                             Id = 21,
                             GameId = 4,
-                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_14/SI_WiiU_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg"
+                            Url = "https://link-to-first-image-for-doom-eternal.com"
                         },
                         new
                         {
                             Id = 22,
                             GameId = 4,
-                            Url = "https://www.gamespot.com/a/uploads/scale_medium/1197/11970954/3181241-ig-lozbreathofthewildrelease-20170112.jpg"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            GameId = 4,
-                            Url = "https://i.guim.co.uk/img/media/22d6b308c89e62e229feb220208a639836e31fd9/60_0_1800_1080/master/1800.png?width=700&quality=85&auto=format&fit=max&s=25c588a5203feea6061c32112a66ebdc"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            GameId = 4,
-                            Url = "https://i2-prod.mirror.co.uk/incoming/article8309144.ece/ALTERNATES/s1200b/zelda-main.jpg"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            GameId = 4,
-                            Url = "https://i.ytimg.com/vi/1RVts63WgbE/maxresdefault.jpg"
+                            Url = "https://link-to-second-image-for-doom-eternal.com"
                         },
                         new
                         {
                             Id = 26,
                             GameId = 5,
-                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
+                            Url = "https://link-to-first-image-for-AC-valhalla.com"
                         },
                         new
                         {
                             Id = 27,
                             GameId = 5,
-                            Url = "https://assets.xboxservices.com/assets/0b/17/0b179504-412d-4af7-9e00-3e3d92633577.jpg?n=GTA-V_GLP-Page-Hero-1084_1920x1080.jpg"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            GameId = 5,
-                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202101/2019/A7bNiu2YBVKYLeEviv8DpcVg.jpg"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            GameId = 5,
-                            Url = "https://d1e00ek4ebabms.cloudfront.net/production/28993ca1-a36c-4382-a18e-4e9f8bcfa1bb.jpg"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            GameId = 5,
-                            Url = "https://www.theedgesusu.co.uk/wp-content/uploads/2020/08/GTA_V_Artwork_Trunk-534-1600-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            GameId = 6,
-                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            GameId = 6,
-                            Url = "https://upload.wikimedia.org/wikipedia/en/e/e7/Steve_%28Minecraft%29.png"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            GameId = 6,
-                            Url = "https://media.wired.com/photos/62e0301fb014c7f5985e3405/16:9/w_1615,h_908,c_limit/Minecraft-NFTs-Games.jpg"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            GameId = 6,
-                            Url = "https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2020/4/28/bjoyslzjb3uxqyg82uz2/minecraft"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            GameId = 6,
-                            Url = "https://m.media-amazon.com/images/M/MV5BYWIzYjUzMGUtZjJlNy00MWVlLWJjNGEtODU1OWFiOWIwOTFjXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg"
+                            Url = "https://link-to-second-image-for-AC-valhalla.com"
                         });
                 });
 
@@ -745,20 +604,20 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShippingAddress")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("character varying(200)");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -771,18 +630,18 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -797,32 +656,32 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Note")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("PaymentMethodId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("TransactionId")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -837,28 +696,28 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BankName")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTime?>("CardExpirationDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("CardLastFourDigits")
                         .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
+                        .HasColumnType("character varying(4)");
 
                     b.Property<int?>("CardType")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
 
@@ -869,18 +728,17 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasFilter("[UserId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -889,18 +747,18 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CartId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -915,13 +773,13 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Rating")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -979,51 +837,51 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<double?>("AverageRating")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<int?>("DLCImageId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("DLCName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Developer")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<decimal?>("DiscountedPrice")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("MinimumSystemRequirements")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Publisher")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RecommendedSystemRequirements")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("TrailerUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1037,7 +895,7 @@ namespace VideoGameBackend.Migrations
                             Id = 1,
                             DLCName = "The Witcher 3: Hearts of Stone",
                             Description = "Embark on a new adventure as Geralt of Rivia in the Hearts of Stone expansion.",
-                            GameId = 2,
+                            GameId = 1,
                             Price = 9.99m,
                             ReleaseDate = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1046,135 +904,81 @@ namespace VideoGameBackend.Migrations
                             Id = 2,
                             DLCName = "The Witcher 3: Blood and Wine",
                             Description = "Visit the picturesque land of Toussaint in the Blood and Wine expansion.",
-                            GameId = 2,
+                            GameId = 1,
                             Price = 19.99m,
                             ReleaseDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            DLCName = "Red Dead Redemption 2: Undead Nightmare",
-                            Description = "Experience an undead nightmare in the world of Red Dead Redemption 2.",
-                            GameId = 3,
+                            DLCName = "RDR2: Frontier Tales",
+                            Description = "Experience new stories from the Wild West in the Frontier Tales expansion.",
+                            GameId = 2,
                             Price = 14.99m,
-                            ReleaseDate = new DateTime(2022, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ReleaseDate = new DateTime(2019, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            DLCName = "Red Dead Redemption 2: The Ballad of Gay Tony",
-                            Description = "Join the high-stakes world of nightclub entertainment in The Ballad of Gay Tony DLC.",
-                            GameId = 3,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2023, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "RDR2: Legend of the East",
+                            Description = "Unlock the mysteries of the East in this exciting new DLC.",
+                            GameId = 2,
+                            Price = 19.99m,
+                            ReleaseDate = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            DLCName = "The Legend of Zelda: Breath of the Wild - Expansion Pass",
-                            Description = "Expand your adventure with two DLC packs for The Legend of Zelda: Breath of the Wild.",
-                            GameId = 4,
-                            Price = 19.99m,
-                            ReleaseDate = new DateTime(2017, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "Cyberpunk: Night City Stories",
+                            Description = "Dive deeper into Night City with additional quests and characters.",
+                            GameId = 3,
+                            Price = 12.99m,
+                            ReleaseDate = new DateTime(2021, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            DLCName = "The Legend of Zelda: Breath of the Wild - The Champions' Ballad",
-                            Description = "Embark on a new quest and discover the story of the champions in The Champions' Ballad DLC.",
-                            GameId = 4,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2017, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "Cyberpunk: Beyond the Wall",
+                            Description = "Venture beyond the city limits and explore the wastelands.",
+                            GameId = 3,
+                            Price = 24.99m,
+                            ReleaseDate = new DateTime(2022, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            DLCName = "Grand Theft Auto V: The Diamond Casino Heist",
-                            Description = "Plan and execute the most daring heist in the history of Los Santos in The Diamond Casino Heist DLC.",
-                            GameId = 5,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2019, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "Doom Eternal: Hell's Ascent",
+                            Description = "Climb through the new challenges and face tougher demons.",
+                            GameId = 4,
+                            Price = 19.99m,
+                            ReleaseDate = new DateTime(2021, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            DLCName = "Grand Theft Auto V: The Cayo Perico Heist",
-                            Description = "Infiltrate the remote island of Cayo Perico and pull off a monumental heist in The Cayo Perico Heist DLC.",
-                            GameId = 5,
-                            Price = 14.99m,
-                            ReleaseDate = new DateTime(2020, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "Doom Eternal: The Slayer's Return",
+                            Description = "Return to the origin of the Slayer and discover his roots.",
+                            GameId = 4,
+                            Price = 19.99m,
+                            ReleaseDate = new DateTime(2021, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            DLCName = "Minecraft: Nether Update",
-                            Description = "Explore the dangerous Nether dimension with new mobs, biomes, and materials in the Nether Update DLC.",
-                            GameId = 6,
-                            Price = 4.99m,
-                            ReleaseDate = new DateTime(2020, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "AC Valhalla: Rise of the Druids",
+                            Description = "Travel to Ireland and confront the Druid cult.",
+                            GameId = 5,
+                            Price = 24.99m,
+                            ReleaseDate = new DateTime(2021, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            DLCName = "Minecraft: Caves & Cliffs Update",
-                            Description = "Discover new cave systems, mountain biomes, and blocks in the Caves & Cliffs Update DLC.",
-                            GameId = 6,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2021, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 11,
-                            DLCName = "FIFA 22: Ultimate Team Expansion",
-                            Description = "Enhance your FIFA 22 Ultimate Team with new players, packs, and challenges.",
-                            GameId = 7,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 12,
-                            DLCName = "FIFA 22: Career Mode Expansion",
-                            Description = "Expand your FIFA 22 Career Mode experience with new features and gameplay enhancements.",
-                            GameId = 7,
-                            Price = 14.99m,
-                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 13,
-                            DLCName = "The Sims 4: Seasons",
-                            Description = "Add weather, holidays, and seasonal activities to your Sims' lives in The Sims 4: Seasons.",
-                            GameId = 8,
-                            Price = 19.99m,
-                            ReleaseDate = new DateTime(2018, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 14,
-                            DLCName = "The Sims 4: Get Together",
-                            Description = "Explore a new world, meet new Sims, and join clubs in The Sims 4: Get Together.",
-                            GameId = 8,
-                            Price = 14.99m,
-                            ReleaseDate = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 15,
-                            DLCName = "Resident Evil Village: The Mercenaries",
-                            Description = "Take on challenging missions and survive against hordes of enemies in The Mercenaries DLC.",
-                            GameId = 10,
-                            Price = 9.99m,
-                            ReleaseDate = new DateTime(2021, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 16,
-                            DLCName = "Resident Evil Village: The Tragedy of Ethan Winters",
-                            Description = "Uncover the dark secrets of Ethan Winters' journey in The Tragedy of Ethan Winters DLC.",
-                            GameId = 10,
-                            Price = 14.99m,
-                            ReleaseDate = new DateTime(2022, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            DLCName = "AC Valhalla: The Siege of Paris",
+                            Description = "Invade the fortified city of Paris and shape its future.",
+                            GameId = 5,
+                            Price = 24.99m,
+                            ReleaseDate = new DateTime(2021, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1182,22 +986,22 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Caption")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("DLCId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("DLCId1")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1222,114 +1026,16 @@ namespace VideoGameBackend.Migrations
                             Caption = "The Witcher 3: Blood and Wine DLC Image",
                             DLCId = 2,
                             ImageUrl = "https://static.wikia.nocookie.net/witcher/images/8/89/Tw3_Blood_and_Wine_cover_art.jpg/revision/latest?cb=20160414142032"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Caption = "Red Dead Redemption 2: Undead Nightmare DLC Image",
-                            DLCId = 3,
-                            ImageUrl = "https://example.com/dlc_image_3.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Caption = "Red Dead Redemption 2: The Ballad of Gay Tony DLC Image",
-                            DLCId = 4,
-                            ImageUrl = "https://example.com/dlc_image_4.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Caption = "The Legend of Zelda: Breath of the Wild - Expansion Pass DLC Image",
-                            DLCId = 5,
-                            ImageUrl = "https://example.com/dlc_image_5.jpg"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Caption = "The Legend of Zelda: Breath of the Wild - The Champions' Ballad DLC Image",
-                            DLCId = 6,
-                            ImageUrl = "https://example.com/dlc_image_6.jpg"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Caption = "Grand Theft Auto V: The Diamond Casino Heist DLC Image",
-                            DLCId = 7,
-                            ImageUrl = "https://example.com/dlc_image_7.jpg"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Caption = "Grand Theft Auto V: The Cayo Perico Heist DLC Image",
-                            DLCId = 8,
-                            ImageUrl = "https://example.com/dlc_image_8.jpg"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Caption = "Minecraft: Nether Update DLC Image",
-                            DLCId = 9,
-                            ImageUrl = "https://example.com/dlc_image_9.jpg"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Caption = "Minecraft: Caves & Cliffs Update DLC Image",
-                            DLCId = 10,
-                            ImageUrl = "https://example.com/dlc_image_10.jpg"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Caption = "FIFA 22: Ultimate Team Expansion DLC Image",
-                            DLCId = 11,
-                            ImageUrl = "https://example.com/dlc_image_11.jpg"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Caption = "FIFA 22: Career Mode Expansion DLC Image",
-                            DLCId = 12,
-                            ImageUrl = "https://example.com/dlc_image_12.jpg"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Caption = "The Sims 4: Seasons DLC Image",
-                            DLCId = 13,
-                            ImageUrl = "https://example.com/dlc_image_13.jpg"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Caption = "The Sims 4: Get Together DLC Image",
-                            DLCId = 14,
-                            ImageUrl = "https://example.com/dlc_image_14.jpg"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Caption = "Resident Evil Village: The Mercenaries DLC Image",
-                            DLCId = 15,
-                            ImageUrl = "https://example.com/dlc_image_15.jpg"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Caption = "Resident Evil Village: The Tragedy of Ethan Winters DLC Image",
-                            DLCId = 16,
-                            ImageUrl = "https://example.com/dlc_image_16.jpg"
                         });
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.GameGenre", b =>
                 {
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("GenreId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("GameId", "GenreId");
 
@@ -1341,10 +1047,10 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.GamePlatform", b =>
                 {
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("PlatformId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("GameId", "PlatformId");
 
@@ -1357,13 +1063,13 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1421,20 +1127,20 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("DLCId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("LanguageName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
 
@@ -1449,13 +1155,13 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1513,22 +1219,31 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("character varying(5000)");
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Rating")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1543,12 +1258,12 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1561,15 +1276,15 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("GameId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("WishlistId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -1578,6 +1293,206 @@ namespace VideoGameBackend.Migrations
                     b.HasIndex("WishlistId");
 
                     b.ToTable("WishlistItems");
+                });
+
+            modelBuilder.Entity("backend.Models.Product.GameGameTag", b =>
+                {
+                    b.Property<int>("GameId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GameTagId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("GameId", "GameTagId");
+
+                    b.HasIndex("GameTagId");
+
+                    b.ToTable("GameGameTags");
+                });
+
+            modelBuilder.Entity("backend.Models.Product.GameTag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TagId"));
+
+                    b.Property<string>("TagName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("TagId");
+
+                    b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            TagId = 1,
+                            TagName = "Fantasy"
+                        },
+                        new
+                        {
+                            TagId = 2,
+                            TagName = "Medieval"
+                        },
+                        new
+                        {
+                            TagId = 3,
+                            TagName = "Story Rich"
+                        },
+                        new
+                        {
+                            TagId = 4,
+                            TagName = "Sci-Fi"
+                        },
+                        new
+                        {
+                            TagId = 5,
+                            TagName = "Post-Apocalyptic"
+                        },
+                        new
+                        {
+                            TagId = 6,
+                            TagName = "Horror"
+                        },
+                        new
+                        {
+                            TagId = 7,
+                            TagName = "Survival"
+                        },
+                        new
+                        {
+                            TagId = 8,
+                            TagName = "Retro"
+                        },
+                        new
+                        {
+                            TagId = 9,
+                            TagName = "Puzzle"
+                        },
+                        new
+                        {
+                            TagId = 10,
+                            TagName = "Platformer"
+                        },
+                        new
+                        {
+                            TagId = 11,
+                            TagName = "Shooter"
+                        },
+                        new
+                        {
+                            TagId = 12,
+                            TagName = "Strategy"
+                        },
+                        new
+                        {
+                            TagId = 13,
+                            TagName = "RPG"
+                        },
+                        new
+                        {
+                            TagId = 14,
+                            TagName = "VR"
+                        },
+                        new
+                        {
+                            TagId = 15,
+                            TagName = "Multiplayer"
+                        },
+                        new
+                        {
+                            TagId = 16,
+                            TagName = "Singleplayer"
+                        },
+                        new
+                        {
+                            TagId = 17,
+                            TagName = "Racing"
+                        },
+                        new
+                        {
+                            TagId = 18,
+                            TagName = "Sports"
+                        },
+                        new
+                        {
+                            TagId = 19,
+                            TagName = "Open World"
+                        },
+                        new
+                        {
+                            TagId = 20,
+                            TagName = "Sandbox"
+                        },
+                        new
+                        {
+                            TagId = 21,
+                            TagName = "City Builder"
+                        },
+                        new
+                        {
+                            TagId = 22,
+                            TagName = "Management"
+                        },
+                        new
+                        {
+                            TagId = 23,
+                            TagName = "Simulation"
+                        },
+                        new
+                        {
+                            TagId = 24,
+                            TagName = "Turn-Based"
+                        },
+                        new
+                        {
+                            TagId = 25,
+                            TagName = "Roguelike"
+                        },
+                        new
+                        {
+                            TagId = 26,
+                            TagName = "Narrative"
+                        },
+                        new
+                        {
+                            TagId = 27,
+                            TagName = "Visual Novel"
+                        },
+                        new
+                        {
+                            TagId = 28,
+                            TagName = "Anime"
+                        },
+                        new
+                        {
+                            TagId = 29,
+                            TagName = "Pixel Art"
+                        },
+                        new
+                        {
+                            TagId = 30,
+                            TagName = "Crafting"
+                        });
+                });
+
+            modelBuilder.Entity("backend.Models.User.UserFriend", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FriendId")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId", "FriendId");
+
+                    b.HasIndex("FriendId");
+
+                    b.ToTable("UserFriends");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1639,13 +1554,11 @@ namespace VideoGameBackend.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("VideoGameAppBackend.Models.GameImage", "GameImage")
-                        .WithMany()
-                        .HasForeignKey("GameImageId");
+                    b.HasOne("VideoGameAppBackend.Models.ApplicationUser", null)
+                        .WithMany("GameLibrary")
+                        .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("AgeRating");
-
-                    b.Navigation("GameImage");
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.GameImage", b =>
@@ -1813,7 +1726,7 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Review", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.Game", "Game")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1857,13 +1770,55 @@ namespace VideoGameBackend.Migrations
                     b.Navigation("Wishlist");
                 });
 
+            modelBuilder.Entity("backend.Models.Product.GameGameTag", b =>
+                {
+                    b.HasOne("VideoGameAppBackend.Models.Game", "Game")
+                        .WithMany("GameGameTags")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backend.Models.Product.GameTag", "GameTag")
+                        .WithMany("GameGameTags")
+                        .HasForeignKey("GameTagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("GameTag");
+                });
+
+            modelBuilder.Entity("backend.Models.User.UserFriend", b =>
+                {
+                    b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "Friend")
+                        .WithMany()
+                        .HasForeignKey("FriendId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "User")
+                        .WithMany("UserFriends")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Friend");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("VideoGameAppBackend.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Cart");
 
+                    b.Navigation("GameLibrary");
+
                     b.Navigation("Orders");
 
                     b.Navigation("Reviews");
+
+                    b.Navigation("UserFriends");
 
                     b.Navigation("WishLists");
                 });
@@ -1872,6 +1827,8 @@ namespace VideoGameBackend.Migrations
                 {
                     b.Navigation("DLCs");
 
+                    b.Navigation("GameGameTags");
+
                     b.Navigation("GameGenres");
 
                     b.Navigation("GameImages");
@@ -1879,6 +1836,8 @@ namespace VideoGameBackend.Migrations
                     b.Navigation("GamePlatforms");
 
                     b.Navigation("OrderItems");
+
+                    b.Navigation("Reviews");
 
                     b.Navigation("SupportedLanguages");
                 });
@@ -1920,6 +1879,11 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishList", b =>
                 {
                     b.Navigation("WishlistItems");
+                });
+
+            modelBuilder.Entity("backend.Models.Product.GameTag", b =>
+                {
+                    b.Navigation("GameGameTags");
                 });
 #pragma warning restore 612, 618
         }

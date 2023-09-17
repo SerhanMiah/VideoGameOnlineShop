@@ -9,11 +9,18 @@ using VideoGameAppBackend.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Configuration for DbContext and Identity
 builder.Services.AddControllersWithViews();
+// builder.Services.AddDbContext<GameDbContext>(options => 
+//     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+// Postgress connection
 builder.Services.AddDbContext<GameDbContext>(options => 
-    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<GameDbContext>()
