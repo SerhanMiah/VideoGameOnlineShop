@@ -27,8 +27,8 @@ if (jwtKey == null)
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // Prevents preserving object references in serialized JSON
-    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignores null values when writing JSON
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -46,19 +46,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+var allowedOrigins = configuration.GetSection("Logging:AllowedOrigins").Get<string[]>() ?? new string[0];
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200", 
-                           "https://video-game-online-shop.vercel.app", 
-                           "https://video-game-online-shop-8481ykbku-serhanmiah.vercel.app") 
+        policy.WithOrigins(allowedOrigins) 
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
 });
-
-
 
 builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
 
