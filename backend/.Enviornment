@@ -1,0 +1,5 @@
+PGHOST=containers-us-west-169.railway.app
+PGPORT=5442
+PGDATABASE=railway
+PGUSER=postgres
+PGPASSWORD=49s7lYkuhrqJwBy7c4jO

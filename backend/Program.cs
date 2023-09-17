@@ -13,12 +13,19 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Configuration for DbContext and Identity
 builder.Services.AddControllersWithViews();
-// builder.Services.AddDbContext<GameDbContext>(options => 
-//     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-// Postgress connection
+// Retrieve the PostgreSQL connection details from configuration
+var host = configuration["PGHOST"];
+var port = configuration["PGPORT"];
+var database = configuration["PGDATABASE"];
+var user = configuration["PGUSER"];
+var password = configuration["PGPASSWORD"];
+
+var connectionString = $"Host={host};Port={port};Database={database};Username={user};Password={password}";
+
+// Use the PostgreSQL connection string to configure the DbContext
 builder.Services.AddDbContext<GameDbContext>(options => 
-    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -98,3 +105,8 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+
+
