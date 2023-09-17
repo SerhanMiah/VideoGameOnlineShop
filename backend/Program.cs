@@ -64,11 +64,16 @@ builder.Services.AddCors(options =>
 // Adding Application Part
 builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
 
+
 // Build App
 var app = builder.Build();
 
 // Middleware
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseHsts();
 }
