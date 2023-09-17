@@ -46,7 +46,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-var allowedOrigins = configuration.GetSection("Logging:AllowedOrigins").Get<string[]>() ?? new string[0];
+var allowedOrigins = configuration.GetSection("AllowedOrigins").Get<string[]>() ?? new string[0];
 
 builder.Services.AddCors(options =>
 {
