@@ -48,13 +48,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("MyCorsPolicy", policy =>
     {
         policy.WithOrigins("http://localhost:4200", "https://video-game-online-shop.vercel.app")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
 });
+
 
 builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
 
@@ -69,7 +70,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors();
+app.UseCors("MyCorsPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();
