@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<GameDbContext>(options => 
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))); 
 
@@ -50,12 +51,13 @@ var allowedOrigins = configuration.GetSection("AllowedOrigins").Get<string[]>() 
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.WithOrigins(allowedOrigins) 
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
+    options.AddPolicy("AllowMyOrigin",
+        builder => 
+        {
+            builder.WithOrigins(allowedOrigins.Length > 0 ? allowedOrigins : new[] { "YourDefaultOriginHere" })
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
 });
 
 builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
@@ -71,7 +73,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors();
+app.UseCors("AllowMyOrigin");
 
 app.UseAuthentication();
 app.UseAuthorization();
