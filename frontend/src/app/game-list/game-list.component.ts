@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import axios from 'axios';
+import { environment } from '../../environment/environment';
+
 
 interface Game {
   id: number;
@@ -21,7 +23,7 @@ export class GameListComponent implements OnInit {
   constructor(private router: Router) {}
   async ngOnInit(): Promise<void> {
     try {
-        const { data } = await axios.get('http://localhost:5177/api/Game');
+      const { data } = await axios.get(`${environment.apiBaseUrl}/api/Game`);
 
         // Check if data exists
         if (!data) {
