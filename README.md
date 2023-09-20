@@ -1,5 +1,6 @@
 # VideoGameOnlineShop - A work in Progress
 
+![game-screenshot](./frontend/src/screenshots/homepage.png)
 
 # Project Overview
 
