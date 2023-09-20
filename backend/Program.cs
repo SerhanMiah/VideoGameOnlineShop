@@ -22,6 +22,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
 string? jwtKey = configuration["Jwt:Key"];
 if (jwtKey == null)
 {
+    
     throw new Exception("Missing JWT key in configuration");
 }
 
