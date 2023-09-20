@@ -119,8 +119,6 @@ In the initial phase of our Video Game E-commerce project, I established a solid
 
 ![game-screenshot](./frontend/src/screenshots/FlowChartEDR.png)
 
-![game-screenshot](./frontend/src/screenshots/FlowChartEDR.png)
-
 ## Embracing the Power of SQL Server:
 
 For our application's data storage, I opted for SQL Server—a reliable choice that facilitated the creation and management of our local database, laying a stable groundwork for our app data. I utilized MVC to shape the database models, which were initially structured as simple classes. Over time, these evolved, with more classes being added, often interconnected via foreign keys. I paired these classes with the ICollection method.
@@ -237,3 +235,6 @@ These enhancements have truly elevated the site's functionality and aesthetics t
 
 
 Embracing continuous learning was pivotal. Every challenge faced was an opportunity to delve deeper into the technology stack and emerge with a clearer understanding. Iterative development, feedback, and a focus on the user experience were crucial to the project's success.
+
+
+[def]: ./frontend/src/screenshots/GameLayoutFront.png
