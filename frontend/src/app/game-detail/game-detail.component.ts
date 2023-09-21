@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game, DLC } from '../game-models';
-import { CartService } from '../cart/CartService'
+import { CartService } from '../cart/CartService';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environment/environment';
+
+
 
 @Component({
   selector: 'app-game-detail',
@@ -20,15 +23,16 @@ export class GameDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private router: Router,
-    private cartService: CartService // Inject the CartService
+    private cartService: CartService,
+    private http: HttpClient
   ) {}
 
   newReview = {
     rating: 0,
-      // any other properties for the review
+    // any other properties for the review
   };
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id === null) {
       console.error('No game ID provided in route.');
@@ -36,19 +40,20 @@ export class GameDetailComponent implements OnInit {
     }
     const gameId = +id;
 
-    try {
-      const { data } = await axios.get(`http://localhost:5177/api/game/${gameId}`);
-      if (data) {
-        this.selectedGame = {
-          ...data,
-          gameImages: data.gameImages ? data.gameImages.$values : [],
-          dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
-        };
-      }
-    } catch (error) {
-      console.error('There was an error fetching the game:', error);
-      this.handleError(error);
-    }
+    this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
+      .subscribe(
+        data => {
+          this.selectedGame = {
+            ...data,
+            gameImages: data.gameImages ? data.gameImages.$values : [],
+            dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
+          };
+        },
+        error => {
+          console.error('There was an error fetching the game:', error);
+          this.handleError(error);
+        }
+      );
   }
 
   private processDLCs(dlcs: any[]): DLC[] {
@@ -74,7 +79,6 @@ export class GameDetailComponent implements OnInit {
 
   addToCart(gameId: number, quantity: number): void {
     if (this.selectedGame) {
-      // Add the selected game to the cart service
       this.cartService.addToCart({
         Id: this.selectedGame.id,
         GameId: gameId,
@@ -84,15 +88,12 @@ export class GameDetailComponent implements OnInit {
 
       console.log(`Added game with id: ${gameId} and quantity: ${quantity} to cart.`);
     }
-}
-
+  }
 
   directPurchase(gameId: number, quantity: number): void {
-    // Your logic to make a direct purchase goes here
     console.log(`Directly purchased game with id: ${gameId} and quantity: ${quantity}.`);
   }
 
-  // Calculate the number of items in the cart
   get cartItemsCount(): number {
     return this.cartService.getCartItems().length;
   }

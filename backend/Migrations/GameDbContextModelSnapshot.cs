@@ -50,7 +50,11 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = "725d37ea-bb97-4837-b56a-28673ae87275",
+=======
+                            Id = "5a04cce3-5bd9-48cd-86ad-6dc62350be0f",
+>>>>>>> e668194
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -145,8 +149,13 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             UserId = "6b9cb3c2-8785-4d24-b298-2fa799ed4fee",
                             RoleId = "725d37ea-bb97-4837-b56a-28673ae87275"
+=======
+                            UserId = "179ad9af-a862-47db-88fe-ac372ad11759",
+                            RoleId = "5a04cce3-5bd9-48cd-86ad-6dc62350be0f"
+>>>>>>> e668194
                         });
                 });
 
@@ -276,11 +285,19 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = "6b9cb3c2-8785-4d24-b298-2fa799ed4fee",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
                             ConcurrencyStamp = "32ba1a33-1d37-44bc-a3c3-4bc39b8312ca",
+=======
+                            Id = "179ad9af-a862-47db-88fe-ac372ad11759",
+                            AccessFailedCount = 0,
+                            AchievementsDb = "",
+                            Address = "",
+                            ConcurrencyStamp = "5d72c59e-72bb-45c8-8f59-da9b02088dcc",
+>>>>>>> e668194
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -288,20 +305,34 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEH77krfWs4VhKdZxPOkUKUP6C2W6R6MZ8C2JaH7D2kJyNCAiedJj1hCs4vmSbCOjCw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "57370690-196d-4c7b-a435-d560df05859f",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAENUB0N4Bh3cRVuoT8VOMh9Q4pWCLwdpOv/UEvs+i0ECfXvT56v4n/LHn0sFs2SEcug==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e52b3335-4fc0-421b-801b-aa5f3ab1f7e0",
+>>>>>>> e668194
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = "d8e7e1ff-ce1e-4c5f-8f37-e06f90bedb9c",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
                             ConcurrencyStamp = "134f9053-af5a-4fe7-bb8c-e682c7008e04",
+=======
+                            Id = "715a0c0d-5b0c-493a-a8d0-ab8ff6c53494",
+                            AccessFailedCount = 0,
+                            AchievementsDb = "",
+                            Address = "",
+                            ConcurrencyStamp = "1e7e8655-6782-457d-b940-f23e92281b39",
+>>>>>>> e668194
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -309,9 +340,15 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEOEZBUA10cuxMxMDJ0qA4FI4vr0skhG9pVarcRfQnSZ0ZmfX8TVqRkiQtDOljNylJQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "8eecfb89-eae5-44ed-9398-598cf4dced27",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAEPBA3zmpIjyOWDArer4LldXy6EWhwvT6/y2c2OI0hWREcai6mxSFWxrNspziexhAJg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b89dad2d-34aa-4378-b7d9-5bfc193c212a",
+>>>>>>> e668194
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "user"
@@ -403,7 +440,11 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp",
+<<<<<<< HEAD
                             CreatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6832),
+=======
+                            CreatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9473),
+>>>>>>> e668194
                             Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -414,7 +455,11 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Witcher 3: Wild Hunt",
                             TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
+<<<<<<< HEAD
                             UpdatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6836)
+=======
+                            UpdatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9482)
+>>>>>>> e668194
                         },
                         new
                         {
@@ -422,7 +467,11 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://www.rockstargames.com/reddeadredemption2/rockstar_games/r_d_r_logo.jpg",
+<<<<<<< HEAD
                             CreatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6851),
+=======
+                            CreatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9499),
+>>>>>>> e668194
                             Description = "Red Dead Redemption 2 is an action-adventure game set in the Wild West.",
                             Developer = "Rockstar Games",
                             HasMultiplayerSupport = true,
@@ -433,7 +482,11 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Red Dead Redemption 2",
                             TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
+<<<<<<< HEAD
                             UpdatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6851)
+=======
+                            UpdatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9500)
+>>>>>>> e668194
                         },
                         new
                         {
@@ -441,7 +494,11 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.0,
                             CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg",
+<<<<<<< HEAD
                             CreatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6855),
+=======
+                            CreatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9503),
+>>>>>>> e668194
                             Description = "Cyberpunk 2077 is a role-playing video game developed and published by CD Projekt.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -452,7 +509,11 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cyberpunk 2077",
                             TrailerUrl = "https://www.youtube.com/watch?v=vjF9GgrY9c0",
+<<<<<<< HEAD
                             UpdatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6855)
+=======
+                            UpdatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9503)
+>>>>>>> e668194
                         },
                         new
                         {
@@ -460,7 +521,11 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.5,
                             CoverImage = "https://bethesda.net/game/doom2016",
+<<<<<<< HEAD
                             CreatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6859),
+=======
+                            CreatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9553),
+>>>>>>> e668194
                             Description = "Doom Eternal is a first-person shooter video game developed by id Software and published by Bethesda Softworks.",
                             Developer = "id Software",
                             HasMultiplayerSupport = false,
@@ -471,7 +536,11 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Doom Eternal",
                             TrailerUrl = "https://www.youtube.com/watch?v=FkklG9MA0vM",
+<<<<<<< HEAD
                             UpdatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6860)
+=======
+                            UpdatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9553)
+>>>>>>> e668194
                         },
                         new
                         {
@@ -479,7 +548,11 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.5999999999999996,
                             CoverImage = "https://www.ubisoft.com/en-gb/game/assassins-creed/valhalla",
+<<<<<<< HEAD
                             CreatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6863),
+=======
+                            CreatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9558),
+>>>>>>> e668194
                             Description = "Assassin's Creed Valhalla is an action role-playing video game developed by Ubisoft Montreal.",
                             Developer = "Ubisoft",
                             HasMultiplayerSupport = false,
@@ -490,7 +563,11 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Assassin's Creed Valhalla",
                             TrailerUrl = "https://www.youtube.com/watch?v=SSYlfRq4ysA",
+<<<<<<< HEAD
                             UpdatedAt = new DateTime(2023, 9, 17, 21, 39, 7, 125, DateTimeKind.Utc).AddTicks(6863)
+=======
+                            UpdatedAt = new DateTime(2023, 9, 20, 10, 45, 54, 330, DateTimeKind.Utc).AddTicks(9558)
+>>>>>>> e668194
                         });
                 });
 

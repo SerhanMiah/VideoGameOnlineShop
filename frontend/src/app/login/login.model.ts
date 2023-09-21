@@ -19,6 +19,7 @@ export interface RegisterRequest {
   
   export interface LoginResponse {
     token: string;
+    id: string;
   }
   
   export interface ErrorResponse {

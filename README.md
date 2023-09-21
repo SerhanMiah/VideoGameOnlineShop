@@ -1,5 +1,6 @@
-# VideoGameOnlineShop - A work in Progress
+# VideoGameOnlineShop
 
+![game-screenshot](./frontend/src/screenshots/homepage.png)
 
 # Project Overview
 
@@ -110,8 +111,13 @@ This project consisted of four phase
 
 ### Planning the Project: Building a Solid Foundation:
 
-In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships.
+In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships. 
 
+![game-screenshot](./frontend/src/screenshots/ModelSchemaPlanning.png)
+
+![game-screenshot](./frontend/src/screenshots/GameLayoutFront.png)
+
+![game-screenshot](./frontend/src/screenshots/FlowChartEDR.png)
 
 ## Embracing the Power of SQL Server:
 
@@ -229,3 +235,6 @@ These enhancements have truly elevated the site's functionality and aesthetics t
 
 
 Embracing continuous learning was pivotal. Every challenge faced was an opportunity to delve deeper into the technology stack and emerge with a clearer understanding. Iterative development, feedback, and a focus on the user experience were crucial to the project's success.
+
+
+[def]: ./frontend/src/screenshots/GameLayoutFront.png

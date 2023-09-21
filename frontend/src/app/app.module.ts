@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarRatingModule } from 'angular-star-rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     ProfileComponent,
     CartComponent,
     GameReviewComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
