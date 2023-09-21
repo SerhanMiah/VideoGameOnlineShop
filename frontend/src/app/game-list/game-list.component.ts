@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-<<<<<<< HEAD
-import { HttpClient } from '@angular/common/http'; 
-=======
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment';
->>>>>>> e668194
 
 interface Game {
   id: number;
@@ -23,19 +19,11 @@ interface Game {
 export class GameListComponent implements OnInit {
   games: Game[] = [];
 
-<<<<<<< HEAD
-  constructor(private router: Router, private http: HttpClient) {} // Inject HttpClient here
-
-  async ngOnInit(): Promise<void> {
-    try {
-        const data: any = await this.http.get('http://localhost:5177/api/Game').toPromise();
-=======
   constructor(private router: Router, private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
     try {
       const data: any = await this.http.get(`${environment.apiBaseUrl}/api/Game`).toPromise();
->>>>>>> e668194
 
       // Check if data exists
       if (!data) {
@@ -66,22 +54,14 @@ export class GameListComponent implements OnInit {
       }));
       
 
-<<<<<<< HEAD
-        console.log('Mapped games:', this.games);
-=======
       // Log the mapped games for verification
       console.log('Mapped games:', this.games);
->>>>>>> e668194
 
     } catch (error) {
       console.error('There was an error fetching the games', error);
     }
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e668194
   onSelect(game: Game): void {
     this.router.navigate(['/game', game.id]);
   }

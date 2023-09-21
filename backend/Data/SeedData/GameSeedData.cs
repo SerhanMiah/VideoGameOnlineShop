@@ -190,42 +190,6 @@ namespace VideoGameAppBackend.Data.SeedData
                     AgeRatingId = 2,
                     CoverImage = "https://www.ubisoft.com/en-gb/game/assassins-creed/valhalla"
                 },
-                    new Game
-                {
-                    Id = 6,
-                    Title = "Far Cry 6",
-                    Price = 59.99m,
-                    ReleaseDate = new DateTime(2021, 10, 7),
-                    Description = "Far Cry 6 is an action-adventure game set in a fictional Caribbean island nation.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=-TmAE6MDlrc",
-                    Developer = "Ubisoft",
-                    AverageRating = 4.7,
-                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: AMD Ryzen 3 1200 or Intel Core i5-4460, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960 or AMD Radeon R9 280X, Storage: 60 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: AMD Ryzen 5 3600X or Intel Core i7-7700, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1660 Ti or AMD Radeon RX 5700 XT, Storage: 60 GB available space",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 1,
-                    DiscountedPrice = null,
-                    AgeRatingId = 3, // You can change the age rating ID based on your data
-                    CoverImage = "https://www.ubisoft.com/en-us/game/far-cry/far-cry-6"
-                },
-                new Game
-                {
-                    Id = 7,
-                    Title = "Minecraft",
-                    Price = 29.99m,
-                    ReleaseDate = new DateTime(2011, 11, 18),
-                    Description = "Minecraft is a sandbox video game that allows players to build and explore their own virtual worlds.",
-                    TrailerUrl = "https://www.youtube.com/watch?v=MmB9b5njVbA",
-                    Developer = "Mojang Studios",
-                    AverageRating = 4.9,
-                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i3-3210, Memory: 4 GB RAM, Graphics: Integrated GPU (Intel HD Graphics 4000 or equivalent), Storage: 4 GB available space",
-                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4690, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960 or equivalent, Storage: 4 GB available space",
-                    HasMultiplayerSupport = true,
-                    NumberOfLocalPlayers = 4,
-                    DiscountedPrice = null,
-                    AgeRatingId = 1, // You can change the age rating ID based on your data
-                    CoverImage = "https://www.minecraft.net/en-us/"
-                }
             };
 
             builder.Entity<Game>().HasData(games);
