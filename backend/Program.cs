@@ -9,37 +9,28 @@ using VideoGameAppBackend.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-// Configuration for DbContext and Identity
 builder.Services.AddControllersWithViews();
-
-// Retrieve the PostgreSQL connection details from configuration
-var host = configuration["PGHOST"];
-var port = configuration["PGPORT"];
-var database = configuration["PGDATABASE"];
-var user = configuration["PGUSER"];
-var password = configuration["PGPASSWORD"];
-
-var connectionString = $"Host={host};Port={port};Database={database};Username={user};Password={password}";
-
-// Use the PostgreSQL connection string to configure the DbContext
 builder.Services.AddDbContext<GameDbContext>(options => 
-    options.UseNpgsql(connectionString));
-
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))); 
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<GameDbContext>()
     .AddDefaultTokenProviders();
 
-// Configuration for JWT Authentication
 string? jwtKey = configuration["Jwt:Key"];
 if (jwtKey == null)
 {
-    
     throw new Exception("Missing JWT key in configuration");
 }
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // Prevents preserving object references in serialized JSON
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignores null values when writing JSON
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -55,59 +46,38 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// JSON Serializer Options
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-});
-
-// Configuration for CORS
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-var allowedOrigins = configuration.GetSection("AllowedOrigins").Get<string[]>() ?? new string[0];
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name:MyAllowSpecificOrigins, builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.WithOrigins(allowedOrigins.Length > 0 ? allowedOrigins : new[] { "YourDefaultOriginHere" })
-               .AllowAnyMethod()
-               .AllowAnyHeader()
-               .SetIsOriginAllowedToAllowWildcardSubdomains();
+        policy.WithOrigins("http://localhost:4200", "https://video-game-online-shop.vercel.app")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
 
-// Adding Application Part
 builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
 
-
-// Build App
 var app = builder.Build();
 
-// Middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
-app.UseCors(MyAllowSpecificOrigins);
+
+app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.Run();
-
-
-
-
-
