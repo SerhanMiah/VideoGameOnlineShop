@@ -190,7 +190,14 @@ These enhancements have truly elevated the site's functionality and aesthetics t
 ## Final Product 
 
 
+![game-screenshot](./frontend/src/screenshots/homepage.png)
 
+![game-screenshot](./frontend/src/screenshots/homepage.png)
+
+![game-screenshot](./frontend/src/screenshots/homepage.png)
+
+
+![game-screenshot](./frontend/src/screenshots/homepage.png)
 
 
 
