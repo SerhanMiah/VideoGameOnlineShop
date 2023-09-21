@@ -1,14 +1,17 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Email:</label>
-      <input type="email" formControlName="email">
-      <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">Invalid Email</div>
-    </div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <div class="login-container">
+      <h2>Login</h2>
+      <div class="input-group">
+          <label>Email:</label>
+          <input type="email" formControlName="email" placeholder="Enter your email">
+          <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">Invalid Email</div>
+      </div>
 
-    <div>
-      <label>Password:</label>
-      <input type="password" formControlName="password">
-    </div>
+      <div class="input-group">
+          <label>Password:</label>
+          <input type="password" formControlName="password" placeholder="Enter your password">
+      </div>
 
-    <button type="submit">Login</button>
+      <button type="submit" class="login-btn">Login</button>
+  </div>
 </form>
