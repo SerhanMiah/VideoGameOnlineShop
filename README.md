@@ -1,4 +1,4 @@
-# VideoGameOnlineShop - A work in Progress
+# VideoGameOnlineShop
 
 ![game-screenshot](./frontend/src/screenshots/homepage.png)
 
@@ -111,7 +111,7 @@ This project consisted of four phase
 
 ### Planning the Project: Building a Solid Foundation:
 
-In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships.
+In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships. 
 
 ![game-screenshot](./frontend/src/screenshots/ModelSchemaPlanning.png)
 
