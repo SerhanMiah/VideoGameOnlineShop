@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios'; // Import Axios
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'; // <-- Import HttpClient
 import { setToken, setId } from '../helper/auth.helper';
 import { LoginRequest, LoginResponse, ErrorResponse } from './login.model';
-
+import { environment } from 'src/environment/environment';
 import { ToastrService } from 'ngx-toastr';
-
+import { catchError } from 'rxjs/operators'; 
+import { throwError } from 'rxjs'; 
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService
-
+    private toastr: ToastrService,
+    private http: HttpClient // <-- Inject HttpClient
   ) { }
 
   ngOnInit() {
@@ -33,26 +34,30 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
-
-      axios.post('http://localhost:5177/api/account/login', loginData)
-        .then((response) => {
-          console.log('Login successful', response.data);
-          if (response.data && response.data.token) {
-            setToken(response.data.token);
+  
+      this.http.post<LoginResponse>(`${environment.apiBaseUrl}/api/account/login`, loginData)
+        .pipe(
+          catchError(error => {
+            console.error('Login error', error);
+            this.toastr.error('Login failed. Please try again.');
+            return throwError(error); 
+          })
+        )
+        .subscribe(response => {
+          console.log('Login successful', response);
+          if (response && response.token) {
+            setToken(response.token);
           }
-          if (response.data && response.data.id) {
-            setId(response.data.id); 
+          if (response && response.id) {
+            setId(response.id);
           }
-
-          this.toastr.success('Logged in successfully!');  
+  
+          this.toastr.success('Logged in successfully!');
           console.log('I have successfully logged in');
           this.router.navigate(['/']);
-        })
-        .catch((error) => {
-          console.error('Login error', error);
-          this.toastr.error('Login failed. Please try again.');  
         });
     }
-}
+  }
+  
+  }
 
-}

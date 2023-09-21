@@ -45,18 +45,18 @@ export class RegisterComponent {
             .then((response) => {
                 console.log('Registration successful', response.data);
                 if (response.data && response.data.token) {
-                    setToken(response.data.token); // Store the token
+                    setToken(response.data.token); 
                 }
                 if (response.data && response.data.id) {
-                    setId(response.data.id); // Store the user id
+                    setId(response.data.id); 
                 }
                 
-                this.toastr.success('Successfully registered!');  // Show success toaster message
+                this.toastr.success('Successfully registered!'); 
                 
             })
             .catch((error) => {
                 console.error('Registration error', error);
-                this.toastr.error('Registration failed. Please try again.');  // Optionally show an error toaster here
+                this.toastr.error('Registration failed. Please try again.');  
             });
     }
 }
