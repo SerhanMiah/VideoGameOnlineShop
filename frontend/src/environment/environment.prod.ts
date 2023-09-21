@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://videogameappshop.azurewebsites.net'
+  apiBaseUrl: ' https://videogameapp-0c95fe649a4c.herokuapp.com'
 };
