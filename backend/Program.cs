@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<GameDbContext>(options => 
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))); 
 
@@ -27,8 +28,8 @@ if (jwtKey == null)
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // Prevents preserving object references in serialized JSON
-    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignores null values when writing JSON
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -65,19 +66,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseCors();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
+app.MapControllerRoute(name: "default", pattern: "{controller}/{action=Index}/{id?}");
 app.Run();
