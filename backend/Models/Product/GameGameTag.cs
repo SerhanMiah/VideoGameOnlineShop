@@ -9,10 +9,10 @@ namespace backend.Models.Product
     public class GameGameTag
     {
         public int GameId { get; set; }
-        public Game Game { get; set; }
+        public Game? Game { get; set; }
 
         public int GameTagId { get; set; }
-        public GameTag GameTag { get; set; }
+        public GameTag? GameTag { get; set; }
         
     }
 }

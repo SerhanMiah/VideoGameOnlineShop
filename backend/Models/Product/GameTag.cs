@@ -12,7 +12,7 @@ namespace backend.Models.Product
         public int TagId { get; set; }
 
         [Required, StringLength(100), Display(Name = "Tag Name")]
-        public string TagName { get; set; }
+        public string? TagName { get; set; }
 
         public virtual ICollection<GameGameTag> GameGameTags { get; set; } = new List<GameGameTag>();
         

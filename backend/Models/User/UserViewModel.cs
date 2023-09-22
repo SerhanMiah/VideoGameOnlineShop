@@ -16,7 +16,7 @@ namespace VideoGameAppBackend.Models.User
         public string? Country { get; set; }
 
         // Attributes from UserProfile
-        public string FavoriteGame { get; set; }
+        public string? FavoriteGame { get; set; }
         public int TotalGamesPlayed { get; set; }
         public ICollection<string> Achievements { get; set; } = new List<string>();
         public ICollection<Game> GameLibrary { get; set; } = new List<Game>(); 

@@ -14,31 +14,31 @@ public class Billing
     public int Id { get; set; }
 
     [Required]
-    public string FullName { get; set; }
+    public string? FullName { get; set; }
 
     [Required]
-    public string Address { get; set; }
+    public string? Address { get; set; }
 
 
     [Required]
-    public string City { get; set; }
+    public string? City { get; set; }
 
     [Required]
-    public string State { get; set; }
+    public string? State { get; set; }
 
     [Required]
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
     [Required, DataType(DataType.PhoneNumber)]
-    public string PhoneNumber { get; set; }
+    public string? PhoneNumber { get; set; }
 
     [Required, DataType(DataType.EmailAddress)]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
     // Foreign Key for ApplicationUser
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
     [ForeignKey("UserId")]
-    public virtual ApplicationUser User { get; set; }
+    public virtual ApplicationUser? User { get; set; }
 
     // Assuming each order will have its billing record
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

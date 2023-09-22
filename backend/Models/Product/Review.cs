@@ -19,10 +19,10 @@ namespace VideoGameAppBackend.Models.Product
 
         [Required]
         [StringLength(1000)]
-        public string Title { get; set; } 
+        public string? Title { get; set; } 
 
         [StringLength(5000)]
-        public string Comment { get; set; } 
+        public string? Comment { get; set; } 
 
         [ForeignKey("Game")]
         public int GameId { get; set; }

@@ -7,7 +7,7 @@ namespace VideoGameAppBackend.Models.Payments
 {
     public class CartItemRequest
     {    
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         public int GameId { get; set; }
         public int Quantity { get; set; }
     }

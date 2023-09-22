@@ -1,0 +1,28 @@
+.checkout-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-details {
+    padding: 1rem;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+  }
+  
+  .order-details h4, .order-items h5 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+  
+  .order-items ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .order-items li {
+    padding: 0.5rem 0;
+  }
+  
+  

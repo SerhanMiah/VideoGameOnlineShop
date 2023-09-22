@@ -57,7 +57,7 @@ namespace VideoGameAppBackend.Data
         {
             base.OnModelCreating(builder);
 
-            var users = UserSeedData.Seed(builder, _passwordHasher) as List<ApplicationUser>; // Explicitly cast to List<ApplicationUser>
+            var users = UserSeedData.Seed(builder, _passwordHasher) as List<ApplicationUser>; 
             RoleSeedData.Seed(builder, users);
             GameSeedData.Seed(builder);
             GameImageSeedData.Seed(builder);

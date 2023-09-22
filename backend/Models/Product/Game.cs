@@ -53,7 +53,7 @@ namespace VideoGameAppBackend.Models
 
         public string? CoverImage { get; set; }  // Cover Image field
 
-        public ICollection<GameImage> GameImages { get; set; }
+        public ICollection<GameImage>? GameImages { get; set; }
 
         // =====================
         // Ratings & Requirements
@@ -92,9 +92,9 @@ namespace VideoGameAppBackend.Models
         public int AgeRatingId { get; set; }
         [ForeignKey("AgeRatingId")]
         [Display(Name = "Age Rating")]
-        public virtual AgeRating AgeRating { get; set; }
+        public virtual AgeRating? AgeRating { get; set; }
 
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem>? OrderItems { get; set; }
 
         // =====================
         // Timestamps

@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   fetchOrder(id: number): void {
-    this.http.get<Order>(`${environment.apiBaseUrl}/api/checkout/${id}`).subscribe(
+    this.http.get<Order>(`${environment.apiBaseUrl}/api/Checkout/${id}`).subscribe(
       data => {
         this.order = data;
       },

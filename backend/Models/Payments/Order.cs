@@ -38,6 +38,6 @@ namespace VideoGameAppBackend.Models
 
         public int? BillingId { get; set; } 
         [ForeignKey("BillingId")]
-        public virtual Billing Billing { get; set; }
+        public virtual Billing? Billing { get; set; }
     }
 }

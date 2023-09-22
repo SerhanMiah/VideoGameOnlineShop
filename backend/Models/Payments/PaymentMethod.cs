@@ -37,6 +37,6 @@ namespace VideoGameAppBackend.Models
             public string? BankName { get; set; }
 
             public int? BillingId { get; set; } // This is the foreign key
-            public virtual Billing Billing { get; set; }
+            public virtual Billing? Billing { get; set; }
         }
 }

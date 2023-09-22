@@ -1,1 +1,22 @@
-<h1>Hello Checkout</h1>
+<div *ngIf="order" class="checkout-container">
+    <h2>Checkout</h2>
+    <div class="order-details">
+      <h4>Order Details:</h4>
+      <p><strong>Order ID:</strong> {{order.id}}</p>
+      <!-- Display other order details as needed -->
+      <!-- For example: -->
+      <p><strong>Status:</strong> {{order.status}}</p>
+      <p><strong>Shipping Address:</strong> {{order.shippingAddress}}</p>
+  
+      <div class="order-items">
+        <h5>Items:</h5>
+        <ul>
+          <li *ngFor="let item of order.orderItems">
+            <!-- Assuming the game object inside the orderItem contains the game title -->
+            {{item.game.title}} - Quantity: {{item.quantity}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
