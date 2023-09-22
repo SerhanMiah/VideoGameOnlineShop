@@ -18,19 +18,24 @@ export class GameDetailComponent implements OnInit {
   errorMessage: string | undefined;
   selectedQuantity: number = 1;
   cartItems: Array<{ Game: Game; Quantity: number }> = [];
+  currentIndex: number = 0;
 
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private router: Router,
     private cartService: CartService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   newReview = {
     rating: 0,
     // any other properties for the review
   };
+
+  get currentImage(): string {
+    return this.selectedGame?.gameImages[this.currentIndex]?.url || '';
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -40,10 +45,16 @@ export class GameDetailComponent implements OnInit {
     }
     const gameId = +id;
 
+    
+
+    
+
     this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
       .subscribe(
         data => {
+          console.log(data)
           this.selectedGame = {
+
             ...data,
             gameImages: data.gameImages ? data.gameImages.$values : [],
             dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
@@ -64,18 +75,21 @@ export class GameDetailComponent implements OnInit {
       price: dlc.price,
       description: dlc.description,
       gameId: dlc.gameId,
-      dlcImages: dlc.dlcImages.$values,
+      dlcImages: dlc.dlcGallery && dlc.dlcGallery.$values ? dlc.dlcGallery.$values : [],
       game: dlc.game,
     }));
-  }
+}
+
 
   private handleError(error: any) {
     this.errorMessage = 'There was an issue fetching the game. Please try again later.';
   }
 
   getSafeUrl(videoId: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
-  }
+    const youtubeEmbedUrl = videoId.replace('watch?v=', 'embed/');
+    return this.sanitizer.bypassSecurityTrustResourceUrl(youtubeEmbedUrl);
+}
+
 
   addToCart(gameId: number, quantity: number): void {
     if (this.selectedGame) {
@@ -87,6 +101,17 @@ export class GameDetailComponent implements OnInit {
       });
 
       console.log(`Added game with id: ${gameId} and quantity: ${quantity} to cart.`);
+    }
+  }
+  prevImage(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  nextImage(): void {
+    if (this.currentIndex < (this.selectedGame?.gameImages.length || 0) - 1) {
+      this.currentIndex++;
     }
   }
 

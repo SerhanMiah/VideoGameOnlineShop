@@ -508,14 +508,14 @@ namespace VideoGameAppBackend.Data.SeedData
                 new DLCImage
                 {
                     Id = 2,
-                    ImageUrl = "https://example.com/path_to_second_image.jpg", // Replace with actual URL
+                    ImageUrl = "https://example.com/path_to_second_image.jpg",
                     Caption = "The Witcher 3: Hearts of Stone DLC Image 2",
                     DLCId = 1
                 },
                 new DLCImage
                 {
                     Id = 3,
-                    ImageUrl = "https://example.com/path_to_third_image.jpg", // Replace with actual URL
+                    ImageUrl = "https://example.com/path_to_third_image.jpg", 
                     Caption = "The Witcher 3: Hearts of Stone DLC Image 3",
                     DLCId = 1
                 }

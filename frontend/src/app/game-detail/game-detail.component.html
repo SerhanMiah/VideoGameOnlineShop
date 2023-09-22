@@ -1,134 +1,116 @@
-<!-- Main Game Detail Container -->
-<div *ngIf="selectedGame" class="game-detail-container container mt-5">
-    <!-- Main Game Info Row -->
-    <div class="row">
-        <!-- Cover Image and Image Gallery Column -->
-        <div class="col-md-5">
-            <!-- Main Cover Image -->
-            <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid mb-3">
+<div class="container-fluid game-detail-container mx-auto mt-12" *ngIf="selectedGame">
 
-            <!-- Image Gallery -->
-            <div class="game-images mb-3 d-flex justify-content-center">
-                <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail mr-2" width="80">
+    <header class="game-detail-header row">
+        <h1 class="col-12 game-title text-4xl font-semibold mb-6">{{ selectedGame.title }}</h1>
+    </header>
+    <div class="col-12 mx-auto trailer-section">
+        <div class="card border-0 shadow-lg">
+            <div class="card-header bg-dark text-white">
+                <h2 class="m-0">Official Trailer</h2>
+            </div>
+            <div class="card-body p-0">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" [src]="selectedGame.trailerUrl ? getSafeUrl(selectedGame.trailerUrl) : ''" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
+    </div>
+    
 
-        <!-- Game Details Column -->
-        <div class="col-md-7">
-            <h1 class="game-title">{{ selectedGame.title }}</h1>
-            <div class="mb-2">
-                <strong>Developer:</strong> {{ selectedGame.developer }}
-            </div>
-            <div class="price-badge mb-2">
-                <h2>${{ selectedGame.price }}</h2>
-            </div>
 
-            <!-- Quantity Selector -->
-            <div class="quantity-container d-flex align-items-center mb-3">
-                <label for="game-quantity" class="mr-2">Quantity:</label>
-                <input id="game-quantity" [(ngModel)]="selectedQuantity" type="number" min="1" value="1"/>
-            </div>
-
-            <!-- Total Price Display -->
-            <div class="total-price mb-3">
-                <strong>Total Price:</strong> ${{ selectedGame.price * selectedQuantity | number:'1.2-2' }}
-            </div>
-
-            <!-- Add to Cart and Buy Now Buttons -->
-            <div class="buttons-group">
-                <button (click)="addToCart(selectedGame.id, selectedQuantity)" class="purchase-btn btn btn-lg btn-block">
-                    <i class="fa fa-shopping-cart"></i> Add to Cart
-                </button>
-                
-                <button (click)="directPurchase(selectedGame.id, selectedQuantity)" class="btn btn-success mb-2">
-                    <i class="fa fa-credit-card"></i> Buy Now
-                </button>
-            </div>
-            
-            <!-- Display Potential Discount or Offers -->
-            <div class="offers mt-2">
-                <p class="text-muted">Get a 10% discount on purchases above $100!</p>
+    <section class="game-media row mb-5">
+  
+    
+        
+        <div class="col-md-6 image-section">
+            <div id="gameCoverCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#gameCoverCarousel" [attr.data-slide-to]="0" class="active"></li>
+                    <li *ngFor="let image of selectedGame.gameImages; let i = index" data-target="#gameCoverCarousel" [attr.data-slide-to]="i + 1"></li>
+                </ol>
+                <div class="carousel-inner rounded-lg shadow-lg">
+                    <!-- Main Cover Image -->
+                    <div class="carousel-item active">
+                        <img [src]="selectedGame.coverImage" alt="{{ selectedGame.title }} cover image" class="img-fluid rounded">
+                    </div>
+                    <!-- Additional Game Images -->
+                    <div *ngFor="let image of selectedGame.gameImages" class="carousel-item">
+                        <img [src]="image.url" alt="Game Image" class="img-fluid rounded">
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-4">
-                <strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}
+            <!-- Image Gallery -->
+            <div class="game-images mt-6">
+                <img *ngFor="let image of selectedGame.gameImages" [src]="image.url" alt="Game Image" class="img-thumbnail w-32 h-32 rounded-lg shadow">
             </div>
-            <div class="mt-4">
+        </div>
+    </section>
+
+    <section class="game-info row mb-12">
+        <div class="col-md-6 details-section">
+            <p><strong>Developer:</strong> {{ selectedGame.developer }}</p>
+            <div class="price-badge text-red-600">{{ selectedGame.price | currency }}</div>
+            <div class="quantity-container flex items-center">
+                <label for="game-quantity">Quantity:</label>
+                <input id="game-quantity" [(ngModel)]="selectedQuantity" type="number" min="1" class="p-2 border rounded-md w-20 text-center"/>
+            </div>
+            <div class="total-price">
+                <strong>Total Price:</strong> {{ selectedGame.price * selectedQuantity | currency }}
+            </div>
+            <div class="buttons-group space-y-3">
+                <button (click)="addToCart(selectedGame.id, selectedQuantity)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                <button (click)="directPurchase(selectedGame.id, selectedQuantity)" class="btn btn-success"><i class="fa fa-credit-card"></i> Buy Now</button>
+            </div>
+            <div class="release-info">
+                <p><strong>Release Date:</strong> {{ selectedGame.releaseDate | date }}</p>
                 <h4>System Requirements:</h4>
                 <p><strong>Minimum:</strong> {{ selectedGame.minimumSystemRequirements }}</p>
                 <p><strong>Recommended:</strong> {{ selectedGame.recommendedSystemRequirements }}</p>
             </div>
         </div>
-    </div>
 
-    <div *ngFor="let dlc of selectedGame?.dlcs">
-        <h3>{{ dlc.dlcName }}</h3>
-        <p>{{ dlc.description }}</p>
-        <div *ngFor="let image of dlc.dlcImages">
-            <img [src]="image" alt="{{ dlc.dlcName }} Image">
-        </div>
-    </div>
-    
-
-    <!-- DLC Section -->
-    <div class="dlc-section row mt-5">
-        <div class="col-12">
-            <h2>DLCs:</h2>
-            <!-- DLCs List -->
-            <ng-container *ngIf="selectedGame?.dlcs?.length; else noDLCs">
-                <ul class="list-unstyled">
-                    <li *ngFor="let dlc of selectedGame.dlcs">
-                        <strong>{{ dlc.dlcName }}</strong> - ${{ dlc.price }} 
-                        <small class="text-muted">(Released: {{ dlc.releaseDate | date:'mediumDate' }})</small>
-                        <p>{{ dlc.description }}</p>
-                    </li>
-                </ul>
-            </ng-container>
-            
-            <!-- Placeholder for No DLCs -->
-            <ng-template #noDLCs>
-                <p>No DLCs available for this game.</p>
-            </ng-template>
-        </div>
-    </div>
-
-    <!-- Information Tabs Section -->
-    <div class="info-tabs row mt-5">
-        <div class="col-12">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
+        <div class="col-md-6 tab-section">
+            <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab">Description</a>
+                    <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description">Description</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab">Details</a>
+                    <a class="nav-link" id="details-tab" data-toggle="tab" href="#details">Details</a>
                 </li>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <!-- Description Tab Content -->
-                <div class="tab-pane fade show active" id="pills-description" role="tabpanel">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="description">
                     <p>{{ selectedGame.description }}</p>
                 </div>
-                <!-- Details Tab Content -->
-                <div class="tab-pane fade" id="pills-details" role="tabpanel">
+                <div class="tab-pane fade" id="details">
                     <p><strong>Trailer:</strong> <a [href]="selectedGame.trailerUrl" target="_blank">Watch here</a></p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <section class="dlc-section row mb-12">
+        <h2 class="col-12 mb-4">DLCs & Additional Content</h2>
+        <div *ngIf="selectedGame.dlcs?.length; else noDLCs">
+            <div class="col-md-4 dlc-item" *ngFor="let dlc of selectedGame.dlcs">
+                <h3>{{ dlc.dlcName }}</h3>
+                <p>{{ dlc.description }}</p>
+                <div class="dlc-images">
+                    <img *ngFor="let image of dlc.dlcImages" [src]="image" alt="{{ dlc.dlcName }} Image" class="img-fluid rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+        <ng-template #noDLCs>
+            <p class="col-12 text-muted">No DLCs available for this game.</p>
+        </ng-template>
+    </section>
 
-    <!-- Reviews Section -->
-    <div class="reviews row mt-5">
+    <section class="reviews row">
         <div class="col-12">
             <h2>Reviews:</h2>
             <app-game-review [gameId]="selectedGame.id"></app-game-review>
         </div>
-    </div>
+    </section>
 
-
-
-    <!-- Cart Item Count -->
-    <!-- <div class="cart-item-count">
-        Cart Items: {{ cartItemsCount }}
-    </div> -->
 </div>
