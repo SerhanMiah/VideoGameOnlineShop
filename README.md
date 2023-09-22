@@ -119,11 +119,11 @@ To see the full features for Theatre, please feel free to log in using the follo
 
 This project consisted of four phase
 
-### Planning the Project: Building a Solid Foundation:
+### Phase 2: Laying the Groundwork - Database Connection, Model Creation, and Migration:
 
-In the initial phase of our Video Game E-commerce project, I established a solid backend infrastructure using C#, ASP.NET, and the Entity Framework. I integrated all required packages for both frontend and backend using the NuGet package manager. Our database was configured and connected using MS SQL Server Management Studio. Beyond mere coding, this phase was about conceptualizing, designing, and architecting the core essence of our application. To visualize and map out our application, I used Excalidraw for sketching and employed EDR flowcharts to understand database relationships. 
+In this phase, my primary focus was to lay a solid foundation for our e-commerce application's backend. Starting from establishing the database connection, sculpting the data models, to finally migrating them, this phase was all about precision and meticulous organization.
 
-![game-screenshot](./frontend/src/screenshots/ModelSchemaPlanning.png)
+![game-screenshot](./frontend/src/screenshots/ModelSchemaPlaning.png)
 
 ![game-screenshot](./frontend/src/screenshots/GameLayoutFront.png)
 
@@ -131,7 +131,7 @@ In the initial phase of our Video Game E-commerce project, I established a solid
 
 ## Embracing the Power of SQL Server:
 
-For our application's data storage, I opted for SQL Server—a reliable choice that facilitated the creation and management of our local database, laying a stable groundwork for our app data. I utilized MVC to shape the database models, which were initially structured as simple classes. Over time, these evolved, with more classes being added, often interconnected via foreign keys. I paired these classes with the ICollection method.
+For this application's data storage, I opted for SQL Server—a reliable choice that facilitated the creation and management of our local database, laying a stable groundwork for our app data. I utilized MVC to shape the database models, which were initially structured as simple classes. Over time, these evolved, with more classes being added, often interconnected via foreign keys. I paired these classes with the ICollection method.
 
 The principles of C# Object-Oriented Programming (OOP) played a pivotal role, especially in determining the use of public, private, and readonly accessors within the classes. Given that a significant portion was related to the gaming class, I modularized some classes into smaller sections for better manageability and potential reuse. After setting up the classes, I integrated the local database with the backend.
 
@@ -148,6 +148,8 @@ To supercharge the backend, I harnessed the incredible capabilities of NuGet pac
 
 ## Connection Configuration
 
+
+To kick things off, I set up the connection between our application and the database.
 First, set your connection string in the `appsettings.json`:
 
 ```json
@@ -157,6 +159,8 @@ First, set your connection string in the `appsettings.json`:
   }
 }
 ```
+And then linked it to the DbContext using:
+
 ```csharp
 builder.Services.AddDbContext<GameDbContext>(options => 
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
@@ -166,7 +170,11 @@ After establishing the connection, I successfully migrated the database to a ser
 
 **Building Models with C# ASP.NET Entity Framework**:
 
+Once connected, I embarked on crafting models that would define and structure our data.
+
 - **Entity Creation**: For each database table, I created a corresponding model in C#.
+
+* Game Model: This model was pivotal as it encapsulated the core attributes of a game, including its basic properties, media attributes, ratings, and intricate relationships with other entities.
 
 Game Model: 
 ```csharp
@@ -269,6 +277,8 @@ Game Model:
 ```
 
 IdentityUser - ApplicationUser Model:
+IdentityUser - ApplicationUser Model: To manage user-related data, I utilized the power of the ASP.NET Identity framework and extended the default IdentityUser class to create a more tailored ApplicationUser model for our app.
+
 ```csharp
     public class ApplicationUser : IdentityUser
     {
@@ -333,6 +343,7 @@ IdentityUser - ApplicationUser Model:
 
 ## GameDbContext
 - **DBContext**: This serves as the liaison between our app and the database, ensuring smooth data operations.
+The heart of our backend, GameDbContext, was then defined. Acting as the intermediary between our application and the database, this context was essential for smooth data operations.
 
 The `GameDbContext` class extends `IdentityDbContext<ApplicationUser>` and is responsible for initializing and managing the database context for our game application.
 
@@ -363,7 +374,9 @@ An instance of IPasswordHasher<ApplicationUser> is injected into the constructor
 
 The DbSet<TEntity> represents a collection of entities in the context that can be queried from the database. In the context of Entity Framework (EF), creates the tables in the database.
 
-- **LINQ for Data Operations**: With LINQ, handling database operations ranging from data retrieval to updates became more intuitive and streamlined.
+- **LINQ for Data Operations**: Leveraging LINQ with Entity Framework, I further streamlined database operations, making it intuitive to establish relationships between models and enhance our application with rich features.
+
+For instance, in one of my controllers:
 
 Consider this example from my game controller:
 
@@ -384,8 +397,30 @@ Consider this example from my game controller:
 ```
 In this example, I utilized LINQ queries to effortlessly establish relationships between different models and enrich the application with advanced features. The query retrieves all games along with their related images and DLCs, showcasing the power and simplicity of combining LINQ with Entity Framework.
 
+**Migration and Seeding**:
+After defining all necessary models and setting up the framework, the next logical step was migration. Using the dotnet ef database update command, I migrated the database to the server. But the true test of our backend lay in real-world operations. To simulate this, I seeded the database with test data, ensuring everything worked seamlessly.
 
-**Controllers Creation & Testing**: Based on our early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. I started with GET request and created unique endpoints commonly starting with GET request for all possible game
+
+**Controllers Creation & Testing**: Based on my early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. I started with GET request and created unique endpoints commonly starting with other requests for all possible game and CRUD functionality. 
+
+
+```csharp
+
+        // GET: api/game
+        [HttpGet]
+        public ActionResult<IEnumerable<Game>> GetGamesWithImagesAndDLCs()
+        {
+            var gamesWithImagesAndDLCs = _dbContext.Games
+                .Include(g => g.GameImages)
+                .Include(g => g.DLCs)
+                .ThenInclude(d => d.DLCImages!)
+                .ToList();
+
+            return gamesWithImagesAndDLCs;
+        }
+```
+
+HttpGet request to fetch the game data from the localhost shown below
 
 Insomia GET Test: 
 ![game-screenshot](./frontend/src/screenshots/InsomiaTest.png)
@@ -393,18 +428,81 @@ Insomia GET Test:
 
 **Testing with Seeding Data**: To ensure the app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations. Starting with a small data set I created necessary seeding data for games and all the relationship for Game, these include: Genre, Rating, DLC, GameImages. I adopted more enum as games would have several genres or rating, rather writing these again and again using enum provided a solid solution for multiple choices. 
 
+```csharp
+            // Games
+            var games = new List<Game>
+            {
+                new Game
+                {
+                    Id = 1,
+                    Title = "The Witcher 3: Wild Hunt",
+                    Price = 29.99m,
+                    ReleaseDate = new DateTime(2015, 5, 19),
+                    Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
+                    Developer = "CD Projekt Red",
+                    AverageRating = 4.8,
+                    MinimumSystemRequirements = "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 660 or AMD Radeon HD 7870, Storage: 35 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i7-3770 3.4 GHz or AMD FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 290, Storage: 35 GB available space",
+                    HasMultiplayerSupport = false,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 2,
+                    CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp"
+                },
+                    new Game
+                {
+                    Id = 2,
+                    Title = "Red Dead Redemption 2",
+                    Price = 49.99m,
+                    ReleaseDate = new DateTime(2018, 10, 26),
+                    Description = "Red Dead Redemption 2 is an action-adventure game set in the Wild West.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
+                    Developer = "Rockstar Games",
+                    AverageRating = 4.9,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2500K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770, Storage: 150 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 150 GB available space",
+                    HasMultiplayerSupport = true,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 2,
+                    CoverImage = "https://www.rockstargames.com/reddeadredemption2/rockstar_games/r_d_r_logo.jpg"
+                },
+                new Game
+                {
+                    Id = 3,
+                    Title = "Cyberpunk 2077",
+                    Price = 59.99m,
+                    ReleaseDate = new DateTime(2020, 12, 10),
+                    Description = "Cyberpunk 2077 is a role-playing video game developed and published by CD Projekt.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=vjF9GgrY9c0",
+                    Developer = "CD Projekt Red",
+                    AverageRating = 4.0,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-3570K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780, Storage: 70 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 70 GB available space",
+                    HasMultiplayerSupport = false,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 2,
+                    CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg"
+                },
+              // add more games.
+
+
+```
+
 **Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. I extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
 
 ---
 
 ### Key Learnings from Phase 2:
-Database Design: Understanding the intricacies of relationships and ensuring a scalable and efficient design is paramount. A good schema today can prevent many potential headaches in the future. It helped having an EDR Flowchat to look back on and my excalidraw to come up with the relationship between models. 
+Database Design: A well-laid-out schema not only simplifies current operations but also future-proofs the application. Visual tools like EDR Flowcharts and Excalidraw sketches were instrumental in helping me visualize and finalize the relationships between models.
 
-Entity Framework: Leveraging EF can drastically simplify database operations, but it's crucial to understand its inner workings to prevent inefficiencies.
+Entity Framework and LINQ: These tools, while incredibly powerful, also come with their intricacies. It's crucial to understand their nuances to harness their potential fully without affecting performance.
 
-The Power of LINQ: A potent tool in a developer's arsenal, LINQ is both versatile and expressive. However, one must be cautious to avoid over-complicating queries and affecting performance.
+The Importance of Testing: Regular testing, both with seeded data and tools, is non-negotiable. It highlights potential bottlenecks and ensures the robustness of the backend.
 
-Phase 2, though challenging, was a testament to the importance of meticulous planning. The schemas, models, and classes I designed and implemented are now ready to support the next stages of the Video Game Management System. The road ahead is exciting, and I eagerly look forward to the challenges and triumphs that lie in wait.
+This phase, though rigorous, has set a sturdy foundation for our application. With the core structures in place, I'm now geared up for the upcoming challenges and intricacies of our Video Game Management System.
 
 
 ### Phase 3: Bridging Backend with Frontend:
