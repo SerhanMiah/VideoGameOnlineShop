@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using backend.Models.Payments;
 
 namespace VideoGameAppBackend.Models
 {
@@ -34,5 +35,9 @@ namespace VideoGameAppBackend.Models
         [Required]
         [StringLength(200)]
         public string? ShippingAddress { get; set; }
+
+        public int? BillingId { get; set; } 
+        [ForeignKey("BillingId")]
+        public virtual Billing Billing { get; set; }
     }
 }

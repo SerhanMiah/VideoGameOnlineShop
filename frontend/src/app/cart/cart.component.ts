@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
 import { getId } from '../helper/auth.helper';
 import { CartService } from './CartService';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http'; 
 
 interface CartItem {
   Id?: number;
@@ -23,10 +23,10 @@ export class CartComponent implements OnInit {
   totalAmount: number = 0;
   private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
 
-
   constructor(
     private toastr: ToastrService,
-    public cartService: CartService // Change private to public
+    public cartService: CartService,
+    private http: HttpClient  
   ) {}
 
   ngOnInit(): void {
@@ -38,21 +38,21 @@ export class CartComponent implements OnInit {
   }
 
   fetchCartItems(): void {
-    axios
-      .get<CartItem[]>(`http://localhost:5177/api/shoppingCart/GetCartItems?userId=${this.userId}`)
-      .then((response) => {
-        if (Array.isArray(response.data)) {
-          this.cartService.setCartItems(response.data);
-        } else {
-          console.error('API did not return an array:', response.data);
+    this.http.get<CartItem[]>(`http://localhost:5177/api/shoppingCart/GetCartItems?userId=${this.userId}`)
+      .subscribe(
+        response => {
+          if (Array.isArray(response)) {
+            this.cartService.setCartItems(response);
+          } else {
+            console.error('API did not return an array:', response);
+          }
+        },
+        error => {
+          console.error('Error fetching cart items:', error);
+          this.toastr.error('Error fetching cart items. Please try again.');
         }
-      })
-      .catch((error) => {
-        console.error('Error fetching cart items:', error);
-        this.toastr.error('Error fetching cart items. Please try again.');
-      });
-}
-
+      );
+  }
 
   addToCart(newItem: CartItem): void {
     const currentItems = this.cartItemsSubject.value || [];

@@ -174,7 +174,24 @@ export interface Order {
     orderItems?: OrderItem[];
     status: OrderStatus;
     shippingAddress?: string;
+    billingId?: number;  
+    billing?: Billing;   
 }
+
+// Billing 
+export interface Billing {
+    id: number;
+    fullName: string;
+    address: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    phoneNumber: string;
+    email: string;
+    userId?: string;
+    user?: ApplicationUser;
+}
+
 
 export interface Review {
     id: number;
@@ -209,3 +226,5 @@ export interface WishlistItem {
     gameId: number;
     game?: Game;
 }
+
+

@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import axios from 'axios'; // Import Axios
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { setToken, setId } from '../helper/auth.helper';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http'; 
+import { catchError } from 'rxjs/operators'; 
+import { throwError } from 'rxjs'; 
+import { environment } from 'src/environment/environment';
+import { setToken, setId } from '../helper/auth.helper';
 
+interface RegistrationResponse {
+  token: string;
+  id: string;
+}
 
 @Component({
   selector: 'app-register',
@@ -15,7 +22,8 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private toastr: ToastrService  
+    private toastr: ToastrService,
+    private http: HttpClient  // <-- Inject HttpClient
     ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -41,25 +49,25 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
         const registrationData = this.registerForm.value;
 
-        axios.post('http://localhost:5177/api/account/register', registrationData)
-            .then((response) => {
-                console.log('Registration successful', response.data);
-                if (response.data && response.data.token) {
-                    setToken(response.data.token); 
-                }
-                if (response.data && response.data.id) {
-                    setId(response.data.id); 
-                }
-                
-                this.toastr.success('Successfully registered!'); 
-                
-            })
-            .catch((error) => {
+        this.http.post<RegistrationResponse>(`${environment.apiBaseUrl}/api/account/register`, registrationData)
+        .pipe(
+              catchError(error => {
                 console.error('Registration error', error);
-                this.toastr.error('Registration failed. Please try again.');  
+                this.toastr.error('Registration failed. Please try again.');
+                return throwError(error); 
+              })
+            )
+            .subscribe(response => {
+              console.log('Registration successful', response);
+              if (response && response.token) {
+                  setToken(response.token); 
+              }
+              if (response && response.id) {
+                  setId(response.id); 
+              }
+    
+              this.toastr.success('Successfully registered!'); 
             });
     }
-}
-
   }
-
+}

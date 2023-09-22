@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using backend.Models.Payments;
 
 namespace VideoGameAppBackend.Models
 {
@@ -35,5 +36,7 @@ namespace VideoGameAppBackend.Models
             [StringLength(50)]
             public string? BankName { get; set; }
 
+            public int? BillingId { get; set; } // This is the foreign key
+            public virtual Billing Billing { get; set; }
         }
 }

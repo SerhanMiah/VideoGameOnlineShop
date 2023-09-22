@@ -1,3 +1,4 @@
+using backend.Models.Payments;
 using backend.Models.User;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
@@ -58,5 +59,10 @@ namespace VideoGameAppBackend.Models
         public virtual ICollection<UserFriend> UserFriends { get; set; } = new List<UserFriend>();
 
         public string? Bio { get; set; }
+
+        public int? DefaultBillingId { get; set; }
+        [ForeignKey("DefaultBillingId")]
+        public virtual Billing? DefaultBillingDetails { get; set; }
+
     }
 }

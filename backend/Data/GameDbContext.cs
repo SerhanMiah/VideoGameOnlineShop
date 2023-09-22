@@ -8,6 +8,7 @@ using VideoGameAppBackend.Models.Product;
 using System.Collections.Generic;
 using backend.Models.Product;
 using backend.Models.User;
+using backend.Models.Payments;
 
 namespace VideoGameAppBackend.Data
 {
@@ -47,6 +48,7 @@ namespace VideoGameAppBackend.Data
 
         public DbSet<WishlistItem> WishlistItems { get; set; }
 
+        public DbSet<Billing> Billings { get; set; }
 
         public DbSet<UserFriend> UserFriends { get; set; }
 
@@ -182,6 +184,26 @@ namespace VideoGameAppBackend.Data
             builder.Entity<Review>()
                 .Property(r => r.ReviewDate)
                 .HasConversion(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+
+            // Set the relationship between ApplicationUser and Billing
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.DefaultBillingDetails) 
+                .WithOne(b => b.User)
+                .HasForeignKey<Billing>(b => b.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Set the relationship between Billing and Order
+            builder.Entity<Billing>()
+                .HasMany(b => b.Orders)
+                .WithOne(o => o.Billing)
+                .HasForeignKey(o => o.BillingId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<PaymentMethod>()
+                .HasOne(pm => pm.Billing)
+                .WithMany(b => b.PaymentMethods)
+                .HasForeignKey(pm => pm.BillingId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
 

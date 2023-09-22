@@ -186,6 +186,9 @@ In addition to aesthetics, I also devoted time to optimizing the site for mobile
 These enhancements have truly elevated the site's functionality and aesthetics to new heights, making it a truly immersive and engaging experience for all who visit.
 
 
+## Deployment 
+
+During the deployment phase of our website, I encountered challenges with Azure App Service, particularly when trying to host the database. Furthermore, transitioning the website to use the production-based API URL via the environment configuration presented issues. To navigate around these obstacles, I turned to Heroku as an alternative hosting solution. Once the build was successfully deployed on Heroku, I made necessary modifications to the firewall settings, ensuring that the appropriate IP addresses were whitelisted, thus securing a seamless operational flow for the website.
 
 ## Final Product 
 
