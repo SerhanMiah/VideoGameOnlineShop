@@ -39,20 +39,22 @@ export class GameListComponent implements OnInit {
       console.log(data)
 
       // Map the games from the $values property
+
       this.games = data.$values.map((gameData: {
         id: number;
         title: string;
         description: string;
         price: number;
-        GameImage: { path: string; } 
+        GameImage: { path: string };
       }) => ({
         id: gameData.id,
         title: gameData.title,
         description: gameData.description,
         price: gameData.price,
-        coverImageUrl: gameData.GameImage?.path, 
+        coverImage: gameData.GameImage?.path,
       }));
-      
+
+
 
       // Log the mapped games for verification
       console.log('Mapped games:', this.games);

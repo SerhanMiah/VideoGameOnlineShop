@@ -9,30 +9,69 @@ app-navigation-bar {
   padding: 0 15px;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-  background: linear-gradient(45deg, #2D324A, #1F2436);
-  position: relative;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Text color */
+  padding: 30px 0;
 }
 
-footer .footer-brand img {
-  max-width: 150px; /* Adjust as needed */
+.footer-container {
+  padding: 30px 0;
 }
 
-footer .footer-links a {
-  transition: color 0.3s ease;
+/* Logo and Company Info */
+.footer-brand img {
+  max-width: 100px; /* Adjust the max-width as needed */
 }
 
-footer .footer-links a:hover {
-  color: #FFD700; /* Gold color for hover */
+/* Quick Links */
+.footer-links ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-footer .footer-social .social-icon {
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffc107; /* Hover color */
+}
+
+/* Social Links */
+.social-icons {
   font-size: 24px;
-  margin-right: 10px;
-  transition: color 0.3s ease;
 }
 
-footer .footer-social .social-icon:hover {
-  color: #FFD700; /* Gold color for hover */
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffc107; /* Hover color */
+}
+
+/* Copyright and Credits */
+.footer-bottom {
+  background-color: #f8f9fa; /* Light background color */
+  color: #333; /* Text color */
+  padding: 10px 0;
+}
+
+.footer-bottom a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: #0056b3; /* Hover color */
 }

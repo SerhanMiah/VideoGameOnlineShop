@@ -104,8 +104,9 @@ export class GameDetailComponent implements OnInit {
     }
   }
   prevImage(): void {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
+    const prevIndex = this.currentIndex - 1;
+    if (prevIndex >= 0) {
+      this.currentIndex = prevIndex;
     }
   }
 

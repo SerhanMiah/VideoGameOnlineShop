@@ -540,9 +540,9 @@ During the deployment phase of our website, I encountered challenges with Azure 
 
 ![game-screenshot](./frontend/src/screenshots/homepage.png)
 
-![game-screenshot](./frontend/src/screenshots/homepage.png)
+![game-screenshot](./frontend/src/screenshots/GameDetailI1.png)
 
-![game-screenshot](./frontend/src/screenshots/homepage.png)
+![game-screenshot](./frontend/src/screenshots/GameDetail2.png)
 
 
 ![game-screenshot](./frontend/src/screenshots/homepage.png)
