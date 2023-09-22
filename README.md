@@ -396,14 +396,15 @@ Consider this example from my game controller:
         }
 ```
 In this example, I utilized LINQ queries to effortlessly establish relationships between different models and enrich the application with advanced features. The query retrieves all games along with their related images and DLCs, showcasing the power and simplicity of combining LINQ with Entity Framework.
+---
 
-**Migration and Seeding**:
-After defining all necessary models and setting up the framework, the next logical step was migration. Using the dotnet ef database update command, I migrated the database to the server. But the true test of our backend lay in real-world operations. To simulate this, I seeded the database with test data, ensuring everything worked seamlessly.
+**Controller Development and Initial Tests**: Grounded in my preliminary designs, I embarked on constructing controllers tailored to address web requests. My starting point revolved around formulating GET requests. This soon expanded to crafting unique endpoints that catered to all conceivable game-related functionalities, including the full spectrum of CRUD operations. 
 
+**Migration and Data Seeding**: With the establishment of models and the necessary foundational groundwork, the next step was to migrate our database structure to the server. Utilizing the `dotnet ef add migration InitialCreate` & `dotnet ef database update` command, I seamlessly transitioned the database. However, the ultimate testament to the backend's efficacy was its performance under practical scenarios. To emulate a real-world setting, I populated the database with test data, ensuring a flawless interaction and operation.
 
-**Controllers Creation & Testing**: Based on my early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. I started with GET request and created unique endpoints commonly starting with other requests for all possible game and CRUD functionality. 
+**Comprehensive Testing**: After setting the stage with controllers, I proceeded with comprehensive testing using platforms such as Swagger and Insomnia. My journey began with simple GET requests, gradually ramping up in complexity and breadth. Tools like Insomnia were pivotal in this phase, facilitating validation and ensuring our endpoints responded as intended.
 
-
+--- 
 ```csharp
 
         // GET: api/game
@@ -490,6 +491,8 @@ Insomia GET Test:
 
 
 ```
+
+---
 
 **Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. I extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
 
