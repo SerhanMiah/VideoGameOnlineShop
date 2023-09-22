@@ -81,6 +81,7 @@ namespace VideoGameAppBackend.Models
         public virtual ICollection<GameGenre> GameGenres { get; set; } = new List<GameGenre>();
         public virtual ICollection<GamePlatform> GamePlatforms { get; set; } = new List<GamePlatform>();
         public ICollection<DLC> DLCs { get; set; } = new List<DLC>();
+
         public virtual ICollection<Language> SupportedLanguages { get; set; } = new List<Language>();
 
         public virtual ICollection<GameGameTag> GameGameTags { get; set; } = new List<GameGameTag>();

@@ -28,7 +28,7 @@ namespace VideoGameAppBackend.Controllers
             var gamesWithImagesAndDLCs = _dbContext.Games
                 .Include(g => g.GameImages)
                 .Include(g => g.DLCs)
-                .ThenInclude(d => d.DLCImages!)
+                .ThenInclude(d => d.DLCGallery!)
                 .ToList();
 
             return gamesWithImagesAndDLCs;
@@ -41,7 +41,7 @@ namespace VideoGameAppBackend.Controllers
             var game = _dbContext.Games
                 .Include(g => g.GameImages)
                 .Include(g => g.DLCs)
-                .ThenInclude(d => d.DLCImages!)
+                .ThenInclude(d => d.DLCGallery!)
                 .FirstOrDefault(g => g.Id == id);
 
             if (game == null)

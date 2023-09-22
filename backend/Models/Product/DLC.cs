@@ -15,7 +15,7 @@ namespace VideoGameAppBackend.Models.Product
         [Required]
         [StringLength(100)]
         [Display(Name = "DLC Name")]
-        public string? DLCName { get; set; }
+        public string DLCName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -29,13 +29,13 @@ namespace VideoGameAppBackend.Models.Product
 
         [StringLength(500)]
         [Display(Name = "Description")]
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         [Display(Name = "Developer")]
-        public string? Developer { get; set; }
+        public string Developer { get; set; }
 
         [Display(Name = "Publisher")]
-        public string? Publisher { get; set; }
+        public string Publisher { get; set; }
 
         [Display(Name = "Discounted Price")]
         [Column(TypeName = "decimal(18, 2)")]
@@ -43,31 +43,31 @@ namespace VideoGameAppBackend.Models.Product
 
         [ForeignKey("Game")]
         public int GameId { get; set; }
-
-        public virtual Game? Game { get; set; }
+        public virtual Game Game { get; set; }
 
         [Display(Name = "Minimum System Requirements")]
-        public string? MinimumSystemRequirements { get; set; }
+        public string MinimumSystemRequirements { get; set; }
 
         [Display(Name = "Recommended System Requirements")]
-        public string? RecommendedSystemRequirements { get; set; }
+        public string RecommendedSystemRequirements { get; set; }
 
         [Display(Name = "Supported Languages")]
-        public virtual ICollection<Language>? SupportedLanguages { get; set; }
+        public virtual ICollection<Language> SupportedLanguages { get; set; }
 
-        [Display(Name = "DLC Images")]
-        public virtual ICollection<DLCImage>? DLCImages { get; set; }
+        [Display(Name = "DLC Gallery")]
+        public virtual ICollection<DLCImage> DLCGallery { get; set; } 
+
+        [Display(Name = "Main DLC Image")]
+        public int? MainDLCImageId { get; set; }
+
+        [ForeignKey("MainDLCImageId")]
+        public virtual DLCImage MainDLCImage { get; set; } 
 
         [Display(Name = "Average Rating")]
         public double? AverageRating { get; set; }
 
         [Display(Name = "Trailer URL")]
         [DataType(DataType.Url)]
-        public string? TrailerUrl { get; set; }
-
-        public int? DLCImageId { get; set; }
-
-        [ForeignKey("DLCImageId")]
-        public virtual DLCImage? DLCImage { get; set; }
+        public string TrailerUrl { get; set; }
     }
 }

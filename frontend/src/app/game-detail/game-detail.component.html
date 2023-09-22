@@ -61,6 +61,15 @@
         </div>
     </div>
 
+    <div *ngFor="let dlc of selectedGame?.dlcs">
+        <h3>{{ dlc.dlcName }}</h3>
+        <p>{{ dlc.description }}</p>
+        <div *ngFor="let image of dlc.dlcImages">
+            <img [src]="image" alt="{{ dlc.dlcName }} Image">
+        </div>
+    </div>
+    
+
     <!-- DLC Section -->
     <div class="dlc-section row mt-5">
         <div class="col-12">
@@ -75,6 +84,7 @@
                     </li>
                 </ul>
             </ng-container>
+            
             <!-- Placeholder for No DLCs -->
             <ng-template #noDLCs>
                 <p>No DLCs available for this game.</p>

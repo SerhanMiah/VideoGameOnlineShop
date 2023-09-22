@@ -113,11 +113,19 @@ namespace VideoGameAppBackend.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<DLC>()
-                .HasOne(d => d.DLCImage)
+                .HasOne(d => d.MainDLCImage)
                 .WithOne()
                 .HasForeignKey<DLCImage>(di => di.DLCId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<DLCImage>()
+                .HasOne(d => d.DLC)
+                .WithMany(p => p.DLCGallery)
+                .HasForeignKey(d => d.DLCId);
+
+
+
 
             // Set the relationship between Cart and CartItem
             builder.Entity<Cart>()

@@ -368,237 +368,242 @@ namespace VideoGameAppBackend.Data.SeedData
                     ReleaseDate = new DateTime(2015, 10, 13),
                     Price = 9.99m,
                     Description = "Embark on a new adventure as Geralt of Rivia in the Hearts of Stone expansion.",
-                    GameId = 1
-                },
-                new DLC
-                {
-                    Id = 2,
-                    DLCName = "The Witcher 3: Blood and Wine",
-                    ReleaseDate = new DateTime(2016, 5, 31),
-                    Price = 19.99m,
-                    Description = "Visit the picturesque land of Toussaint in the Blood and Wine expansion.",
-                    GameId = 1
-                },
+                    Developer = "CD Projekt", 
+                    Publisher = "CD Projekt",
+                    DiscountedPrice = null, 
+                    GameId = 1, 
+                    MinimumSystemRequirements = "OS: 64-bit Windows 7, CPU: Intel CPU Core i5-2500K 3.3GHz, RAM: 6GB, Graphics: Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870",
+                    RecommendedSystemRequirements = "OS: 64-bit Windows 7, CPU: Intel CPU Core i7 3770 3.4 GHz, RAM: 8GB, Graphics: Nvidia GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
+                    DLCGallery = new List<DLCImage>(), 
+                    MainDLCImageId = null,
+                    AverageRating = 4.8, 
+                    TrailerUrl = "https://www.youtube.com/watch?v=ffdxS9R6NTE", 
+                }
 
-                // DLCs for "Red Dead Redemption 2"
-                new DLC
-                {
-                    Id = 3,
-                    DLCName = "RDR2: Frontier Tales",
-                    ReleaseDate = new DateTime(2019, 7, 21),
-                    Price = 14.99m,
-                    Description = "Experience new stories from the Wild West in the Frontier Tales expansion.",
-                    GameId = 2
-                },
-                new DLC
-                {
-                    Id = 4,
-                    DLCName = "RDR2: Legend of the East",
-                    ReleaseDate = new DateTime(2020, 3, 15),
-                    Price = 19.99m,
-                    Description = "Unlock the mysteries of the East in this exciting new DLC.",
-                    GameId = 2
-                },
+                // new DLC
+                // {
+                //     Id = 2,
+                //     DLCName = "The Witcher 3: Blood and Wine",
+                //     ReleaseDate = new DateTime(2016, 5, 31),
+                //     Price = 19.99m,
+                //     Description = "Visit the picturesque land of Toussaint in the Blood and Wine expansion.",
+                //     GameId = 1
+                // },
 
-                // DLCs for "Cyberpunk 2077"
-                new DLC
-                {
-                    Id = 5,
-                    DLCName = "Cyberpunk: Night City Stories",
-                    ReleaseDate = new DateTime(2021, 6, 15),
-                    Price = 12.99m,
-                    Description = "Dive deeper into Night City with additional quests and characters.",
-                    GameId = 3
-                },
-                new DLC
-                {
-                    Id = 6,
-                    DLCName = "Cyberpunk: Beyond the Wall",
-                    ReleaseDate = new DateTime(2022, 1, 20),
-                    Price = 24.99m,
-                    Description = "Venture beyond the city limits and explore the wastelands.",
-                    GameId = 3
-                },
+                // // DLCs for "Red Dead Redemption 2"
+                // new DLC
+                // {
+                //     Id = 3,
+                //     DLCName = "RDR2: Frontier Tales",
+                //     ReleaseDate = new DateTime(2019, 7, 21),
+                //     Price = 14.99m,
+                //     Description = "Experience new stories from the Wild West in the Frontier Tales expansion.",
+                //     GameId = 2
+                // },
+                // new DLC
+                // {
+                //     Id = 4,
+                //     DLCName = "RDR2: Legend of the East",
+                //     ReleaseDate = new DateTime(2020, 3, 15),
+                //     Price = 19.99m,
+                //     Description = "Unlock the mysteries of the East in this exciting new DLC.",
+                //     GameId = 2
+                // },
 
-                // DLCs for "Doom Eternal"
-                new DLC
-                {
-                    Id = 7,
-                    DLCName = "Doom Eternal: Hell's Ascent",
-                    ReleaseDate = new DateTime(2021, 5, 10),
-                    Price = 19.99m,
-                    Description = "Climb through the new challenges and face tougher demons.",
-                    GameId = 4
-                },
-                new DLC
-                {
-                    Id = 8,
-                    DLCName = "Doom Eternal: The Slayer's Return",
-                    ReleaseDate = new DateTime(2021, 12, 20),
-                    Price = 19.99m,
-                    Description = "Return to the origin of the Slayer and discover his roots.",
-                    GameId = 4
-                },
+                // // DLCs for "Cyberpunk 2077"
+                // new DLC
+                // {
+                //     Id = 5,
+                //     DLCName = "Cyberpunk: Night City Stories",
+                //     ReleaseDate = new DateTime(2021, 6, 15),
+                //     Price = 12.99m,
+                //     Description = "Dive deeper into Night City with additional quests and characters.",
+                //     GameId = 3
+                // },
+                // new DLC
+                // {
+                //     Id = 6,
+                //     DLCName = "Cyberpunk: Beyond the Wall",
+                //     ReleaseDate = new DateTime(2022, 1, 20),
+                //     Price = 24.99m,
+                //     Description = "Venture beyond the city limits and explore the wastelands.",
+                //     GameId = 3
+                // },
 
-                // DLCs for "Assassin's Creed Valhalla"
-                new DLC
-                {
-                    Id = 9,
-                    DLCName = "AC Valhalla: Rise of the Druids",
-                    ReleaseDate = new DateTime(2021, 5, 13),
-                    Price = 24.99m,
-                    Description = "Travel to Ireland and confront the Druid cult.",
-                    GameId = 5
-                },
-                new DLC
-                {
-                    Id = 10,
-                    DLCName = "AC Valhalla: The Siege of Paris",
-                    ReleaseDate = new DateTime(2021, 8, 12),
-                    Price = 24.99m,
-                    Description = "Invade the fortified city of Paris and shape its future.",
-                    GameId = 5
-                },
+                // // DLCs for "Doom Eternal"
+                // new DLC
+                // {
+                //     Id = 7,
+                //     DLCName = "Doom Eternal: Hell's Ascent",
+                //     ReleaseDate = new DateTime(2021, 5, 10),
+                //     Price = 19.99m,
+                //     Description = "Climb through the new challenges and face tougher demons.",
+                //     GameId = 4
+                // },
+                // new DLC
+                // {
+                //     Id = 8,
+                //     DLCName = "Doom Eternal: The Slayer's Return",
+                //     ReleaseDate = new DateTime(2021, 12, 20),
+                //     Price = 19.99m,
+                //     Description = "Return to the origin of the Slayer and discover his roots.",
+                //     GameId = 4
+                // },
 
-                // DLCs for "Grand Theft Auto V"
-                new DLC
-                {
-                    Id = 13,
-                    DLCName = "GTA V: The Diamond Casino Heist",
-                    ReleaseDate = new DateTime(2019, 12, 12),
-                    Price = 19.99m,
-                    Description = "Plan and execute the ultimate heist at the Diamond Casino in Los Santos.",
-                    GameId = 7
-                },
-                new DLC
-                {
-                    Id = 14,
-                    DLCName = "GTA V: The Cayo Perico Heist",
-                    ReleaseDate = new DateTime(2020, 12, 15),
-                    Price = 24.99m,
-                    Description = "Embark on a remote island heist adventure in Cayo Perico.",
-                    GameId = 7
-                },
+                // // DLCs for "Assassin's Creed Valhalla"
+                // new DLC
+                // {
+                //     Id = 9,
+                //     DLCName = "AC Valhalla: Rise of the Druids",
+                //     ReleaseDate = new DateTime(2021, 5, 13),
+                //     Price = 24.99m,
+                //     Description = "Travel to Ireland and confront the Druid cult.",
+                //     GameId = 5
+                // },
+                // new DLC
+                // {
+                //     Id = 10,
+                //     DLCName = "AC Valhalla: The Siege of Paris",
+                //     ReleaseDate = new DateTime(2021, 8, 12),
+                //     Price = 24.99m,
+                //     Description = "Invade the fortified city of Paris and shape its future.",
+                //     GameId = 5
+                // },
+
+                // // DLCs for "Grand Theft Auto V"
+                // new DLC
+                // {
+                //     Id = 13,
+                //     DLCName = "GTA V: The Diamond Casino Heist",
+                //     ReleaseDate = new DateTime(2019, 12, 12),
+                //     Price = 19.99m,
+                //     Description = "Plan and execute the ultimate heist at the Diamond Casino in Los Santos.",
+                //     GameId = 7
+                // },
+                // new DLC
+                // {
+                //     Id = 14,
+                //     DLCName = "GTA V: The Cayo Perico Heist",
+                //     ReleaseDate = new DateTime(2020, 12, 15),
+                //     Price = 24.99m,
+                //     Description = "Embark on a remote island heist adventure in Cayo Perico.",
+                //     GameId = 7
+                // },
             };
 
 
             builder.Entity<DLC>().HasData(dlcs);
 
-        // DLC Images
-        var dlcImages = new List<DLCImage>
-        {
-            // DLC Images for "The Witcher 3: Hearts of Stone"
-            new DLCImage
+             // DLC Images
+            var dlcImages = new List<DLCImage>
             {
-                Id = 1,
-                ImageUrl = "https://static.wikia.nocookie.net/witcher/images/0/09/Tw3_expansion_pack_hos.jpg/revision/latest?cb=20150908190146",
-                Caption = "The Witcher 3: Hearts of Stone DLC Image",
-                DLCId = 1
-            },
-            new DLCImage
-            {
-                Id = 2,
-                ImageUrl = "https://static.wikia.nocookie.net/witcher/images/8/89/Tw3_Blood_and_Wine_cover_art.jpg/revision/latest?cb=20160414142032",
-                Caption = "The Witcher 3: Blood and Wine DLC Image",
-                DLCId = 2
-            },
+                // DLC Images for "The Witcher 3: Hearts of Stone"
+                new DLCImage
+                {
+                    Id = 1,
+                    ImageUrl = "https://static.wikia.nocookie.net/witcher/images/0/09/Tw3_expansion_pack_hos.jpg/revision/latest?cb=20150908190146",
+                    Caption = "The Witcher 3: Hearts of Stone DLC Image 1",
+                    DLCId = 1
+                },
+                new DLCImage
+                {
+                    Id = 2,
+                    ImageUrl = "https://example.com/path_to_second_image.jpg", // Replace with actual URL
+                    Caption = "The Witcher 3: Hearts of Stone DLC Image 2",
+                    DLCId = 1
+                },
+                new DLCImage
+                {
+                    Id = 3,
+                    ImageUrl = "https://example.com/path_to_third_image.jpg", // Replace with actual URL
+                    Caption = "The Witcher 3: Hearts of Stone DLC Image 3",
+                    DLCId = 1
+                }
+                // new DLCImage
+                // {
+                //     Id = 2,
+                //     ImageUrl = "https://static.wikia.nocookie.net/witcher/images/8/89/Tw3_Blood_and_Wine_cover_art.jpg/revision/latest?cb=20160414142032",
+                //     Caption = "The Witcher 3: Blood and Wine DLC Image",
+                //     DLCId = 2
+                // },
+                // // DLC Images for "RDR2: Frontier Tales" and "RDR2: Legend of the East"
+                // new DLCImage
+                // {
+                //     Id = 3,
+                //     ImageUrl = "https://example.com/rdr2_frontier_tales_image.jpg",
+                //     Caption = "RDR2: Frontier Tales DLC Image",
+                //     DLCId = 3
+                // },
+                // new DLCImage
+                // {
+                //     Id = 4,
+                //     ImageUrl = "https://example.com/rdr2_legend_of_the_east_image.jpg",
+                //     Caption = "RDR2: Legend of the East DLC Image",
+                //     DLCId = 4
+                // },
+                // // DLC Images for "Cyberpunk: Night City Stories" and "Cyberpunk: Beyond the Wall"
+                // new DLCImage
+                // {
+                //     Id = 5,
+                //     ImageUrl = "https://example.com/cyberpunk_night_city_stories_image.jpg",
+                //     Caption = "Cyberpunk: Night City Stories DLC Image",
+                //     DLCId = 5
+                // },
+                // new DLCImage
+                // {
+                //     Id = 6,
+                //     ImageUrl = "https://example.com/cyberpunk_beyond_the_wall_image.jpg",
+                //     Caption = "Cyberpunk: Beyond the Wall DLC Image",
+                //     DLCId = 6
+                // },
+                // // DLC Images for "Doom Eternal: Hell's Ascent" and "Doom Eternal: The Slayer's Return"
+                // new DLCImage
+                // {
+                //     Id = 7,
+                //     ImageUrl = "https://example.com/doom_eternal_hells_ascent_image.jpg",
+                //     Caption = "Doom Eternal: Hell's Ascent DLC Image",
+                //     DLCId = 7
+                // },
+                // new DLCImage
+                // {
+                //     Id = 8,
+                //     ImageUrl = "https://example.com/doom_eternal_slayers_return_image.jpg",
+                //     Caption = "Doom Eternal: The Slayer's Return DLC Image",
+                //     DLCId = 8
+                // },
+                // // DLC Images for "AC Valhalla: Rise of the Druids" and "AC Valhalla: The Siege of Paris"
+                // new DLCImage
+                // {
+                //     Id = 9,
+                //     ImageUrl = "https://example.com/ac_valhalla_rise_of_the_druids_image.jpg",
+                //     Caption = "AC Valhalla: Rise of the Druids DLC Image",
+                //     DLCId = 9
+                // },
+                // new DLCImage
+                // {
+                //     Id = 10,
+                //     ImageUrl = "https://example.com/ac_valhalla_siege_of_paris_image.jpg",
+                //     Caption = "AC Valhalla: The Siege of Paris DLC Image",
+                //     DLCId = 10
+                // },
+                // // DLC Images for "GTA V: The Diamond Casino Heist" and "GTA V: The Cayo Perico Heist"
+                // new DLCImage
+                // {
+                //     Id = 11,
+                //     ImageUrl = "https://example.com/gta_diamond_casino_heist_image.jpg",
+                //     Caption = "GTA V: The Diamond Casino Heist DLC Image",
+                //     DLCId = 13
+                // },
+                // new DLCImage
+                // {
+                //     Id = 12,
+                //     ImageUrl = "https://example.com/gta_cayo_perico_heist_image.jpg",
+                //     Caption = "GTA V: The Cayo Perico Heist DLC Image",
+                //     DLCId = 14
+                // }
+    // ... additional DLCImage entries as needed ...
+};
 
-            // DLC Images for "Skyrim: Dragonborn" and "Skyrim: Dawnguard"
-            new DLCImage
-            {
-                Id = 3,
-                ImageUrl = "https://example.com/skyrim_dragonborn_image.jpg",
-                Caption = "Skyrim: Dragonborn DLC Image",
-                DLCId = 11
-            },
-            new DLCImage
-            {
-                Id = 4,
-                ImageUrl = "https://example.com/skyrim_dawnguard_image.jpg",
-                Caption = "Skyrim: Dawnguard DLC Image",
-                DLCId = 12
-            },
-
-            // DLC Images for "GTA V: The Diamond Casino Heist" and "GTA V: The Cayo Perico Heist"
-            new DLCImage
-            {
-                Id = 5,
-                ImageUrl = "https://example.com/gta_diamond_casino_heist_image.jpg",
-                Caption = "GTA V: The Diamond Casino Heist DLC Image",
-                DLCId = 13
-            },
-            new DLCImage
-            {
-                Id = 6,
-                ImageUrl = "https://example.com/gta_cayo_perico_heist_image.jpg",
-                Caption = "GTA V: The Cayo Perico Heist DLC Image",
-                DLCId = 14
-            },
-
-            // DLC Images for "RDR2: Frontier Tales" and "RDR2: Legend of the East"
-            new DLCImage
-            {
-                Id = 7,
-                ImageUrl = "https://example.com/rdr2_frontier_tales_image.jpg",
-                Caption = "RDR2: Frontier Tales DLC Image",
-                DLCId = 15
-            },
-            new DLCImage
-            {
-                Id = 8,
-                ImageUrl = "https://example.com/rdr2_legend_of_the_east_image.jpg",
-                Caption = "RDR2: Legend of the East DLC Image",
-                DLCId = 16
-            },
-
-            // DLC Images for "Cyberpunk: Night City Stories" and "Cyberpunk: Beyond the Wall"
-            new DLCImage
-            {
-                Id = 9,
-                ImageUrl = "https://example.com/cyberpunk_night_city_stories_image.jpg",
-                Caption = "Cyberpunk: Night City Stories DLC Image",
-                DLCId = 17
-            },
-            new DLCImage
-            {
-                Id = 10,
-                ImageUrl = "https://example.com/cyberpunk_beyond_the_wall_image.jpg",
-                Caption = "Cyberpunk: Beyond the Wall DLC Image",
-                DLCId = 18
-            },
-
-            // DLC Images for "Overwatch: Heroes Unleashed" and "Overwatch: Battle for Azeroth"
-            new DLCImage
-            {
-                Id = 11,
-                ImageUrl = "https://example.com/overwatch_heroes_unleashed_image.jpg",
-                Caption = "Overwatch: Heroes Unleashed DLC Image",
-                DLCId = 19
-            },
-            new DLCImage
-            {
-                Id = 12,
-                ImageUrl = "https://example.com/overwatch_battle_for_azeroth_image.jpg",
-                Caption = "Overwatch: Battle for Azeroth DLC Image",
-                DLCId = 20
-            },
-
-            // DLC Images for "Halo: Infinite - Spartan Armory" and "Halo: Infinite - War Games"
-            new DLCImage
-            {
-                Id = 13,
-                ImageUrl = "https://example.com/halo_infinite_spartan_armory_image.jpg",
-                Caption = "Halo: Infinite - Spartan Armory DLC Image",
-                DLCId = 21
-            },
-            new DLCImage
-            {
-                Id = 14,
-                ImageUrl = "https://example.com/halo_infinite_war_games_image.jpg",
-                Caption = "Halo: Infinite - War Games DLC Image",
-                DLCId = 22
-            }
-        };
 
 
             builder.Entity<DLCImage>().HasData(dlcImages);

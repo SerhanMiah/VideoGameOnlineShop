@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Game, DLC } from '../game-models';
+import { Game, DLC, DLCImage } from '../game-models';
 import { CartService } from '../cart/CartService';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment';
