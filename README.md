@@ -507,6 +507,7 @@ The Importance of Testing: Regular testing, both with seeded data and tools, is 
 
 This phase, though rigorous, has set a sturdy foundation for our application. With the core structures in place, I'm now geared up for the upcoming challenges and intricacies of our Video Game Management System.
 
+---
 
 ### Phase 3: Bridging Backend with Frontend:
 

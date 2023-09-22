@@ -55,7 +55,6 @@ namespace VideoGameAppBackend.Controllers
 
         // Search for games
         [HttpGet("search")]
-
         public ActionResult<IEnumerable<Game>> GetGameSearch(string title)
         {
             var games = _dbContext.Games

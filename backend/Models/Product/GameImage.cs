@@ -12,7 +12,8 @@ namespace VideoGameAppBackend.Models
 
         [Required]
         [StringLength(500)]
-        public string? Url { get; set; }
+        public string Url { get; set; }
+
 
         public int GameId { get; set; }
 

@@ -64,10 +64,9 @@ namespace VideoGameAppBackend.Data
 
             // Set seeding order: Games first, then GameImages
             builder.Entity<Game>()
-                .HasMany(g => g.DLCs)
-                .WithOne(d => d.Game)
-                .HasForeignKey(d => d.GameId)
-                .IsRequired()
+                .HasMany(g => g.GameImages)
+                .WithOne(gi => gi.Game)
+                .HasForeignKey(gi => gi.GameId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Set the relationships for the Game, GameGenre, and GamePlatform entities
