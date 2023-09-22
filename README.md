@@ -1,10 +1,20 @@
 # VideoGameOnlineShop
 
+An immersive e-commerce platform dedicated to video game enthusiasts. Crafted with precision using a blend of powerful technologies like ASP.NET, Angular, and TypeScript, and designed with sleek UI to provide an engaging user experience.
+
+
+
 ![game-screenshot](./frontend/src/screenshots/homepage.png)
 
 # Project Overview
 
-Building my first e-commerce app using ASP.NET, C#, TypeScript, and Angular. Security will be managed with JWT tokens on both the backend and frontend, using local storage. The system will handle various relationships between video games and users, planned out with Lucid Diagram and Excalidraw.
+VideoGameOnlineShop is a full-stack e-commerce platform where users can explore and purchase their favorite video games. With a robust backend developed using ASP.NET and C# paired with an interactive frontend crafted in Angular and TypeScript, it promises an intuitive and seamless shopping experience.
+
+Key Features:
+
+* JWT authentication for secure user sessions.
+* Dynamic database relationships visualized with Lucid Diagram and Excalidraw.
+* Responsive design optimized for various devices.
 
 ## Deployment
 
