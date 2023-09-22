@@ -134,9 +134,25 @@ To supercharge the backend, I harnessed the incredible capabilities of NuGet pac
 
 ### Phase 2 Designing the Database and Crafting Models:
 
-**Database Design with MS SQL Server Management**: Given the intricate data relationships in our app—spanning from video games to user reviews—we needed a robust database system. SQL Server Management was chosen for this task. We created well-structured tables to avoid data redundancy and maintain easy-to-understand relationships, both simple and complex.
+**Database Design with MS SQL Server Management**: Given the intricate data relationships in our app—spanning from video games to user reviews—we needed a robust database system. SQL Server Management was chosen for this task. I created well-structured tables to avoid data redundancy and maintain easy-to-understand relationships, both simple and complex.
 
-**Using Stored Procedures & Triggers**: We used stored procedures for efficient data operations and triggers to ensure data consistency.
+## Connection Configuration
+
+First, set your connection string in the `appsettings.json`:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Connection String goes here"
+  }
+}
+```
+```csharp
+builder.Services.AddDbContext<GameDbContext>(options => 
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+```
+
+After establishing the connection, I successfully migrated the database to a server using the `dotnet ef database update` command. However, before doing so, I had to define the models and set up the framework. This provided a reference point for the database on my local machine.
 
 **Building Models with C# ASP.NET Entity Framework**:
 
@@ -144,9 +160,64 @@ To supercharge the backend, I harnessed the incredible capabilities of NuGet pac
   
 - **DBContext**: This serves as the liaison between our app and the database, ensuring smooth data operations.
 
-- **LINQ for Data Operations**: With LINQ, database operations, from data retrieval to updates, became straightforward and efficient.
+## GameDbContext
+
+The `GameDbContext` class extends `IdentityDbContext<ApplicationUser>` and is responsible for initializing and managing the database context for our game application.
+
+Here's a look at the class definition:
+
+```csharp
+public class GameDbContext : IdentityDbContext<ApplicationUser>
+{
+    private readonly IPasswordHasher<ApplicationUser> _passwordHasher;
+
+    public GameDbContext(DbContextOptions<GameDbContext> options, IPasswordHasher<ApplicationUser> passwordHasher)
+        : base(options)
+    {
+        _passwordHasher = passwordHasher;
+    }
+
+    public DbSet<Game> Games { get; set; }
+    public DbSet<GameImage> GameImages { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<Cart> Carts { get; set; }
+    public DbSet<CartItem> CartItems { get; set; }
+}
+```
+
+GameDbContext inherits from IdentityDbContext<ApplicationUser> to leverage the ASP.NET Core Identity framework for user authentication and management.
+An instance of IPasswordHasher<ApplicationUser> is injected into the constructor to manage password hashing for our ApplicationUser.
+
+The DbSet<TEntity> represents a collection of entities in the context that can be queried from the database. In the context of Entity Framework (EF), creates the tables in the database.
+
+- **LINQ for Data Operations**: With LINQ, handling database operations ranging from data retrieval to updates became more intuitive and streamlined.
+
+Consider this example from my game controller:
+
+```csharp
+
+        // GET: api/game
+        [HttpGet]
+        public ActionResult<IEnumerable<Game>> GetGamesWithImagesAndDLCs()
+        {
+            var gamesWithImagesAndDLCs = _dbContext.Games
+                .Include(g => g.GameImages)
+                .Include(g => g.DLCs)
+                .ThenInclude(d => d.DLCImages!)
+                .ToList();
+
+            return gamesWithImagesAndDLCs;
+        }
+```
+In this example, I utilized LINQ queries to effortlessly establish relationships between different models and enrich the application with advanced features. The query retrieves all games along with their related images and DLCs, showcasing the power and simplicity of combining LINQ with Entity Framework.
+
 
 **Controllers Creation & Testing**: Based on our early designs, I built controllers to manage web requests. Testing was done using tools such as Swagger and Insomnia. I started with GET request and created unique endpoints commonly starting with GET request for all possible game
+
+Insomia GET Test: 
+![game-screenshot](./frontend/src/screenshots/InsomiaTest.png)
+
 
 **Testing with Seeding Data**: To ensure the app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations. Starting with a small data set I created necessary seeding data for games and all the relationship for Game, these include: Genre, Rating, DLC, GameImages. I adopted more enum as games would have several genres or rating, rather writing these again and again using enum provided a solid solution for multiple choices. 
 

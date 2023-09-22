@@ -22,7 +22,8 @@ export class CartComponent implements OnInit {
   userId = getId();
   totalAmount: number = 0;
   private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
-
+  orderId: number = 1;
+  
   constructor(
     private toastr: ToastrService,
     public cartService: CartService,

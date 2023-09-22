@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'game/:id/review', component: GameReviewComponent },
 
   { path: 'cart', component: CartComponent},
-  { path: 'checkout', component: CheckoutComponent}
+  { path: 'checkout/:id', component: CheckoutComponent }
 
 
 ];
