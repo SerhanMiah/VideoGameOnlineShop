@@ -156,11 +156,173 @@ After establishing the connection, I successfully migrated the database to a ser
 
 **Building Models with C# ASP.NET Entity Framework**:
 
-- **Entity Creation**: For each database table, we created a corresponding model in C#.
+- **Entity Creation**: For each database table, I created a corresponding model in C#.
+
+Game Model: 
+```csharp
+    public class Game
+    {
+        // =====================
+        // Basic Properties
+        // =====================
+        
+        [Key]
+        public int Id { get; set; }
+
+        [Required, StringLength(100), Display(Name = "Title")]
+        public string? Title { get; set; }
+
+        [Required, Column(TypeName = "decimal(18, 2)"), Display(Name = "Price")]
+        public decimal Price { get; set; }
+
+        [Required, DataType(DataType.Date), Display(Name = "Release Date")]
+        public DateTime ReleaseDate { get; set; }
+
+        [StringLength(500), Display(Name = "Description")]
+        public string? Description { get; set; }
+
+        // =====================
+        // Game Details
+        // =====================
+
+        [StringLength(255), Display(Name = "Developer")]
+        public string? Developer { get; set; }
+
+        [StringLength(255), Display(Name = "Publisher")]
+        public string? Publisher { get; set; }
+
+        [Display(Name = "Multiplayer Support")]
+        public bool HasMultiplayerSupport { get; set; }
+
+        [Display(Name = "Number of Local Players")]
+        public int NumberOfLocalPlayers { get; set; }
+
+        // =====================
+        // Media Properties
+        // =====================
+
+        [DataType(DataType.Url), Display(Name = "Trailer URL")]
+        public string? TrailerUrl { get; set; }
+
+        public string? CoverImage { get; set; }  // Cover Image field
+
+        public ICollection<GameImage>? GameImages { get; set; }
+
+        // =====================
+        // Ratings & Requirements
+        // =====================
+
+        [Display(Name = "Average Rating")]
+        public double? AverageRating { get; set; }
+
+        [Display(Name = "ESRB Content Descriptions")]
+        public string? ESRBContentDescriptions { get; set; }
+
+        [Display(Name = "Minimum System Requirements")]
+        public string? MinimumSystemRequirements { get; set; }
+
+        [Display(Name = "Recommended System Requirements")]
+        public string? RecommendedSystemRequirements { get; set; }
+
+        [Column(TypeName = "decimal(18, 2)"), Display(Name = "Discounted Price")]
+        public decimal? DiscountedPrice { get; set; }
+
+        // =====================
+        // Relationships
+        // =====================
+
+        public virtual ICollection<GameGenre> GameGenres { get; set; } = new List<GameGenre>();
+        public virtual ICollection<GamePlatform> GamePlatforms { get; set; } = new List<GamePlatform>();
+        public ICollection<DLC> DLCs { get; set; } = new List<DLC>();
+        public virtual ICollection<Language> SupportedLanguages { get; set; } = new List<Language>();
+
+        public virtual ICollection<GameGameTag> GameGameTags { get; set; } = new List<GameGameTag>();
+
+        public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+
+
+        public int AgeRatingId { get; set; }
+        [ForeignKey("AgeRatingId")]
+        [Display(Name = "Age Rating")]
+        public virtual AgeRating? AgeRating { get; set; }
+
+        public virtual ICollection<OrderItem>? OrderItems { get; set; }
+
+        // =====================
+        // Timestamps
+        // =====================
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    }
+```
+
+IdentityUser - ApplicationUser Model:
+```csharp
+    public class ApplicationUser : IdentityUser
+    {
+        [StringLength(50)]
+        public string? FirstName { get; set; }
+
+        [StringLength(50)]
+        public string? LastName { get; set; }
+
+        [StringLength(100)]
+        public string? Address { get; set; } = string.Empty;
+
+        [StringLength(50)]
+        public string? City { get; set; }
+
+        [StringLength(50)]
+        public string? State { get; set; }
+
+        [StringLength(10)]
+        public string? PostalCode { get; set; }
+
+        [StringLength(50)]
+        public string? Country { get; set; }
+
+        public virtual Cart? Cart { get; set; }
+
+        public virtual ICollection<Order>? Orders { get; set; }
+
+        public virtual ICollection<Review>? Reviews { get; set; }
+
+        public virtual ICollection<WishList>? WishLists { get; set; }
+
+        public string? FavoriteGame { get; set; }
+
+        public int TotalGamesPlayed { get; set; }
+
+        [NotMapped]
+        public ICollection<string> Achievements { get; set; } = new List<string>();
+
+        public string AchievementsDb
+        {
+            get { return Achievements != null ? string.Join(",", Achievements) : ""; }
+            set { Achievements = value?.Split(',').ToList() ?? new List<string>(); }
+        }
+
+        public ICollection<Game> GameLibrary { get; set; } = new List<Game>();
+
+        public virtual ICollection<UserFriend> UserFriends { get; set; } = new List<UserFriend>();
+
+        public string? Bio { get; set; }
+
+        public int? DefaultBillingId { get; set; }
+        [ForeignKey("DefaultBillingId")]
+        public virtual Billing? DefaultBillingDetails { get; set; }
+
+    }
+}
+
+```
   
-- **DBContext**: This serves as the liaison between our app and the database, ensuring smooth data operations.
+
 
 ## GameDbContext
+- **DBContext**: This serves as the liaison between our app and the database, ensuring smooth data operations.
 
 The `GameDbContext` class extends `IdentityDbContext<ApplicationUser>` and is responsible for initializing and managing the database context for our game application.
 
@@ -221,7 +383,7 @@ Insomia GET Test:
 
 **Testing with Seeding Data**: To ensure the app's optimal performance, I populated our database with test data. I believe a solid backend sets the stage for an impeccable frontend experience, especially when performing real-world data operations. Starting with a small data set I created necessary seeding data for games and all the relationship for Game, these include: Genre, Rating, DLC, GameImages. I adopted more enum as games would have several genres or rating, rather writing these again and again using enum provided a solid solution for multiple choices. 
 
-**Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. We extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
+**Middleware & Tools**: Proper middleware integration was essential for CORS support, ensuring smooth communication across various sources. I extensively used Swagger for API testing, complemented by Insomnia for data exchange verification.
 
 ---
 
@@ -232,12 +394,12 @@ Entity Framework: Leveraging EF can drastically simplify database operations, bu
 
 The Power of LINQ: A potent tool in a developer's arsenal, LINQ is both versatile and expressive. However, one must be cautious to avoid over-complicating queries and affecting performance.
 
-Phase 2, though challenging, was a testament to the importance of meticulous planning. The schemas, models, and classes we designed and implemented are now ready to support the next stages of our Video Game Management System. The road ahead is exciting, and we eagerly look forward to the challenges and triumphs that lie in wait.
+Phase 2, though challenging, was a testament to the importance of meticulous planning. The schemas, models, and classes I designed and implemented are now ready to support the next stages of the Video Game Management System. The road ahead is exciting, and I eagerly look forward to the challenges and triumphs that lie in wait.
 
 
 ### Phase 3: Bridging Backend with Frontend:
 
-In this phase, we integrated our backend services with the frontend interface. We employed Angular—a component-based framework—to ensure seamless communication with our ASP.NET backend.
+In this phase, I integrated our backend services with the frontend interface. I employed Angular—a component-based framework—to ensure seamless communication with our ASP.NET backend.
 
 **Seeding & Initial Tests**: I initiated the process by populating our system with test data derived from the video game models and their associated relationships. Using tools like Insomnia, I verified if the application correctly accessed information via designated endpoints and HTTP requests.
 
