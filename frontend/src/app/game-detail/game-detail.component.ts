@@ -19,6 +19,8 @@ export class GameDetailComponent implements OnInit {
   selectedQuantity: number = 1;
   cartItems: Array<{ Game: Game; Quantity: number }> = [];
   currentIndex: number = 0;
+  gameLanguages: any[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -49,22 +51,27 @@ export class GameDetailComponent implements OnInit {
 
     
 
-    this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
-      .subscribe(
-        data => {
-          console.log(data)
-          this.selectedGame = {
-
-            ...data,
-            gameImages: data.gameImages ? data.gameImages.$values : [],
-            dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
-          };
-        },
-        error => {
-          console.error('There was an error fetching the game:', error);
-          this.handleError(error);
-        }
-      );
+   this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
+            .subscribe(
+                data => {
+                    console.log(data)
+                    this.selectedGame = {
+                        ...data,
+                        gameImages: data.gameImages ? data.gameImages.$values : [],
+                        dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
+                        ageRating: data.ageRating,
+                        averageRating: data.averageRating,
+                        gameGameTags: data.gameGameTags ? data.gameGameTags.$values : [],
+                        gameGenres: data.gameGenres ? data.gameGenres.$values : [],
+                        gameLanguages: data.gameLanguages ? data.gameLanguages.$values : [],
+                        gamePlatforms: data.gamePlatforms ? data.gamePlatforms.$values : [],
+                    };
+                },
+                error => {
+                    console.error('There was an error fetching the game:', error);
+                    this.handleError(error);
+                }
+            );
   }
 
   private processDLCs(dlcs: any[]): DLC[] {
@@ -79,6 +86,7 @@ export class GameDetailComponent implements OnInit {
       game: dlc.game,
     }));
 }
+
 
 
   private handleError(error: any) {

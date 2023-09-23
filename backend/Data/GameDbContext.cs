@@ -40,6 +40,8 @@ namespace VideoGameAppBackend.Data
         public DbSet<AgeRating> AgeRatings { get; set; }
         public DbSet<Language> Languages { get; set; }
 
+        public DbSet<GameLanguage> GameLanguages { get; set;}
+
         public DbSet<GameTag> Tags { get; set; }
         public DbSet<GameGameTag> GameGameTags { get; set; }
 
@@ -76,16 +78,12 @@ namespace VideoGameAppBackend.Data
             builder.Entity<GameGenre>()
                 .HasOne(gg => gg.Game)
                 .WithMany(g => g.GameGenres)
-                .HasForeignKey(gg => gg.GameId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(gg => gg.GameId);
 
             builder.Entity<GameGenre>()
                 .HasOne(gg => gg.Genre)
                 .WithMany(g => g.GameGenres)
-                .HasForeignKey(gg => gg.GenreId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(gg => gg.GenreId);
 
             builder.Entity<GamePlatform>()
                 .HasKey(gp => new { gp.GameId, gp.PlatformId });
@@ -124,6 +122,9 @@ namespace VideoGameAppBackend.Data
                 .WithMany(p => p.DLCGallery)
                 .HasForeignKey(d => d.DLCId);
 
+            // Define composite key for GameLanguage
+            builder.Entity<GameLanguage>()
+                .HasKey(gl => new { gl.GameId, gl.LanguageId });
 
 
 

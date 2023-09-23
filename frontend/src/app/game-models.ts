@@ -24,6 +24,9 @@ export interface Game {
     esrbContentDescriptions?: string;
     orderItems: OrderItem[];
     coverImage: string;
+    gameGameTags?: Array<{ gameTag: { tagName: string } }>;
+    gameLanguages: { language: string }[];
+
 }
 
 export interface GameGenre {

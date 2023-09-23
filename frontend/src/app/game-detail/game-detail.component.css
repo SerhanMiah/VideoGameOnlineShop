@@ -1,11 +1,40 @@
-/* General styling and reset */
+/* 
+===========================
+RESET & GLOBAL STYLES
+===========================
+*/
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f6f8fa;
   font-size: 16px;
 }
 
-/* Game Detail Container */
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+.row {
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover, .btn:focus {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 
+===========================
+GAME DETAIL CONTAINER
+===========================
+*/
+
 .container-fluid.game-detail-container {
   max-width: 1200px;
   background-color: #ffffff;
@@ -14,40 +43,46 @@ body {
   padding: 20px;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-  margin-top: 0;
-}
-
-/* Game Detail Header */
 .game-detail-header {
   background: linear-gradient(90deg, rgba(0,123,255,0.1) 0%, rgba(0,123,255,0.05) 100%);
 }
 
-/* Trailer Section */
+
+/* 
+===========================
+IMAGE & TRAILER SECTIONS
+===========================
+*/
+
 .trailer-section {
   position: relative;
   overflow: hidden;
-  padding-top: 56.25%; /* for 16:9 ratio */
-  margin: 0;
-  padding: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .trailer-section .card {
   border: none;
 }
 
-.trailer-section .card-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e2e2e2;
+.trailer-section .card-header, .trailer-section .embed-responsive-item, .trailer-section iframe {
+  border-radius: 8px;
 }
 
-.trailer-section .embed-responsive-item,
+.trailer-section .embed-responsive-item, .trailer-section iframe {
+  /* position: absolute; Removing this */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embed-responsive-16by9 {
+  padding-bottom: 56.25%; /* This provides the 16:9 aspect ratio */
+  position: relative;
+}
+
 .trailer-section iframe {
-  border-radius: 8px;
-  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -56,124 +91,129 @@ h1, h2, h3, h4 {
   border: 0;
 }
 
-/* Image Section */
+
+
 .image-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Center-align images horizontally */
+  justify-content: center;
 }
-
-
-
 .image-section .col-md-4 {
   flex: 0 0 calc(33.3333% - 20px);
   max-width: calc(33.3333% - 20px);
 }
-
 .image-section img {
   width: 100%;
-  max-height: 100%;
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-
 .image-section img:hover {
   transform: scale(1.05);
 }
 
-/* Game Info Section */
-.details-section {
-  border-right: 1px solid #e2e2e2;
-  padding-right: 16px;
-}
 
-.price-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: #ffe6e6;
-  border-radius: 16px;
-  margin-bottom: 16px;
-}
+/* 
+===========================
+GAME INFO SECTION
+===========================
+*/
 
-.quantity-container {
-  margin-top: 16px;
-  margin-bottom: 24px;
-}
-
-.total-price {
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.buttons-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.buttons-group .btn {
-  border-radius: 24px;
-  transition: opacity 0.3s, transform 0.3s;
-}
-
-.buttons-group .btn:hover {
-  opacity: 0.9;
-}
-
-.buttons-group .btn:active {
-  opacity: 0.8;
-  transform: translateY(2px);
-}
-
-.tab-section .nav-tabs .nav-item {
-  margin-bottom: -1px; /* To remove double borders between tabs */
-}
-
-.tab-section .nav-tabs .nav-link {
-  transition: background 0.3s, color 0.3s;
-}
-
-.tab-section .nav-tabs .nav-link.active {
-  background-color: #f8f9fa;
-  color: #333;
-}
-
-/* DLCs Section */
-.dlc-item {
-  margin-bottom: 24px;
-}
-
-.dlc-images img {
-  margin-top: 12px;
+.game-info-section {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  background-color: #f5f5f5;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Reviews Section */
-.reviews {
-  border-top: 1px solid #e2e2e2;
-  padding-top: 24px;
+/* Tags, Genre, Languages, Platform */
+.justify-content-start p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Ensure the aspect ratio is maintained for responsive videos */
-.embed-responsive-16by9 {
-  padding-bottom: 56.25%;
+.tag-genre-language-platform-section p {
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 16px;
 }
 
-/* Allow video controls to be visible */
-.embed-responsive iframe {
-  height: 100%;
-  width: 100%;
+/* Game Details & Description */
+.game-details-description {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Style video controls (optional) */
-.embed-responsive iframe::-webkit-media-controls {
-  display: block;
+h3.text-danger {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
-.embed-responsive iframe::-webkit-media-controls-play-button {
-  display: block;
+/* Quantity and Action Buttons */
+.quantity-input {
+  width: 80px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Tabs */
+.nav-pills .nav-link {
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+.nav-pills .nav-link.active {
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.tab-content {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.tab-pane {
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+/* DLC Section */
+.dlc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.dlc-item:hover {
+  background: #f5f5f5;
+}
+
+.dlc-thumbnail {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.dlc-details {
+  flex-grow: 1;
+}
+
+.badge {
+  margin-left: auto;
 }

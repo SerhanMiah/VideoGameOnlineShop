@@ -12,8 +12,8 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20230922174506_NewDLCSeedingData")]
-    partial class NewDLCSeedingData
+    [Migration("20230923094429_NewDataMigrationWithAge")]
+    partial class NewDataMigrationWithAge
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eecb3f97-e33d-46d2-a495-eb2d9443caca",
+                            Id = "2e8474ff-0183-4929-a25e-49663374a564",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -149,8 +149,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b7f5d93a-680c-44dc-b717-beabb49f8052",
-                            RoleId = "eecb3f97-e33d-46d2-a495-eb2d9443caca"
+                            UserId = "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e",
+                            RoleId = "2e8474ff-0183-4929-a25e-49663374a564"
                         });
                 });
 
@@ -284,11 +284,11 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b7f5d93a-680c-44dc-b717-beabb49f8052",
+                            Id = "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "acea6ccf-bf88-4bb9-bf01-c0f7fa78245e",
+                            ConcurrencyStamp = "11816e30-b1f1-40e3-8225-39cebb943ca3",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -296,20 +296,20 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDRvF1xxkfObHYgYWQzZOlYO6l7+BwEZHdSjeMNhOOFSf/WRqIeSV0qBfkyMdnZZ0A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB3IZjSF7GPv1ELJNjXI0GeDT9QyV8wrBVa8IJ6WqplWgYtl6KdGZj9EoDwuileG1g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f76ab8c3-0f6e-4af0-8a63-4069e0249963",
+                            SecurityStamp = "a7d1d4cc-e0bb-4255-858f-7b1b419ec903",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "3054e0e2-31a7-4e00-8fb8-2f5a8a7798b3",
+                            Id = "c5b2315b-a651-4bea-a772-b1d115c61a45",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "fd6a8bb8-c18e-4dec-aba3-3ef53993eddd",
+                            ConcurrencyStamp = "8f639ffe-504e-4c21-a00a-59f1fab49ec1",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -317,9 +317,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFvRaZNYHq/BuQ81ZWWjaV3zg7JEIKyYVDx0CZibeZeTLB1j89ZQleMRFN/a4D+nSQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECD9ZeGqTtZSyTeOMLxQQTslF5o3C7eArSUuFD5A4C0tqa7EXwh/uZATBRccBdKsXA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b68a3272-b63d-4e1e-8d02-22e1633c0c29",
+                            SecurityStamp = "f8b40604-1d7d-40f5-a19d-d90598d14284",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "user"
@@ -411,7 +411,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7223),
+                            CreatedAt = new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(188),
                             Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -422,254 +422,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Witcher 3: Wild Hunt",
                             TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7227)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AgeRatingId = 2,
-                            AverageRating = 4.9000000000000004,
-                            CoverImage = "https://www.rockstargames.com/reddeadredemption2/rockstar_games/r_d_r_logo.jpg",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7252),
-                            Description = "Red Dead Redemption 2 is an action-adventure game set in the Wild West.",
-                            Developer = "Rockstar Games",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2500K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770, Storage: 150 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 49.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 150 GB available space",
-                            ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Red Dead Redemption 2",
-                            TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7252)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AgeRatingId = 2,
-                            AverageRating = 4.0,
-                            CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7256),
-                            Description = "Cyberpunk 2077 is a role-playing video game developed and published by CD Projekt.",
-                            Developer = "CD Projekt Red",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-3570K, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 780, Storage: 70 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-4790, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1060, Storage: 70 GB available space",
-                            ReleaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cyberpunk 2077",
-                            TrailerUrl = "https://www.youtube.com/watch?v=vjF9GgrY9c0",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7257)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AgeRatingId = 2,
-                            AverageRating = 4.5,
-                            CoverImage = "https://bethesda.net/game/doom2016",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7261),
-                            Description = "Doom Eternal is a first-person shooter video game developed by id Software and published by Bethesda Softworks.",
-                            Developer = "id Software",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-2400, Memory: 8 GB RAM, Graphics: NVIDIA GTX 670, Storage: 50 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 39.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700K, Memory: 8 GB RAM, Graphics: NVIDIA GTX 1060, Storage: 50 GB available space",
-                            ReleaseDate = new DateTime(2020, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Doom Eternal",
-                            TrailerUrl = "https://www.youtube.com/watch?v=FkklG9MA0vM",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7261)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AgeRatingId = 2,
-                            AverageRating = 4.5999999999999996,
-                            CoverImage = "https://www.ubisoft.com/en-gb/game/assassins-creed/valhalla",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7265),
-                            Description = "Assassin's Creed Valhalla is an action role-playing video game developed by Ubisoft Montreal.",
-                            Developer = "Ubisoft",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-4460, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, Storage: 50 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 49.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-6700, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1080, Storage: 50 GB available space",
-                            ReleaseDate = new DateTime(2020, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Assassin's Creed Valhalla",
-                            TrailerUrl = "https://www.youtube.com/watch?v=SSYlfRq4ysA",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7265)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AgeRatingId = 2,
-                            AverageRating = 4.7000000000000002,
-                            CoverImage = "https://www.elderscrolls.com/skyrim",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7269),
-                            Description = "The Elder Scrolls V: Skyrim is an open-world action role-playing game set in the fantasy world of Tamriel.",
-                            Developer = "Bethesda Game Studios",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows 7/Vista/XP PC (32 or 64 bit), Processor: Dual-core processor 2.0 GHz, Memory: 2GB RAM, Graphics: DirectX 9.0c compatible NVIDIA or AMD ATI video card with 1GB of RAM, Storage: 6GB of HDD space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 39.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7/Vista/XP PC (32 or 64 bit), Processor: Quad-core Intel or AMD CPU, Memory: 4GB System RAM, Graphics: DirectX 9.0c compatible NVIDIA or AMD ATI video card with 1GB of RAM (Nvidia GeForce GTX 260 or higher; ATI Radeon 4890 or higher), Storage: 6GB of HDD space",
-                            ReleaseDate = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "The Elder Scrolls V: Skyrim",
-                            TrailerUrl = "https://www.youtube.com/watch?v=PjqsYzBrP-M",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7270)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AgeRatingId = 4,
-                            AverageRating = 4.7999999999999998,
-                            CoverImage = "https://www.rockstargames.com/V",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7273),
-                            Description = "Grand Theft Auto V is an action-adventure game set in the fictional state of San Andreas.",
-                            Developer = "Rockstar North",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 64-bit, Processor: Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor (4 CPUs) @ 2.5GHz, Memory: 4 GB RAM, Graphics: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11), Storage: 72 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 29.99m,
-                            RecommendedSystemRequirements = "OS: Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1, Processor: Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz (8 CPUs), Memory: 8 GB RAM, Graphics: NVIDIA GTX 660 2GB / AMD HD 7870 2GB, Storage: 72 GB available space",
-                            ReleaseDate = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Grand Theft Auto V",
-                            TrailerUrl = "https://www.youtube.com/watch?v=QkkoHAzjnUs",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7273)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AgeRatingId = 1,
-                            AverageRating = 4.5999999999999996,
-                            CoverImage = "https://www.minecraft.net/en-us/",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7277),
-                            Description = "Minecraft is a sandbox construction game that allows players to build and explore their own virtual worlds.",
-                            Developer = "Mojang Studios",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7 and up, Processor: Intel Core i3-3210 3.2 GHz / AMD A8-7600 APU 3.1 GHz or equivalent, Memory: 4 GB RAM, Graphics: Integrated: Intel HD Graphics 4000 (Ivy Bridge) or AMD Radeon R5 series (Kaveri line) with OpenGL 4.4, Storage: 4GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 19.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10, Processor: Intel Core i5-4690 3.5GHz / AMD A10-7800 APU 3.5 GHz or equivalent, Memory: 8 GB RAM, Graphics: GeForce 700 Series or AMD Radeon Rx 200 Series (excluding integrated chipsets) with OpenGL 4.5, Storage: 4GB available space",
-                            ReleaseDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Minecraft",
-                            TrailerUrl = "https://www.youtube.com/watch?v=OgH_qvqjBf0",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7277)
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AgeRatingId = 1,
-                            AverageRating = 4.9000000000000004,
-                            CoverImage = "https://www.zelda.com/breath-of-the-wild/",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7281),
-                            Description = "The Legend of Zelda: Breath of the Wild is an action-adventure game set in the fantasy world of Hyrule.",
-                            Developer = "Nintendo",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: N/A (Nintendo Switch), Processor: N/A (Nintendo Switch), Memory: N/A (Nintendo Switch), Graphics: N/A (Nintendo Switch), Storage: N/A (Nintendo Switch)",
-                            NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "OS: N/A (Nintendo Switch), Processor: N/A (Nintendo Switch), Memory: N/A (Nintendo Switch), Graphics: N/A (Nintendo Switch), Storage: N/A (Nintendo Switch)",
-                            ReleaseDate = new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "The Legend of Zelda: Breath of the Wild",
-                            TrailerUrl = "https://www.youtube.com/watch?v=zw47_q9wbBE",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7281)
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AgeRatingId = 3,
-                            AverageRating = 4.7000000000000002,
-                            CoverImage = "https://playoverwatch.com/en-us/",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7286),
-                            Description = "Overwatch is a team-based multiplayer first-person shooter game.",
-                            Developer = "Blizzard Entertainment",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 7/8/10 64-bit, Processor: Intel Core i3, Memory: 4 GB RAM, Graphics: NVIDIA GeForce GTX 460 / ATI Radeon HD 4850 / Intel HD Graphics 4400, Storage: 30 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 29.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7/8/10 64-bit, Processor: Intel Core i5, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 660 / AMD Radeon HD 7950, Storage: 30 GB available space",
-                            ReleaseDate = new DateTime(2016, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Overwatch",
-                            TrailerUrl = "https://www.youtube.com/watch?v=FqnKB22pOC0",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7286)
-                        },
-                        new
-                        {
-                            Id = 11,
-                            AgeRatingId = 3,
-                            AverageRating = 4.4000000000000004,
-                            CoverImage = "https://www.halowaypoint.com/en-us/games/halo-infinite",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7289),
-                            Description = "Halo: Infinite is a first-person shooter game and the latest installment in the Halo series.",
-                            Developer = "343 Industries",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 10, Processor: Intel Core i5-4440, Memory: 8 GB RAM, Graphics: NVIDIA GTX 660, Storage: 50 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 59.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10, Processor: Intel Core i7-9700K, Memory: 16 GB RAM, Graphics: NVIDIA GTX 1080, Storage: 50 GB available space",
-                            ReleaseDate = new DateTime(2021, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Halo: Infinite",
-                            TrailerUrl = "https://www.youtube.com/watch?v=HZtc5-syeAk",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7290)
-                        },
-                        new
-                        {
-                            Id = 12,
-                            AgeRatingId = 1,
-                            AverageRating = 4.9000000000000004,
-                            CoverImage = "https://www.stardewvalley.net/",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7293),
-                            Description = "Stardew Valley is a farming simulation game that allows players to build and manage their own farm.",
-                            Developer = "ConcernedApe",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows Vista or greater, Processor: 2 Ghz, Memory: 2 GB RAM, Graphics: 256 mb video memory, DirectX 10, Storage: 500 MB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 14.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7 or greater, Processor: 2.8 Ghz, Memory: 4 GB RAM, Graphics: 512 mb video memory, DirectX 10, Storage: 500 MB available space",
-                            ReleaseDate = new DateTime(2016, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Stardew Valley",
-                            TrailerUrl = "https://www.youtube.com/watch?v=ot7uXNQskhs",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7294)
-                        },
-                        new
-                        {
-                            Id = 13,
-                            AgeRatingId = 8,
-                            AverageRating = 4.7000000000000002,
-                            CoverImage = "https://www.ea.com/games/fifa/fifa-22",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7297),
-                            Description = "FIFA 22 is a sports simulation game featuring soccer/football.",
-                            Developer = "EA Sports",
-                            HasMultiplayerSupport = true,
-                            MinimumSystemRequirements = "OS: Windows 10 - 64-Bit, Processor: Athlon X4 880K @4GHz or better/Core i3-6100 @3.7GHz or better, Memory: 8 GB RAM, Graphics: Radeon HD 7850 or better/GeForce GTX 660 or better, Storage: 50 GB available space",
-                            NumberOfLocalPlayers = 2,
-                            Price = 49.99m,
-                            RecommendedSystemRequirements = "OS: Windows 10 - 64-Bit, Processor: FX 8150 @3.6GHz or better/Core i5-3550 @3.40GHz or better, Memory: 8 GB RAM, Graphics: Radeon R9 270x or better/GeForce GTX 670 or better, Storage: 50 GB available space",
-                            ReleaseDate = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "FIFA 22",
-                            TrailerUrl = "https://www.youtube.com/watch?v=I66Dw9t7kgA",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7297)
-                        },
-                        new
-                        {
-                            Id = 14,
-                            AgeRatingId = 1,
-                            AverageRating = 4.5,
-                            CoverImage = "https://www.ea.com/games/the-sims/the-sims-4",
-                            CreatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7350),
-                            Description = "The Sims 4 is a life simulation game that allows players to create and control virtual people and their lives.",
-                            Developer = "Maxis",
-                            HasMultiplayerSupport = false,
-                            MinimumSystemRequirements = "OS: Windows XP, Processor: 1.8 GHz Intel Core 2 Duo / AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 4 GB RAM, Graphics: Intel HD Graphics 3000 or better, Storage: 15 GB available space",
-                            NumberOfLocalPlayers = 1,
-                            Price = 39.99m,
-                            RecommendedSystemRequirements = "OS: Windows 7/8/8.1/10, Processor: Intel Core i5-750 / AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GeForce GTX 650 or better, Storage: 18 GB available space",
-                            ReleaseDate = new DateTime(2014, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "The Sims 4",
-                            TrailerUrl = "https://www.youtube.com/watch?v=R4l0u0Bw6Iw",
-                            UpdatedAt = new DateTime(2023, 9, 22, 17, 45, 6, 244, DateTimeKind.Utc).AddTicks(7351)
+                            UpdatedAt = new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(191)
                         });
                 });
 
@@ -725,162 +478,6 @@ namespace VideoGameBackend.Migrations
                             Id = 5,
                             GameId = 1,
                             Url = "https://assetsio.reedpopcdn.com/Site_qTBBJD0.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            GameId = 2,
-                            Url = "https://link-to-first-image-for-RDR2.com"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            GameId = 2,
-                            Url = "https://link-to-second-image-for-RDR2.com"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            GameId = 3,
-                            Url = "https://link-to-first-image-for-cyberpunk2077.com"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            GameId = 3,
-                            Url = "https://link-to-second-image-for-cyberpunk2077.com"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            GameId = 4,
-                            Url = "https://link-to-first-image-for-doom-eternal.com"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            GameId = 4,
-                            Url = "https://link-to-second-image-for-doom-eternal.com"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            GameId = 5,
-                            Url = "https://link-to-first-image-for-AC-valhalla.com"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            GameId = 5,
-                            Url = "https://link-to-second-image-for-AC-valhalla.com"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            GameId = 6,
-                            Url = "https://link-to-first-image-for-Skyrim.com"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            GameId = 6,
-                            Url = "https://link-to-second-image-for-Skyrim.com"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            GameId = 7,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            GameId = 7,
-                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            GameId = 8,
-                            Url = "https://link-to-first-image-for-Minecraft.com"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            GameId = 8,
-                            Url = "https://link-to-second-image-for-Minecraft.com"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            GameId = 9,
-                            Url = "https://link-to-first-image-for-Zelda.com"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            GameId = 9,
-                            Url = "https://link-to-second-image-for-Zelda.com"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            GameId = 10,
-                            Url = "https://link-to-first-image-for-Overwatch.com"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            GameId = 10,
-                            Url = "https://link-to-second-image-for-Overwatch.com"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            GameId = 11,
-                            Url = "https://link-to-first-image-for-Halo-Infinite.com"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            GameId = 11,
-                            Url = "https://link-to-second-image-for-Halo-Infinite.com"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            GameId = 12,
-                            Url = "https://link-to-first-image-for-Stardew-Valley.com"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            GameId = 12,
-                            Url = "https://link-to-second-image-for-Stardew-Valley.com"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            GameId = 13,
-                            Url = "https://link-to-first-image-for-FIFA-22.com"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            GameId = 13,
-                            Url = "https://link-to-second-image-for-FIFA-22.com"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            GameId = 14,
-                            Url = "https://link-to-first-image-for-The-Sims-4.com"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            GameId = 14,
-                            Url = "https://link-to-second-image-for-The-Sims-4.com"
                         });
                 });
 
@@ -1084,47 +681,17 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             Id = 1,
-                            Rating = "Everyone"
+                            Rating = "E - Everyone"
                         },
                         new
                         {
                             Id = 2,
-                            Rating = "Mature"
+                            Rating = "T - Teen"
                         },
                         new
                         {
                             Id = 3,
-                            Rating = "Teen"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Rating = "Adults Only"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Rating = "Everyone 10+"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Rating = "Adults Only 18+"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Rating = "Everyone 10+ with Cartoon Violence"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Rating = "Mature 17+ with Blood and Gore, Intense Violence"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Rating = "Teen 13+ with Mild Language, Violence"
+                            Rating = "M - Mature"
                         });
                 });
 
@@ -1272,6 +839,18 @@ namespace VideoGameBackend.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("GameGenres");
+
+                    b.HasData(
+                        new
+                        {
+                            GameId = 1,
+                            GenreId = 1
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            GenreId = 2
+                        });
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.GamePlatform", b =>
@@ -1287,6 +866,23 @@ namespace VideoGameBackend.Migrations
                     b.HasIndex("PlatformId");
 
                     b.ToTable("GamePlatforms");
+
+                    b.HasData(
+                        new
+                        {
+                            GameId = 1,
+                            PlatformId = 1
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            PlatformId = 2
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            PlatformId = 3
+                        });
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Genre", b =>
@@ -1309,47 +905,22 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Open World"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Role Playing"
-                        },
-                        new
-                        {
-                            Id = 3,
                             Name = "Action"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 2,
                             Name = "Adventure"
                         },
                         new
                         {
-                            Id = 5,
-                            Name = "Strategy"
+                            Id = 3,
+                            Name = "RPG"
                         },
                         new
                         {
-                            Id = 6,
-                            Name = "Sports"
-                        },
-                        new
-                        {
-                            Id = 7,
+                            Id = 4,
                             Name = "Simulation"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Fighting"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Horror"
                         });
                 });
 
@@ -1379,6 +950,33 @@ namespace VideoGameBackend.Migrations
                     b.HasIndex("GameId");
 
                     b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LanguageName = "English"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LanguageName = "Spanish"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageName = "French"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LanguageName = "German"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LanguageName = "Japanese"
+                        });
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Platform", b =>
@@ -1406,42 +1004,17 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "PlayStation 5"
+                            Name = "Xbox One"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Xbox Series X"
+                            Name = "PS4"
                         },
                         new
                         {
                             Id = 4,
                             Name = "Nintendo Switch"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Mobile"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "PlayStation 4"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Xbox One"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Nintendo Switch Lite"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Google Stadia"
                         });
                 });
 
@@ -1585,6 +1158,65 @@ namespace VideoGameBackend.Migrations
                     b.HasIndex("GameTagId");
 
                     b.ToTable("GameGameTags");
+
+                    b.HasData(
+                        new
+                        {
+                            GameId = 1,
+                            GameTagId = 1
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            GameTagId = 2
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            GameTagId = 3
+                        });
+                });
+
+            modelBuilder.Entity("backend.Models.Product.GameLanguage", b =>
+                {
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GameId", "LanguageId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("GameLanguages");
+
+                    b.HasData(
+                        new
+                        {
+                            GameId = 1,
+                            LanguageId = 1
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            LanguageId = 2
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            LanguageId = 3
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            LanguageId = 4
+                        },
+                        new
+                        {
+                            GameId = 1,
+                            LanguageId = 5
+                        });
                 });
 
             modelBuilder.Entity("backend.Models.Product.GameTag", b =>
@@ -1608,152 +1240,22 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             TagId = 1,
-                            TagName = "Fantasy"
-                        },
-                        new
-                        {
-                            TagId = 2,
-                            TagName = "Medieval"
-                        },
-                        new
-                        {
-                            TagId = 3,
-                            TagName = "Story Rich"
-                        },
-                        new
-                        {
-                            TagId = 4,
-                            TagName = "Sci-Fi"
-                        },
-                        new
-                        {
-                            TagId = 5,
-                            TagName = "Post-Apocalyptic"
-                        },
-                        new
-                        {
-                            TagId = 6,
-                            TagName = "Horror"
-                        },
-                        new
-                        {
-                            TagId = 7,
-                            TagName = "Survival"
-                        },
-                        new
-                        {
-                            TagId = 8,
-                            TagName = "Retro"
-                        },
-                        new
-                        {
-                            TagId = 9,
-                            TagName = "Puzzle"
-                        },
-                        new
-                        {
-                            TagId = 10,
-                            TagName = "Platformer"
-                        },
-                        new
-                        {
-                            TagId = 11,
-                            TagName = "Shooter"
-                        },
-                        new
-                        {
-                            TagId = 12,
-                            TagName = "Strategy"
-                        },
-                        new
-                        {
-                            TagId = 13,
-                            TagName = "RPG"
-                        },
-                        new
-                        {
-                            TagId = 14,
-                            TagName = "VR"
-                        },
-                        new
-                        {
-                            TagId = 15,
-                            TagName = "Multiplayer"
-                        },
-                        new
-                        {
-                            TagId = 16,
-                            TagName = "Singleplayer"
-                        },
-                        new
-                        {
-                            TagId = 17,
-                            TagName = "Racing"
-                        },
-                        new
-                        {
-                            TagId = 18,
-                            TagName = "Sports"
-                        },
-                        new
-                        {
-                            TagId = 19,
                             TagName = "Open World"
                         },
                         new
                         {
-                            TagId = 20,
-                            TagName = "Sandbox"
+                            TagId = 2,
+                            TagName = "Multiplayer"
                         },
                         new
                         {
-                            TagId = 21,
-                            TagName = "City Builder"
+                            TagId = 3,
+                            TagName = "Single Player"
                         },
                         new
                         {
-                            TagId = 22,
-                            TagName = "Management"
-                        },
-                        new
-                        {
-                            TagId = 23,
-                            TagName = "Simulation"
-                        },
-                        new
-                        {
-                            TagId = 24,
-                            TagName = "Turn-Based"
-                        },
-                        new
-                        {
-                            TagId = 25,
-                            TagName = "Roguelike"
-                        },
-                        new
-                        {
-                            TagId = 26,
-                            TagName = "Narrative"
-                        },
-                        new
-                        {
-                            TagId = 27,
-                            TagName = "Visual Novel"
-                        },
-                        new
-                        {
-                            TagId = 28,
-                            TagName = "Anime"
-                        },
-                        new
-                        {
-                            TagId = 29,
-                            TagName = "Pixel Art"
-                        },
-                        new
-                        {
-                            TagId = 30,
-                            TagName = "Crafting"
+                            TagId = 4,
+                            TagName = "Fantasy"
                         });
                 });
 
@@ -1975,13 +1477,13 @@ namespace VideoGameBackend.Migrations
                     b.HasOne("VideoGameAppBackend.Models.Game", "Game")
                         .WithMany("GameGenres")
                         .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("VideoGameAppBackend.Models.Product.Genre", "Genre")
                         .WithMany("GameGenres")
                         .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Game");
@@ -2095,6 +1597,25 @@ namespace VideoGameBackend.Migrations
                     b.Navigation("GameTag");
                 });
 
+            modelBuilder.Entity("backend.Models.Product.GameLanguage", b =>
+                {
+                    b.HasOne("VideoGameAppBackend.Models.Game", "Game")
+                        .WithMany("GameLanguages")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VideoGameAppBackend.Models.Product.Language", "Language")
+                        .WithMany("GameLanguages")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Language");
+                });
+
             modelBuilder.Entity("backend.Models.User.UserFriend", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "Friend")
@@ -2141,6 +1662,8 @@ namespace VideoGameBackend.Migrations
 
                     b.Navigation("GameImages");
 
+                    b.Navigation("GameLanguages");
+
                     b.Navigation("GamePlatforms");
 
                     b.Navigation("OrderItems");
@@ -2175,6 +1698,11 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Genre", b =>
                 {
                     b.Navigation("GameGenres");
+                });
+
+            modelBuilder.Entity("VideoGameAppBackend.Models.Product.Language", b =>
+                {
+                    b.Navigation("GameLanguages");
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Platform", b =>

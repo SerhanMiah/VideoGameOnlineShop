@@ -78,7 +78,7 @@ namespace VideoGameAppBackend.Models
         // Relationships
         // =====================
 
-        public virtual ICollection<GameGenre> GameGenres { get; set; } = new List<GameGenre>();
+        public virtual ICollection<GameGenre> GameGenres { get; set; }
         public virtual ICollection<GamePlatform> GamePlatforms { get; set; } = new List<GamePlatform>();
         public ICollection<DLC> DLCs { get; set; } = new List<DLC>();
 
@@ -87,6 +87,9 @@ namespace VideoGameAppBackend.Models
         public virtual ICollection<GameGameTag> GameGameTags { get; set; } = new List<GameGameTag>();
 
         public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+        public virtual ICollection<GameLanguage> GameLanguages { get; set; }
+
 
 
 
