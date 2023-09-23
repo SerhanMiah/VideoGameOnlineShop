@@ -5,11 +5,14 @@
     <!-- Hero Section with Parallax Effect and Overlay Gradient -->
     <section class="hero-section position-relative">
         <img src="https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Cyberpunk%202077/cyberpunk_2077_unreal_engine_5_wjauye.png" alt="Cyberpunk" class="img-fluid w-100">
-        <div class="overlay"></div> <!-- Adds a gradient effect -->
+        <div class="overlay"></div>
         <div class="content text-center position-absolute top-50 start-50 translate-middle">
             <h1 data-aos="fade-down">Welcome to GameShop</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Embark on pixelated adventures, epic quests, and stories you'll never forget.</p>
+            <p data-aos="fade-up" data-aos-delay="200">Embark on pixelated adventures...</p>
             <a [routerLink]="['/games']" class="btn btn-outline-light btn-lg" data-aos="zoom-in" data-aos-delay="400">Dive In <i class="fas fa-gamepad"></i></a>
+        </div>
+        <div class="scroll-down-icon position-absolute bottom-2 start-50 translate-middle-x">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -19,13 +22,17 @@
             <h2 class="section-title mb-5">Spotlight Games</h2>
             <div class="row gx-4 gy-4">
                 <div class="col-md-3 game-hover" *ngFor="let game of games" data-aos="fade-up" data-aos-delay="100">
-                    <div class="game-card position-relative">
-                        <img [src]="game.image" alt="{{ game.name }}" class="card-image img-fluid w-100 rounded">
-                        <div class="card-content p-3 position-absolute bottom-0 start-0">
-                            <h5>{{ game.name }}</h5>
-                            <p>{{ game.shortDescription }}</p>
+                    <div class="card game-card position-relative">
+                        <img [src]="game.image" alt="{{ game.name }}" class="card-img-top img-fluid rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ game.name }}</h5>
+                            <p class="card-text">{{ game.shortDescription }}</p>
                         </div>
-                        <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-tags"></i> {{ game.genre }}</li>
+                            <li class="list-group-item"><i class="fas fa-star"></i> {{ game.rating }}</li>
+                        </ul>
+                        <div class="card-footer">
                             <a href="#" class="btn btn-danger">Get Now <i class="fas fa-shopping-cart"></i></a>
                         </div>
                     </div>
@@ -33,36 +40,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Carousel for News or Updates Section -->
-    <!-- <section class="news-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-bolt"></i> Hot Off The Press</h2>
-            <div id="newsCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" *ngFor="let news of newsItems">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img [src]="news.image" alt="{{ news.title }}" class="d-block w-100">
-                            </div>
-                            <div class="col-md-6">
-                                <h5>{{ news.title }}</h5>
-                                <p>{{ news.summary }}</p>
-                                <a href="#" class="btn btn-secondary">Full Story <i class="fas fa-newspaper"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#newsCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </section> -->
+    
+    <!-- Carousel and more sections can be similarly enhanced -->
 
 </div>

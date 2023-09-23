@@ -211,6 +211,10 @@ h3.text-danger {
 
 /* DLC List Item */
 
+.dlc-container {
+  margin-top: 50px;
+}
+
 .dlc-item {
   position: relative;
   overflow: hidden;
