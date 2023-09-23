@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game, DLC, DLCImage } from '../game-models';
@@ -20,6 +20,8 @@ export class GameDetailComponent implements OnInit {
   cartItems: Array<{ Game: Game; Quantity: number }> = [];
   currentIndex: number = 0;
   gameLanguages: any[] = [];
+  dlcs: DLC[] = [];
+
 
 
   constructor(
@@ -28,6 +30,7 @@ export class GameDetailComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private http: HttpClient,
+    private cdr: ChangeDetectorRef
   ) {}
 
   newReview = {
@@ -46,47 +49,50 @@ export class GameDetailComponent implements OnInit {
       return;
     }
     const gameId = +id;
-
-    
-
-    
-
-   this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
-            .subscribe(
-                data => {
-                    console.log(data)
-                    this.selectedGame = {
-                        ...data,
-                        gameImages: data.gameImages ? data.gameImages.$values : [],
-                        dlcs: data.dlcs ? this.processDLCs(data.dlcs.$values) : [],
-                        ageRating: data.ageRating,
-                        averageRating: data.averageRating,
-                        gameGameTags: data.gameGameTags ? data.gameGameTags.$values : [],
-                        gameGenres: data.gameGenres ? data.gameGenres.$values : [],
-                        gameLanguages: data.gameLanguages ? data.gameLanguages.$values : [],
-                        gamePlatforms: data.gamePlatforms ? data.gamePlatforms.$values : [],
-                    };
-                },
-                error => {
-                    console.error('There was an error fetching the game:', error);
-                    this.handleError(error);
-                }
-            );
+  
+    this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
+      .subscribe(
+        data => {
+          console.log('API Response:', data); // Log the API response for debugging
+  
+          // Process and set DLCs
+          this.dlcs = data.dlCs ? data.dlCs.map((dlcData: any) => ({
+            id: dlcData.id,
+            dlcName: dlcData.dlcName,
+            releaseDate: new Date(dlcData.releaseDate),
+            price: dlcData.price,
+            description: dlcData.description,
+            gameId: dlcData.gameId,
+            developer: dlcData.developer,
+            publisher: dlcData.publisher,
+            dlcGallery: []
+            // Other DLC properties
+          })) : [];
+  
+          // Set other properties of selectedGame
+          this.selectedGame = {
+            ...data,
+            gameImages: data.gameImages ? data.gameImages.$values : [],
+            ageRating: data.ageRating,
+            averageRating: data.averageRating,
+            gameGameTags: data.gameGameTags ? data.gameGameTags.$values : [],
+            gameGenres: data.gameGenres ? data.gameGenres.$values : [],
+            gameLanguages: data.gameLanguages ? data.gameLanguages.$values : [],
+            gamePlatforms: data.gamePlatforms ? data.gamePlatforms.$values : [],
+            dlcs: this.dlcs, // Set the processed DLCs here
+          };
+  
+          console.log('Processed Game Data:', this.selectedGame); // Log the selectedGame for debugging
+  
+          this.cdr.detectChanges();
+        },
+        error => {
+          console.error('There was an error fetching the game:', error);
+          this.handleError(error);
+        }
+      );
   }
-
-  private processDLCs(dlcs: any[]): DLC[] {
-    return dlcs.map((dlc) => ({
-      id: dlc.id,
-      dlcName: dlc.dlcName,
-      releaseDate: new Date(dlc.releaseDate),
-      price: dlc.price,
-      description: dlc.description,
-      gameId: dlc.gameId,
-      dlcImages: dlc.dlcGallery && dlc.dlcGallery.$values ? dlc.dlcGallery.$values : [],
-      game: dlc.game,
-    }));
-}
-
+  
 
 
   private handleError(error: any) {
@@ -111,6 +117,7 @@ export class GameDetailComponent implements OnInit {
       console.log(`Added game with id: ${gameId} and quantity: ${quantity} to cart.`);
     }
   }
+  
   prevImage(): void {
     const prevIndex = this.currentIndex - 1;
     if (prevIndex >= 0) {

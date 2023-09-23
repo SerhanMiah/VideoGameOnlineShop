@@ -12,6 +12,7 @@ export class CartService {
 
   addToCart(item: CartItem): void {
     const currentCartItems = [...this.cartItemsSubject.value];
+    console.log(currentCartItems)
     const existingItem = currentCartItems.find(cartItem => cartItem.GameId === item.GameId);
 
     if (existingItem) {

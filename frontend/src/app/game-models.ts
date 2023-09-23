@@ -27,6 +27,7 @@ export interface Game {
     gameGameTags?: Array<{ gameTag: { tagName: string } }>;
     gameLanguages: { language: string }[];
 
+
 }
 
 export interface GameGenre {
@@ -64,7 +65,13 @@ export interface DLC {
     gameId: number;
     dlcImages: DLCImage[];
     game: GameRef;
+    dlcGallery: { imageUrl: string; caption: string; dlcId: number }[];
+    developer?: string;
+    publisher?: string;
+    minimumSystemRequirements?: string;
+    recommendedSystemRequirements?: string;
 }
+
 
 export interface DLCImage {
     $id: string;

@@ -157,29 +157,33 @@
     </section>
 
 
+    
     <!-- DLCs & Additional Content -->
-    <section class="row mb-5">
-        <div class="col-12 mb-4">
-            <h2 class="display-5">DLCs & Additional Content</h2>
-        </div>
-        <div class="col-12" *ngIf="selectedGame.dlcs && selectedGame.dlcs.length > 0; else noDlc">
-            <div class="list-group">
-                <a *ngFor="let dlc of selectedGame.dlcs" [routerLink]="['/dlc', dlc.id]" class="list-group-item list-group-item-action dlc-item">
-                    <img *ngIf="dlc.dlcImages" [src]="dlc.dlcImages" alt="{{ dlc.dlcName }} thumbnail" class="dlc-thumbnail">
-                    <div class="dlc-details">
-                        <h5>{{ dlc.dlcName }}</h5>
-                        <p>{{ dlc.description | slice:0:50 }}...</p>
+    <div>
+        <section class="dlc-content mb-5">
+            <h3 class="mb-4">DLCs & Additional Content</h3>
+            <div class="dlc-list row">
+                <div *ngFor="let dlc of selectedGame.dlcs" class="dlc-item col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <!-- <img [src]="dlc.dlcGallery[0]?.imageUrl" alt="{{dlc?.dlcName}}" class="card-img-top"> -->
+                        <div class="card-body">
+                            <h4 class="card-title">{{ dlc.dlcName }}</h4>
+                            <p class="card-text dlc-price text-success font-weight-bold">{{ dlc?.price | currency }}</p>
+                            <!-- Uncomment the button if you want the details functionality -->
+                            <!-- <button (click)="viewDlcDetails(dlc.id)" class="btn btn-primary mt-3">Details</button> -->
+                        </div>
                     </div>
-                    <span class="badge bg-primary">{{ dlc.price | currency }}</span>
-                </a>
+                </div>
             </div>
-        </div>
-        <ng-template #noDlc>
-            <div class="col-12">
-                <p>No additional content or DLCs available for this game at the moment.</p>
+            <div *ngIf="selectedGame.dlcs.length == 0" class="no-dlc text-center mt-4">
+                <p class="text-muted">No additional content or DLCs available for this game at the moment.</p>
             </div>
-        </ng-template>
-    </section>
+        </section>
+
+    </div>
+
+
+        
 
     <!-- Reviews -->
     <section class="row">
