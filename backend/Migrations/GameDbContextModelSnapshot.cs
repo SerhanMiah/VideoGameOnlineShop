@@ -51,7 +51,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2e8474ff-0183-4929-a25e-49663374a564",
+                            Id = "4ac7828c-ef30-4c65-940e-bb18acf76501",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -146,8 +146,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e",
-                            RoleId = "2e8474ff-0183-4929-a25e-49663374a564"
+                            UserId = "64c54c4e-9602-41cb-ba53-952f4b9830dc",
+                            RoleId = "4ac7828c-ef30-4c65-940e-bb18acf76501"
                         });
                 });
 
@@ -281,11 +281,11 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e",
+                            Id = "64c54c4e-9602-41cb-ba53-952f4b9830dc",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "11816e30-b1f1-40e3-8225-39cebb943ca3",
+                            ConcurrencyStamp = "d7747be3-26b7-4e77-848d-dd6ebc480a04",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -293,20 +293,20 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB3IZjSF7GPv1ELJNjXI0GeDT9QyV8wrBVa8IJ6WqplWgYtl6KdGZj9EoDwuileG1g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKV2bqtLr+lHasOuoh3+sckufzR+e0Vxo1+NqEgWqyhldiS54tiUh6+EmDbOq87hbQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a7d1d4cc-e0bb-4255-858f-7b1b419ec903",
+                            SecurityStamp = "2e05cc2b-f3f0-4304-911d-4d5c27d131e3",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "c5b2315b-a651-4bea-a772-b1d115c61a45",
+                            Id = "01fa5f64-6144-4f1d-ba71-114618795cb1",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "8f639ffe-504e-4c21-a00a-59f1fab49ec1",
+                            ConcurrencyStamp = "8e1da912-18d3-4f9f-aa4e-19ea58b4af4a",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -314,9 +314,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAECD9ZeGqTtZSyTeOMLxQQTslF5o3C7eArSUuFD5A4C0tqa7EXwh/uZATBRccBdKsXA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECkaix0i0MoNa5dHxIlJPTXcBD1KFHF8Vub5JU7lsbJClR0P+xfSyDmk1f2wd939lA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f8b40604-1d7d-40f5-a19d-d90598d14284",
+                            SecurityStamp = "308cb49b-4cb2-4aea-8e9f-ed1eeb02a6b8",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "user"
@@ -405,10 +405,10 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             Id = 1,
-                            AgeRatingId = 2,
+                            AgeRatingId = 4,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp",
-                            CreatedAt = new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(188),
+                            CreatedAt = new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3483),
                             Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -419,7 +419,26 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Witcher 3: Wild Hunt",
                             TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
-                            UpdatedAt = new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(191)
+                            UpdatedAt = new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3486)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AgeRatingId = 3,
+                            AverageRating = 4.9000000000000004,
+                            CoverImage = "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/capsule_sm_120.jpg?t=1677747900",
+                            CreatedAt = new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3501),
+                            Description = "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.",
+                            Developer = "Rockstar Games",
+                            HasMultiplayerSupport = true,
+                            MinimumSystemRequirements = "OS: Windows 7, Processor: Intel Core i5-2500K / AMD FX-6300, Memory: 8 GB RAM, Graphics: Nvidia GTX 770 2GB / AMD Radeon R9 280 3GB, Storage: 150 GB available space",
+                            NumberOfLocalPlayers = 1,
+                            Price = 59.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10, Processor: Intel Core i7-4770K / AMD Ryzen 5 1500X, Memory: 12 GB RAM, Graphics: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB, Storage: 150 GB available space",
+                            ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Red Dead Redemption 2",
+                            TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
+                            UpdatedAt = new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3502)
                         });
                 });
 
@@ -475,6 +494,30 @@ namespace VideoGameBackend.Migrations
                             Id = 5,
                             GameId = 1,
                             Url = "https://assetsio.reedpopcdn.com/Site_qTBBJD0.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            GameId = 2,
+                            Url = "https://link-to-first-image-for-RDR2.com"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            GameId = 2,
+                            Url = "https://link-to-second-image-for-RDR2.com"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            GameId = 2,
+                            Url = "https://link-to-third-image-for-RDR2.com"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            GameId = 2,
+                            Url = "https://link-to-four-image-for-RDR2.com"
                         });
                 });
 
@@ -683,12 +726,27 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             Id = 2,
-                            Rating = "T - Teen"
+                            Rating = "E10+ - Everyone 10 and older"
                         },
                         new
                         {
                             Id = 3,
+                            Rating = "T - Teen"
+                        },
+                        new
+                        {
+                            Id = 4,
                             Rating = "M - Mature"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Rating = "AO - Adults Only"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Rating = "RP - Rating Pending"
                         });
                 });
 
@@ -847,6 +905,16 @@ namespace VideoGameBackend.Migrations
                         {
                             GameId = 1,
                             GenreId = 2
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            GenreId = 1
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            GenreId = 2
                         });
                 });
 
@@ -878,6 +946,21 @@ namespace VideoGameBackend.Migrations
                         new
                         {
                             GameId = 1,
+                            PlatformId = 3
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            PlatformId = 1
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            PlatformId = 2
+                        },
+                        new
+                        {
+                            GameId = 2,
                             PlatformId = 3
                         });
                 });
@@ -918,6 +1001,86 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 4,
                             Name = "Simulation"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Strategy"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Sports"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Puzzle"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Shooter"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Platformer"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Fighting"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Racing"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Music"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Educational"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Card & Board"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Survival"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Stealth"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "MMORPG"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Battle Royale"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Sandbox"
                         });
                 });
 
@@ -1012,6 +1175,16 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 4,
                             Name = "Nintendo Switch"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "PS5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Xbox X"
                         });
                 });
 
@@ -1171,6 +1344,21 @@ namespace VideoGameBackend.Migrations
                         {
                             GameId = 1,
                             GameTagId = 3
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            GameTagId = 1
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            GameTagId = 2
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            GameTagId = 3
                         });
                 });
 
@@ -1213,6 +1401,31 @@ namespace VideoGameBackend.Migrations
                         {
                             GameId = 1,
                             LanguageId = 5
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            LanguageId = 1
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            LanguageId = 2
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            LanguageId = 3
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            LanguageId = 4
+                        },
+                        new
+                        {
+                            GameId = 2,
+                            LanguageId = 5
                         });
                 });
 
@@ -1253,6 +1466,66 @@ namespace VideoGameBackend.Migrations
                         {
                             TagId = 4,
                             TagName = "Fantasy"
+                        },
+                        new
+                        {
+                            TagId = 5,
+                            TagName = "Sci-Fi"
+                        },
+                        new
+                        {
+                            TagId = 6,
+                            TagName = "Horror"
+                        },
+                        new
+                        {
+                            TagId = 7,
+                            TagName = "Action-Adventure"
+                        },
+                        new
+                        {
+                            TagId = 8,
+                            TagName = "Racing"
+                        },
+                        new
+                        {
+                            TagId = 9,
+                            TagName = "Sports"
+                        },
+                        new
+                        {
+                            TagId = 10,
+                            TagName = "Simulation"
+                        },
+                        new
+                        {
+                            TagId = 11,
+                            TagName = "Strategy"
+                        },
+                        new
+                        {
+                            TagId = 12,
+                            TagName = "Role-Playing"
+                        },
+                        new
+                        {
+                            TagId = 13,
+                            TagName = "Puzzle"
+                        },
+                        new
+                        {
+                            TagId = 14,
+                            TagName = "Platformer"
+                        },
+                        new
+                        {
+                            TagId = 15,
+                            TagName = "Shooter"
+                        },
+                        new
+                        {
+                            TagId = 16,
+                            TagName = "Survival"
                         });
                 });
 

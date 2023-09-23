@@ -742,22 +742,25 @@ namespace VideoGameBackend.Migrations
                 values: new object[,]
                 {
                     { 1, "E - Everyone" },
-                    { 2, "T - Teen" },
-                    { 3, "M - Mature" }
+                    { 2, "E10+ - Everyone 10 and older" },
+                    { 3, "T - Teen" },
+                    { 4, "M - Mature" },
+                    { 5, "AO - Adults Only" },
+                    { 6, "RP - Rating Pending" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2e8474ff-0183-4929-a25e-49663374a564", null, "Admin", "ADMIN" });
+                values: new object[] { "4ac7828c-ef30-4c65-940e-bb18acf76501", null, "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "AchievementsDb", "Address", "Bio", "City", "ConcurrencyStamp", "Country", "DefaultBillingId", "Email", "EmailConfirmed", "FavoriteGame", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PostalCode", "SecurityStamp", "State", "TotalGamesPlayed", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e", 0, "", "", null, null, "11816e30-b1f1-40e3-8225-39cebb943ca3", null, null, "admin@videogameshop.com", true, null, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEB3IZjSF7GPv1ELJNjXI0GeDT9QyV8wrBVa8IJ6WqplWgYtl6KdGZj9EoDwuileG1g==", null, false, null, "a7d1d4cc-e0bb-4255-858f-7b1b419ec903", null, 0, false, "admin" },
-                    { "c5b2315b-a651-4bea-a772-b1d115c61a45", 0, "", "", null, null, "8f639ffe-504e-4c21-a00a-59f1fab49ec1", null, null, "user@videogameshop.com", true, null, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAECD9ZeGqTtZSyTeOMLxQQTslF5o3C7eArSUuFD5A4C0tqa7EXwh/uZATBRccBdKsXA==", null, false, null, "f8b40604-1d7d-40f5-a19d-d90598d14284", null, 0, false, "user" }
+                    { "01fa5f64-6144-4f1d-ba71-114618795cb1", 0, "", "", null, null, "8e1da912-18d3-4f9f-aa4e-19ea58b4af4a", null, null, "user@videogameshop.com", true, null, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAECkaix0i0MoNa5dHxIlJPTXcBD1KFHF8Vub5JU7lsbJClR0P+xfSyDmk1f2wd939lA==", null, false, null, "308cb49b-4cb2-4aea-8e9f-ed1eeb02a6b8", null, 0, false, "user" },
+                    { "64c54c4e-9602-41cb-ba53-952f4b9830dc", 0, "", "", null, null, "d7747be3-26b7-4e77-848d-dd6ebc480a04", null, null, "admin@videogameshop.com", true, null, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEKV2bqtLr+lHasOuoh3+sckufzR+e0Vxo1+NqEgWqyhldiS54tiUh6+EmDbOq87hbQ==", null, false, null, "2e05cc2b-f3f0-4304-911d-4d5c27d131e3", null, 0, false, "admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -768,7 +771,23 @@ namespace VideoGameBackend.Migrations
                     { 1, "Action" },
                     { 2, "Adventure" },
                     { 3, "RPG" },
-                    { 4, "Simulation" }
+                    { 4, "Simulation" },
+                    { 5, "Strategy" },
+                    { 6, "Sports" },
+                    { 7, "Puzzle" },
+                    { 8, "Horror" },
+                    { 9, "Shooter" },
+                    { 10, "Platformer" },
+                    { 11, "Fighting" },
+                    { 12, "Racing" },
+                    { 13, "Music" },
+                    { 14, "Educational" },
+                    { 15, "Card & Board" },
+                    { 16, "Survival" },
+                    { 17, "Stealth" },
+                    { 18, "MMORPG" },
+                    { 19, "Battle Royale" },
+                    { 20, "Sandbox" }
                 });
 
             migrationBuilder.InsertData(
@@ -791,7 +810,9 @@ namespace VideoGameBackend.Migrations
                     { 1, "PC" },
                     { 2, "Xbox One" },
                     { 3, "PS4" },
-                    { 4, "Nintendo Switch" }
+                    { 4, "Nintendo Switch" },
+                    { 5, "PS5" },
+                    { 6, "Xbox X" }
                 });
 
             migrationBuilder.InsertData(
@@ -802,18 +823,34 @@ namespace VideoGameBackend.Migrations
                     { 1, "Open World" },
                     { 2, "Multiplayer" },
                     { 3, "Single Player" },
-                    { 4, "Fantasy" }
+                    { 4, "Fantasy" },
+                    { 5, "Sci-Fi" },
+                    { 6, "Horror" },
+                    { 7, "Action-Adventure" },
+                    { 8, "Racing" },
+                    { 9, "Sports" },
+                    { 10, "Simulation" },
+                    { 11, "Strategy" },
+                    { 12, "Role-Playing" },
+                    { 13, "Puzzle" },
+                    { 14, "Platformer" },
+                    { 15, "Shooter" },
+                    { 16, "Survival" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2e8474ff-0183-4929-a25e-49663374a564", "86ffd153-bfb1-4d1b-a605-8fc8bd204e4e" });
+                values: new object[] { "4ac7828c-ef30-4c65-940e-bb18acf76501", "64c54c4e-9602-41cb-ba53-952f4b9830dc" });
 
             migrationBuilder.InsertData(
                 table: "Games",
                 columns: new[] { "Id", "AgeRatingId", "ApplicationUserId", "AverageRating", "CoverImage", "CreatedAt", "Description", "Developer", "DiscountedPrice", "ESRBContentDescriptions", "HasMultiplayerSupport", "MinimumSystemRequirements", "NumberOfLocalPlayers", "Price", "Publisher", "RecommendedSystemRequirements", "ReleaseDate", "Title", "TrailerUrl", "UpdatedAt" },
-                values: new object[] { 1, 2, null, 4.7999999999999998, "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp", new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(188), "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.", "CD Projekt Red", null, null, false, "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 660 or AMD Radeon HD 7870, Storage: 35 GB available space", 1, 29.99m, null, "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i7-3770 3.4 GHz or AMD FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 290, Storage: 35 GB available space", new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Witcher 3: Wild Hunt", "https://www.youtube.com/watch?v=c0i88t0Kacs", new DateTime(2023, 9, 23, 9, 44, 28, 969, DateTimeKind.Utc).AddTicks(191) });
+                values: new object[,]
+                {
+                    { 1, 4, null, 4.7999999999999998, "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp", new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3483), "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.", "CD Projekt Red", null, null, false, "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 660 or AMD Radeon HD 7870, Storage: 35 GB available space", 1, 29.99m, null, "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i7-3770 3.4 GHz or AMD FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 290, Storage: 35 GB available space", new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Witcher 3: Wild Hunt", "https://www.youtube.com/watch?v=c0i88t0Kacs", new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3486) },
+                    { 2, 3, null, 4.9000000000000004, "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/capsule_sm_120.jpg?t=1677747900", new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3501), "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.", "Rockstar Games", null, null, true, "OS: Windows 7, Processor: Intel Core i5-2500K / AMD FX-6300, Memory: 8 GB RAM, Graphics: Nvidia GTX 770 2GB / AMD Radeon R9 280 3GB, Storage: 150 GB available space", 1, 59.99m, null, "OS: Windows 10, Processor: Intel Core i7-4770K / AMD Ryzen 5 1500X, Memory: 12 GB RAM, Graphics: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB, Storage: 150 GB available space", new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Red Dead Redemption 2", "https://www.youtube.com/watch?v=eaW0tYpxyp0", new DateTime(2023, 9, 23, 13, 0, 7, 51, DateTimeKind.Utc).AddTicks(3502) }
+                });
 
             migrationBuilder.InsertData(
                 table: "DLCs",
@@ -827,7 +864,10 @@ namespace VideoGameBackend.Migrations
                 {
                     { 1, 1 },
                     { 1, 2 },
-                    { 1, 3 }
+                    { 1, 3 },
+                    { 2, 1 },
+                    { 2, 2 },
+                    { 2, 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -836,7 +876,9 @@ namespace VideoGameBackend.Migrations
                 values: new object[,]
                 {
                     { 1, 1 },
-                    { 1, 2 }
+                    { 1, 2 },
+                    { 2, 1 },
+                    { 2, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -848,7 +890,11 @@ namespace VideoGameBackend.Migrations
                     { 2, 1, "https://s1.dmcdn.net/v/7dQua1X-34xfWvryS/x1080" },
                     { 3, 1, "https://venturebeat.com/wp-content/uploads/2022/12/witcher-5.jpg?w=791&resize=1200%2C910&strip=all" },
                     { 4, 1, "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp" },
-                    { 5, 1, "https://assetsio.reedpopcdn.com/Site_qTBBJD0.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp" }
+                    { 5, 1, "https://assetsio.reedpopcdn.com/Site_qTBBJD0.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp" },
+                    { 6, 2, "https://link-to-first-image-for-RDR2.com" },
+                    { 7, 2, "https://link-to-second-image-for-RDR2.com" },
+                    { 8, 2, "https://link-to-third-image-for-RDR2.com" },
+                    { 9, 2, "https://link-to-four-image-for-RDR2.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -860,7 +906,12 @@ namespace VideoGameBackend.Migrations
                     { 1, 2 },
                     { 1, 3 },
                     { 1, 4 },
-                    { 1, 5 }
+                    { 1, 5 },
+                    { 2, 1 },
+                    { 2, 2 },
+                    { 2, 3 },
+                    { 2, 4 },
+                    { 2, 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -870,7 +921,10 @@ namespace VideoGameBackend.Migrations
                 {
                     { 1, 1 },
                     { 1, 2 },
-                    { 1, 3 }
+                    { 1, 3 },
+                    { 2, 1 },
+                    { 2, 2 },
+                    { 2, 3 }
                 });
 
             migrationBuilder.InsertData(

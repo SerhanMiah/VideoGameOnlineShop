@@ -118,7 +118,7 @@ public static class GameSeedData
                 AgeRatingId = 4, // Age Rating: T - Teen
                 CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp"
             },
-                new Game
+            new Game
             {
                 Id = 2,
                 Title = "Red Dead Redemption 2",

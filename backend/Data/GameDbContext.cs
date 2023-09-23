@@ -64,14 +64,13 @@ namespace VideoGameAppBackend.Data
             GameSeedData.Seed(builder);
             GameImageSeedData.Seed(builder);
 
-            // Set seeding order: Games first, then GameImages
+            // Game-related configurations
             builder.Entity<Game>()
                 .HasMany(g => g.GameImages)
                 .WithOne(gi => gi.Game)
                 .HasForeignKey(gi => gi.GameId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Set the relationships for the Game, GameGenre, and GamePlatform entities
             builder.Entity<GameGenre>()
                 .HasKey(gg => new { gg.GameId, gg.GenreId });
 
@@ -102,7 +101,6 @@ namespace VideoGameAppBackend.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Set the relationship between Game and AgeRating
             builder.Entity<Game>()
                 .HasOne(g => g.AgeRating)
                 .WithMany(ar => ar.Games)
@@ -110,53 +108,9 @@ namespace VideoGameAppBackend.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<DLC>()
-                .HasOne(d => d.MainDLCImage)
-                .WithOne()
-                .HasForeignKey<DLCImage>(di => di.DLCId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<DLCImage>()
-                .HasOne(d => d.DLC)
-                .WithMany(p => p.DLCGallery)
-                .HasForeignKey(d => d.DLCId);
-
-            // Define composite key for GameLanguage
             builder.Entity<GameLanguage>()
                 .HasKey(gl => new { gl.GameId, gl.LanguageId });
 
-
-
-            // Set the relationship between Cart and CartItem
-            builder.Entity<Cart>()
-                .HasMany(c => c.CartItems)
-                .WithOne(ci => ci.Cart)
-                .HasForeignKey(ci => ci.CartId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Set the relationship between ApplicationUser and Cart
-            builder.Entity<ApplicationUser>()
-                .HasOne(u => u.Cart)
-                .WithOne(c => c.User)
-                .HasForeignKey<Cart>(c => c.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Set the relationship between user and Review
-            builder.Entity<ApplicationUser>()
-                .HasMany(u => u.Reviews)
-                .WithOne(r => r.User)
-                .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Set the relationship between user and wishlist
-            builder.Entity<ApplicationUser>()
-                .HasMany(w => w.WishLists)
-                .WithOne(r => r.User)
-                .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Set the relationships for the Game and Tag entities
             builder.Entity<GameGameTag>()
                 .HasKey(ggt => new { ggt.GameId, ggt.GameTagId });
 
@@ -170,17 +124,58 @@ namespace VideoGameAppBackend.Data
                 .WithMany(gt => gt.GameGameTags)
                 .HasForeignKey(ggt => ggt.GameTagId);
 
+            // DLC-related configurations
+            builder.Entity<DLC>()
+                .HasOne(d => d.MainDLCImage)
+                .WithOne()
+                .HasForeignKey<DLCImage>(di => di.DLCId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // User Friend
+            builder.Entity<DLC>()
+                .HasMany(d => d.DLCGallery)
+                .WithOne(di => di.DLC)
+                .HasForeignKey(di => di.DLCId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<DLCImage>()
+                .HasOne(d => d.DLC)
+                .WithMany(p => p.DLCGallery)
+                .HasForeignKey(d => d.DLCId);
+
+            // User-related configurations
+            builder.Entity<ApplicationUser>()
+                .HasMany(u => u.Reviews)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(w => w.WishLists)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.Cart)
+                .WithOne(c => c.User)
+                .HasForeignKey<Cart>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.DefaultBillingDetails)
+                .WithOne(b => b.User)
+                .HasForeignKey<Billing>(b => b.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<UserFriend>()
                 .HasKey(uf => new { uf.UserId, uf.FriendId });
 
             builder.Entity<UserFriend>()
                 .HasOne(uf => uf.User)
-                .WithMany(u => u.UserFriends)  
+                .WithMany(u => u.UserFriends)
                 .HasForeignKey(uf => uf.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-
 
             builder.Entity<UserFriend>()
                 .HasOne(uf => uf.Friend)
@@ -188,19 +183,14 @@ namespace VideoGameAppBackend.Data
                 .HasForeignKey(uf => uf.FriendId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Cart-related configurations
+            builder.Entity<Cart>()
+                .HasMany(c => c.CartItems)
+                .WithOne(ci => ci.Cart)
+                .HasForeignKey(ci => ci.CartId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Entity<Review>()
-                .Property(r => r.ReviewDate)
-                .HasConversion(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
-
-            // Set the relationship between ApplicationUser and Billing
-            builder.Entity<ApplicationUser>()
-                .HasOne(u => u.DefaultBillingDetails) 
-                .WithOne(b => b.User)
-                .HasForeignKey<Billing>(b => b.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Set the relationship between Billing and Order
+            // Billing-related configurations
             builder.Entity<Billing>()
                 .HasMany(b => b.Orders)
                 .WithOne(o => o.Billing)
@@ -213,8 +203,10 @@ namespace VideoGameAppBackend.Data
                 .HasForeignKey(pm => pm.BillingId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
-
+            // Other configurations
+            builder.Entity<Review>()
+                .Property(r => r.ReviewDate)
+                .HasConversion(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
         }
     }
 }

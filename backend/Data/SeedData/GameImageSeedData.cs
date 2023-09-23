@@ -20,8 +20,8 @@ namespace VideoGameAppBackend.Data.SeedData
                 // Images for Game Id = 2 (Red Dead Redemption 2)
                 new GameImage { Id = 6, GameId = 2, Url = "https://link-to-first-image-for-RDR2.com" },
                 new GameImage { Id = 7, GameId = 2, Url = "https://link-to-second-image-for-RDR2.com" },
-                new GameImage { Id = 6, GameId = 2, Url = "https://link-to-third-image-for-RDR2.com" },
-                new GameImage { Id = 7, GameId = 2, Url = "https://link-to-four-image-for-RDR2.com" }
+                new GameImage { Id = 8, GameId = 2, Url = "https://link-to-third-image-for-RDR2.com" },
+                new GameImage { Id = 9, GameId = 2, Url = "https://link-to-four-image-for-RDR2.com" }
 
                 // // Images for Game Id = 3 (Cyberpunk 2077)
                 // new GameImage { Id = 8, GameId = 3, Url = "https://link-to-first-image-for-cyberpunk2077.com" },

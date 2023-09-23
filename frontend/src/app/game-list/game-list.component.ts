@@ -8,7 +8,7 @@ interface Game {
   title: string;
   description: string;
   price: number;
-  coverImageUrl?: string; 
+  coverImage?: string; 
 }
 
 @Component({
@@ -20,41 +20,33 @@ export class GameListComponent implements OnInit {
   games: Game[] = [];
 
   constructor(private router: Router, private http: HttpClient) {}
-
   async ngOnInit(): Promise<void> {
     try {
-      const data: any = await this.http.get(`${environment.apiBaseUrl}/api/Game`).toPromise();
+      const data = await this.http.get<any[]>(`${environment.apiBaseUrl}/api/Game`).toPromise();
 
-      // Check if data exists
-      if (!data) {
-          console.error('Received no data from API.');
+      // Check if data exists and is an array
+      if (!data || !Array.isArray(data)) {
+          console.error('Received no data or invalid data from API.', data);
           return;
       }
 
-      // Check if $values exists and is an array
-      if (!data.$values || !Array.isArray(data.$values)) {
-          console.error('Data does not contain a valid $values array:', data);
-          return;
-      }
-      console.log(data)
+      console.log('Raw API data:', data);
 
-      // Map the games from the $values property
-
-      this.games = data.$values.map((gameData: {
+      // Map the games directly from the data array
+      this.games = data.map((gameData: {
         id: number;
         title: string;
         description: string;
         price: number;
         GameImage: { path: string };
+        coverImage: string
       }) => ({
         id: gameData.id,
         title: gameData.title,
         description: gameData.description,
         price: gameData.price,
-        coverImage: gameData.GameImage?.path,
+        coverImage: gameData.coverImage,
       }));
-
-
 
       // Log the mapped games for verification
       console.log('Mapped games:', this.games);
@@ -63,6 +55,7 @@ export class GameListComponent implements OnInit {
       console.error('There was an error fetching the games', error);
     }
   }
+
 
   onSelect(game: Game): void {
     this.router.navigate(['/game', game.id]);

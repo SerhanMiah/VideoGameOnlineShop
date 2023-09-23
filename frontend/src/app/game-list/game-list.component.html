@@ -12,7 +12,8 @@
     <div class="row">
         <div class="col-md-4 mb-4" *ngFor="let game of games">
             <div class="card game-card h-100">
-                <img [src]="game.coverImageUrl" class="card-img-top" alt="{{ game.title }}">
+                <!-- Updated the property from game.coverImageUrl to game.coverImage -->
+                <img [src]="game.coverImage" class="card-img-top" alt="{{ game.title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ game.title }}</h5>
                     <p class="card-text">{{ game.description }}</p>

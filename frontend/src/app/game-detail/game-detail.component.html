@@ -69,12 +69,40 @@
         <!-- Tags, Genre, Languages, Platform -->
         <div class="row justify-content-start mb-3">
             <div class="col-12">
-                <p><strong>Tags:</strong> <span *ngFor="let tag of selectedGame.gameGameTags; let last = last">{{ tag.gameTag.tagName }}<span *ngIf="!last">, </span></span></p>
-                <p><strong>Genre:</strong> <ng-container *ngFor="let genreObj of selectedGame.gameGenres; let last = last">{{ genreObj.genre.name }}<span *ngIf="!last">, </span></ng-container></p>
-                <p><strong>Languages:</strong> <ng-container *ngFor="let language of gameLanguages; let last = last">{{ language.languageName }}<span *ngIf="!last">, </span></ng-container></p>
-                <p><strong>Platform:</strong> <ng-container *ngFor="let platformObj of selectedGame.gamePlatforms; let last = last">{{ platformObj.platform.name }}<span *ngIf="!last">, </span></ng-container></p>
+                <p>
+                    <strong>Tags:</strong>
+                    <span *ngFor="let tag of selectedGame.gameGameTags; let last = last">
+                        {{ tag.gameTag.tagName }}
+                        <span *ngIf="!last">, </span>
+                    </span>
+                </p>
+        
+                <p>
+                    <strong>Genre:</strong>
+                    <ng-container *ngFor="let genreObj of selectedGame.gameGenres; let last = last">
+                        {{ genreObj.genre.name }}
+                        <span *ngIf="!last">, </span>
+                    </ng-container>
+                </p>
+        
+                <p>
+                    <strong>Languages:</strong>
+                    <ng-container *ngFor="let language of gameLanguages; let last = last">
+                        {{ language.language.languageName }}
+                        <span *ngIf="!last">, </span>
+                    </ng-container>
+                </p>
+        
+                <p>
+                    <strong>Platform:</strong>
+                    <ng-container *ngFor="let platformObj of selectedGame.gamePlatforms; let last = last">
+                        {{ platformObj.platform.name }}
+                    <span *ngIf="!last">, </span>
+                    </ng-container>
+                </p>
             </div>
         </div>
+        
 
         <!-- Game Details & Description -->
         <div class="row game-details-description mb-5">
