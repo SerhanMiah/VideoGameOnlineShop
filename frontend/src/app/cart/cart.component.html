@@ -1,46 +1,32 @@
 <div class="cart-section">
-
-    <!-- Cart Icon -->
-    <div class="cart-icon">
-        <i class="fa fa-shopping-cart"></i>
-        <span class="cart-count">{{ (cartService.cartItems$ | async)?.length }}</span>
-    </div>
-
-    
-
     <!-- Cart Container -->
     <div class="cart-container">
         <h2>Your Cart</h2>
 
-        <!-- Check if there are items in the cart -->
         <ng-container *ngIf="cartService.cartItems$ | async as cartItems; else emptyCart">
-
-            <!-- If there are items, display them -->
+            
+            <!-- Items in Cart -->
             <div class="cart-items">
                 <div class="cart-card" *ngFor="let item of cartItems">
-                    <!-- Game Image with fallback for default image -->
-                    <img [src]="item.Game?.image || 'default-image-path.jpg'" alt="Game Image" class="cart-image">
-                    
-                    <!-- Game Title with fallback for default title -->
+                    <!-- Game Image with fallback -->
+                    <img [src]="item.Game?.coverImage || 'default-image-path.jpg'" alt="Game Image" class="cart-image">
+                    <!-- Game Title with fallback -->
                     <h4>{{ item.Game?.title || 'Game Title' }}</h4>
-                    
-                    <!-- Game Description with fallback for default description -->
+                    <!-- Game Description with fallback -->
                     <p>{{ item.Game?.description || 'Game Description' }}</p>
-                    
                     <!-- Game Price -->
                     <p><strong>Price:</strong> ${{ item.Game?.price }}</p>
-                    
                     <!-- Quantity Control -->
                     <div class="quantity-control">
                         <button (click)="decrementQuantity(item.GameId)">-</button>
                         <span>{{ item.Quantity }}</span>
                         <button (click)="incrementQuantity(item.GameId)">+</button>
                     </div>
-
                     <!-- Remove Button -->
                     <button (click)="removeFromCart(item.GameId)" class="remove-button">Remove</button>
                 </div>
             </div>
+
 
             <!-- Display total amount with 2 decimal points -->
             <div class="cart-total">

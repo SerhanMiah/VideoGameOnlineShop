@@ -154,7 +154,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/cyberpunk2077coverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk_2077_bztuyy.webp"
             },
             new Game
             {
@@ -172,7 +172,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 3, // Age Rating: T - Teen
-                CoverImage = "https://example.com/skyrimcoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566287/H2x1_NSwitch_TheElderScrollsVSkyrim_image1600w_rqc7us.jpg"
             },
             new Game
             {
@@ -190,7 +190,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 1, // Age Rating: E - Everyone
-                CoverImage = "https://example.com/minecraftcoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566343/minecraft-hero-banner-desktop-01-ps4-en-07jul21_j0ssuf.webp"
             },
             new Game
             {
@@ -208,7 +208,7 @@ public static class GameSeedData
             NumberOfLocalPlayers = 1,
             DiscountedPrice = null,
             AgeRatingId = 4, // Age Rating: M - Mature
-            CoverImage = "https://example.com/assassinscreedvalhallacoverimage.jpg"
+            CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566384/91lmTAVXgHL._SL1500__wayp4d.jpg"
             },
             new Game
             {
@@ -226,7 +226,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 2, // Age Rating: E10+ - Everyone 10 and older
-                CoverImage = "https://example.com/zeldabreathofthewildcoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/an-image-of-link-in-the-new-zelda-breath-of-the-wild-video-game_r3d9ub.avif"
             },
             new Game
             {
@@ -244,7 +244,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 1, // Age Rating: E - Everyone
-                CoverImage = "https://example.com/fifa22coverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566452/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg_xkadqv.webp"
             },
             new Game
             {
@@ -262,7 +262,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 3, // Age Rating: T - Teen
-                CoverImage = "https://example.com/horizonzerodawncoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp"
             },
             new Game
             {
@@ -280,7 +280,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/doometernalcoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566527/iPKatp6VvEFwBwMeYXSwhR-1024-80.jpg_kctslj.webp"
             },
             new Game
             {
@@ -298,7 +298,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 1, // Age Rating: E - Everyone
-                CoverImage = "https://example.com/amonguscoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566572/img08_2x-570x155_mrypo0.png"
             },
             // Seed more Games
                 new Game
@@ -317,7 +317,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
                     AgeRatingId = 4, // Age Rating: M - Mature
-                    CoverImage = "https://example.com/cyberpunk2078coverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp"
                 },
                 new Game
                 {
@@ -335,7 +335,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 2,
                     DiscountedPrice = null,
                     AgeRatingId = 2, // Age Rating: E10+ - Everyone 10 and older
-                    CoverImage = "https://example.com/megaracingchampionshipcoverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566642/0000000899.600x338_dk8xkx.jpg"
                 },
                 new Game
                 {
@@ -353,7 +353,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
                     AgeRatingId = 3, // Age Rating: T - Teen
-                    CoverImage = "https://example.com/bioshockinfinitecoverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566675/H2x1_NSwitch_BioshockInfiniteTheCompleteEdition_image1600w_ozd1tp.jpg"
                 },
                 new Game
                 {
@@ -371,7 +371,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 4,
                     DiscountedPrice = null,
                     AgeRatingId = 1, // Age Rating: E - Everyone
-                    CoverImage = "https://example.com/stardewvalleycoverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp"
                 },
 
             new Game
@@ -390,7 +390,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/elderscrollsvicoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566287/H2x1_NSwitch_TheElderScrollsVSkyrim_image1600w_rqc7us.jpg"
             },
             new Game
             {
@@ -408,7 +408,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 1, // Age Rating: E - Everyone
-                CoverImage = "https://example.com/minecraftcoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp"
             },
             new Game
             {
@@ -426,7 +426,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 3, // Age Rating: T - Teen
-                CoverImage = "https://example.com/residentevilvillagecoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566810/resident-evil-village-ps5-screenshot-05-24jul20_dfa6li.webp"
             },
             new Game
             {
@@ -444,7 +444,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 3, // Age Rating: T - Teen
-                CoverImage = "https://example.com/assassinscreedodysseycoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp"
             },
             new Game
             {
@@ -462,7 +462,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/thelastofuspartiicoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547906/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/194522_1357656.bmp.1500x843_q95_crop-smart_upscale_yqaufa.jpg"
             },
             new Game
             {
@@ -480,7 +480,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 2, // Age Rating: E10+ - Everyone 10 and older
-                CoverImage = "https://example.com/civilizationvicoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547913/VideoGameShop/Animal%20Crossing-%20New%20Horizons/uQgKvtbaN94TWQyn9HyHv_rw3wmx.jpg"
             },
             new Game
             {
@@ -498,7 +498,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/haloinfinitecoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547904/VideoGameShop/Halo%20Infinite/halo_infinite_hope_nogun_keyart_horiz_1120-d408b3ea15194141bf68183246babe2e_x5vjdo.webp"
             },
             new Game
             {
@@ -516,7 +516,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 4,
                 DiscountedPrice = null,
                 AgeRatingId = 1, // Age Rating: E - Everyone
-                CoverImage = "https://example.com/fifa24coverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566452/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg_xkadqv.webp"
             },
             new Game
             {
@@ -534,7 +534,7 @@ public static class GameSeedData
                 NumberOfLocalPlayers = 1,
                 DiscountedPrice = null,
                 AgeRatingId = 4, // Age Rating: M - Mature
-                CoverImage = "https://example.com/horizonzerodawncoverimage.jpg"
+                CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/HO8vkO9pfXhwbHi5WHECQJdN_orvh7x.webp"
             },
             new Game
                 {
@@ -552,7 +552,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
                     AgeRatingId = 4, // Age Rating: M - Mature
-                    CoverImage = "https://example.com/cyberpunk2078coverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk-2077-witcher-map_uj800z.webp"
                 },
                 new Game
                 {
@@ -570,7 +570,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 1,
                     DiscountedPrice = null,
                     AgeRatingId = 1, // Age Rating: E - Everyone
-                    CoverImage = "https://example.com/zeldabreathofthewild2coverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/an-image-of-link-in-the-new-zelda-breath-of-the-wild-video-game_r3d9ub.avif"
                 },
                 new Game
                 {
@@ -588,7 +588,7 @@ public static class GameSeedData
                     NumberOfLocalPlayers = 4,
                     DiscountedPrice = null,
                     AgeRatingId = 1, // Age Rating: E - Everyone
-                    CoverImage = "https://example.com/stardewvalleycoverimage.jpg"
+                    CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp"
                 },
                 new Game
                     {
@@ -606,7 +606,7 @@ public static class GameSeedData
                         NumberOfLocalPlayers = 4,
                         DiscountedPrice = null,
                         AgeRatingId = 1, // Age Rating: E - Everyone
-                        CoverImage = "https://example.com/minecraftdungeonscoverimage.jpg"
+                        CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566343/minecraft-hero-banner-desktop-01-ps4-en-07jul21_j0ssuf.webp"
                     },
                     new Game
                     {
@@ -624,7 +624,7 @@ public static class GameSeedData
                         NumberOfLocalPlayers = 6,
                         DiscountedPrice = null,
                         AgeRatingId = 3, // Age Rating: T - Teen
-                        CoverImage = "https://example.com/overwatch2coverimage.jpg"
+                        CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547913/VideoGameShop/Animal%20Crossing-%20New%20Horizons/uQgKvtbaN94TWQyn9HyHv_rw3wmx.jpg"
                     },
                     new Game
                     {
@@ -642,7 +642,7 @@ public static class GameSeedData
                         NumberOfLocalPlayers = 1,
                         DiscountedPrice = null,
                         AgeRatingId = 2, // Age Rating: E10+ - Everyone 10 and older
-                        CoverImage = "https://example.com/subnauticacoverimage.jpg"
+                        CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547912/VideoGameShop/DemonSoul/gAP2DGRWpFSehL2GDrcsPL_ienhqh.jpg"
                     }
                     // End of Game Seeding data
 };

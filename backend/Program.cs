@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text.Json.Serialization;
 using VideoGameAppBackend.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using VideoGameAppBackend.Models.Payments;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +34,7 @@ builder.Services.AddControllers()
     {
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     })
-    .AddApplicationPart(typeof(ShoppingCartController).Assembly);
+    .AddApplicationPart(typeof(CartController).Assembly);
 
 
 
@@ -62,7 +63,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
+builder.Services.AddControllers().AddApplicationPart(typeof(CartController).Assembly);
 
 var app = builder.Build();
 
