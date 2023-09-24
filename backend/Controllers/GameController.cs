@@ -62,6 +62,29 @@ public class GameController : ControllerBase
         return Ok(games);
     }
 
+    [HttpGet("{id}/reviews")]
+    public async Task<ActionResult<IEnumerable<Review>>> GetGameReviews(int id)
+    {
+        var game = await _dbContext.Games
+            .Include(g => g.Reviews)
+                .ThenInclude(r => r.User) 
+            .FirstOrDefaultAsync(g => g.Id == id);
+
+        if (game == null)
+        {
+            return NotFound();
+        }
+
+        if (game.Reviews == null || !game.Reviews.Any())
+        {
+            return Ok(new List<Review>()); // Returning an empty list
+        }
+
+        return Ok(game.Reviews);
+    }
+
+
+
     private IQueryable<Game> GetGameWithDetails()
     {
         return _dbContext.Games

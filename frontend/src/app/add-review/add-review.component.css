@@ -1,0 +1,48 @@
+/* Basic Styles - You can enhance further with CSS/Sass frameworks */
+.rating label {
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0 5px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating input[type="radio"]:checked + label {
+    color: gold; /* Highlight the stars when selected */
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    min-height: 100px;
+}
+
+.submit-review {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-review:hover {
+    background-color: #555;
+}
+
+.login-link, .register-link {
+    color: #007BFF;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link:hover, .register-link:hover {
+    text-decoration: none;
+}

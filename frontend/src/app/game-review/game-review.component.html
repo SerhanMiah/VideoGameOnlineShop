@@ -1,42 +1,29 @@
-<!-- Check if User is Authenticated to Show Review Form -->
-<div *ngIf="isUserAuthenticated" class="add-review-section mb-4">
-  <h4>Add Your Review:</h4>
-  <form (ngSubmit)="addReview()" class="review-form">
-      <div class="rating-section mb-2">
-          <label>Your Rating:</label>
-          <app-star-rating [(rating)]="newReview.rating"></app-star-rating>
-      </div>
-      <div class="comment-section mb-2">
-          <label>Comment:</label>
-          <textarea [(ngModel)]="newReview.comment" name="comment" placeholder="Share your thoughts"></textarea>
-          <div class="feedback">Please provide a comment.</div>
-      </div>
-      <button class="submit-button btn btn-primary">Add Review</button>
-  </form>
-</div>
+<!-- Add Review Section -->
+<section class="add-review-section">
+    <!-- Use the Angular safe navigation operator to handle scenarios where gameId might be null or undefined -->
+    <app-add-review [gameId]="gameId ?? undefined" (reviewAdded)="handleNewReview($event)"></app-add-review>
+</section>
 
-<!-- If User is not Authenticated, show a login and registration prompt -->
-<div *ngIf="!isUserAuthenticated">
-  <p>You must <a href="/login">log in</a> or <a href="/register">register</a> to add a review.</p>
-</div>
+<!-- Reviews List Section -->
+<section class="reviews-list-section">
+    <h4>All Reviews:</h4>
+    <ul class="list-unstyled">
+        <li *ngFor="let review of reviews" class="mb-3">
+            <article class="review-card d-flex">
+                <!-- Uncomment the image once you have user avatars set up -->
+                <!-- <img class="avatar rounded-circle mr-3" [src]="review.userAvatar" alt="User Avatar" width="50" height="50"> -->
 
-
-
-<!-- Display Reviews List -->
-<div class="reviews-list">
-  <h4>All Reviews:</h4>
-  <ul class="list-unstyled">
-      <li *ngFor="let review of reviews" class="mb-3">
-          <div class="review-card d-flex">
-              <!-- <img class="avatar rounded-circle mr-3" [src]="review.userAvatar" alt="User Avatar" width="50" height="50"> -->
-              <div class="review-content">
-                  <div class="mb-2">
-                      <app-star-rating [rating]="review.rating"></app-star-rating>
-                  </div>
-                  <p class="mb-1">{{ review.comment }}</p>
-                  <button class="delete-button btn btn-sm btn-danger" (click)="deleteReview(review.id)">Delete</button>
-              </div>
-          </div>
-      </li>
-  </ul>
-</div>
+                <div class="review-content">
+                    <div class="rating-section mb-2">
+                        <app-star-rating [rating]="review.rating"></app-star-rating>
+                    </div>
+                    <p class="comment-section mb-1">{{ review.comment }}</p>
+                    <!-- Display the delete button only if the logged-in user is the owner of the review -->
+                    <button *ngIf="isReviewOwner(review.userId)" class="delete-button btn btn-sm btn-danger" (click)="deleteReview(review.id)">
+                        Delete
+                    </button>
+                </div>
+            </article>
+        </li>
+    </ul>
+</section>

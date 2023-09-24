@@ -209,8 +209,9 @@ export interface Review {
     comment?: string;
     gameId: number;
     game?: Game;
-    userId?: string;
+    userId?: number;
     user?: ApplicationUser;
+    
 }
 
 export interface WishList {

@@ -1,0 +1,28 @@
+<div *ngIf="isUserAuthenticated; else notAuthenticatedTemplate" class="card mt-4 shadow">
+    <div class="card-body">
+        <h3 class="card-title mb-4">Add a Review:</h3>
+        
+        <!-- Star Rating -->
+        <div class="mb-3">
+            <app-star-rating 
+                [(rating)]="newReview.rating" 
+                (ratingChange)="newReview.rating = $event">
+            </app-star-rating>
+        </div>
+
+        <!-- Comment -->
+        <div class="form-group comment-section">
+            <label for="reviewComment">Comment:</label>
+            <textarea id="reviewComment" class="form-control" placeholder="Share your thoughts..." rows="5" [(ngModel)]="newReview.comment"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary submit-review" (click)="addReview()">Submit Review</button>
+    </div>
+</div>
+
+<ng-template #notAuthenticatedTemplate>
+    <div class="alert alert-warning mt-4" role="alert">
+        You must <a [routerLink]="['/login']" class="login-link">log in</a> or <a [routerLink]="['/register']" class="register-link">register</a> to add a review.
+    </div>
+</ng-template>

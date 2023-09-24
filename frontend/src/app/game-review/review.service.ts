@@ -30,20 +30,22 @@ export class ReviewService {
   }
 
   getReviewsForGame(gameId: number): Observable<Review[]> {
-    return this.http.get<Review[]>(`${this.apiUrl}/api/review/${gameId}`, {
+    return this.http.get<Review[]>(`${this.apiUrl}/api/Game/${gameId}/reviews`, {
       headers: this.getAuthHeaders()
     }).pipe(
       catchError(this.handleError)
     );
   }
+  
 
   addReview(review: Review): Observable<Review> {
-    return this.http.post<Review>(`${this.apiUrl}/api/review`, review, {
-      headers: this.getAuthHeaders()
+    return this.http.post<Review>(`${this.apiUrl}/api/Review`, review, {
+        headers: this.getAuthHeaders()
     }).pipe(
-      catchError(this.handleError)
+        catchError(this.handleError)
     );
-  }
+}
+
 
   editReview(review: Review): Observable<Review> {
     return this.http.put<Review>(`${this.apiUrl}/api/review/${review.id}`, review, {

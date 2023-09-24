@@ -3,6 +3,7 @@ import { Review } from '../game-models';
 import { ToastrService } from 'ngx-toastr';
 import { ReviewService } from './review.service';
 import { userIsAuthenticated } from '../helper/auth.helper';
+import { ActivatedRoute } from '@angular/router';
 
 interface RatingChangeEvent {
   rating: number;
@@ -14,75 +15,63 @@ interface RatingChangeEvent {
   styleUrls: ['./game-review.component.css'],
 })
 export class GameReviewComponent implements OnInit {
-  @Input() gameId: number | undefined;
+  @Input() gameId: number | null = null;
   reviews: Review[] = [];
-  newReview!: Review;
-  currentUserId: number = 1;
+  newReview: Review = this.initializeNewReview();
+  currentUserId: number = 1;  // Assuming this is hardcoded for now.
 
   constructor(
+    private route: ActivatedRoute,
     private toastr: ToastrService,
-    private reviewService: ReviewService // Inject ReviewService
+    private reviewService: ReviewService 
   ) {}
 
   ngOnInit(): void {
-    this.newReview = {
+    if (!this.gameId) {
+      const gameIdStr = this.route.snapshot.paramMap.get('id');
+      if (gameIdStr) {
+        this.gameId = +gameIdStr;
+      } else {
+        this.toastr.error('No game ID provided in route.');
+        return;
+      }
+    }
+
+    this.newReview.gameId = this.gameId;
+    this.fetchReviewsForGame(this.gameId);
+  }
+
+  private initializeNewReview(): Review {
+    return {
       id: 0,
       rating: 0,
       comment: '',
-      gameId: this.gameId ? this.gameId : 0,
+      gameId: this.gameId || 0
     };
-
-    if (this.gameId) {
-      this.fetchReviewsForGame(this.gameId);
-    }
   }
 
   get isUserAuthenticated(): boolean {
     return userIsAuthenticated();
   }
 
-  private async fetchReviewsForGame(gameId: number) {
+  public async fetchReviewsForGame(gameId: number): Promise<void> {
     try {
       const reviews = await this.reviewService.getReviewsForGame(gameId)?.toPromise();
-      if (reviews) {
-        this.reviews = reviews;
-      } else {
-        this.reviews = []; // Set a default value or handle the case where reviews is undefined.
-      }
+      this.reviews = reviews || [];
     } catch (error) {
       this.toastr.error('Error fetching reviews. Please try again.');
     }
   }
-  
 
-  async addReview() {
-    if (!userIsAuthenticated()) {
-      this.toastr.warning('You must be authenticated to add a review.');
-      return;
-    }
-  
-    try {
-      const addedReview = await this.reviewService.addReview(this.newReview)?.toPromise();
-      if (addedReview) {
-        this.reviews.push(addedReview);
-      } else {
-        // Handle the case where addedReview is undefined.
-      }
-      this.newReview = {
-        id: 0,
-        rating: 0,
-        comment: '',
-        gameId: this.gameId ? this.gameId : 0,
-      };
-      this.toastr.success('Review added successfully!');
-    } catch (error) {
-      this.toastr.error('Error while adding the review. Please try again.');
+  handleNewReview(addedReview: Review): void {
+    this.reviews.push(addedReview);
+    if (this.gameId) {
+        this.fetchReviewsForGame(this.gameId);
     }
   }
-  
 
-  async deleteReview(id: number) {
-    if (!userIsAuthenticated()) {
+  async deleteReview(id: number): Promise<void> {
+    if (!this.isUserAuthenticated) {
       this.toastr.warning('You must be authenticated to delete a review.');
       return;
     }
@@ -96,13 +85,13 @@ export class GameReviewComponent implements OnInit {
     }
   }
 
-  
-
-  isReviewOwner(reviewUserId: number): boolean {
+  isReviewOwner(reviewUserId: number | undefined): boolean {
+    if (reviewUserId === undefined) return false;
     return this.currentUserId === reviewUserId;
   }
+  
 
-  handleRatingChange(event: RatingChangeEvent) {
+  handleRatingChange(event: RatingChangeEvent): void {
     this.newReview.rating = event.rating;
   }
 

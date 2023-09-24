@@ -28,11 +28,12 @@ if (jwtKey == null)
     throw new Exception("Missing JWT key in configuration");
 }
 
-builder.Services.AddControllers().AddNewtonsoftJson(options =>
-{
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-    // ... other Newtonsoft settings
-});
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    })
+    .AddApplicationPart(typeof(ShoppingCartController).Assembly);
 
 
 

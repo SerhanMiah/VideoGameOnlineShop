@@ -19,15 +19,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
 
-
   { path: 'games', component: GameListComponent },
   { path: 'game/:id', component: GameDetailComponent },
-  { path: 'game/:id/review', component: GameReviewComponent },
-
+  { path: 'game/:id/reviews', component: GameReviewComponent },
+  { path: 'game/:id/review/:reviewId/edit', component: GameReviewComponent },
+  { path: 'game/:id/review/add', component: GameReviewComponent },  
+  
   { path: 'cart', component: CartComponent},
   { path: 'checkout/:id', component: CheckoutComponent }
-
-
 ];
 
 @NgModule({
