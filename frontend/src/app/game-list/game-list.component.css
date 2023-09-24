@@ -1,62 +1,118 @@
-h1.display-4 {
-    font-weight: 700;
-    color: #343a40;
+/* Base Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
 }
 
 .container {
-    height: 100vh;
+    max-width: 1400px;
 }
 
-.filters-section h6 {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+h1 {
+    color: #343a40;
+    letter-spacing: 1.5px;
+    font-weight: 700;
 }
 
-.game-card {
+h5 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+/* Filters Section */
+aside {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-check-label {
+    font-weight: normal;
+}
+
+/* Search Bar */
+.input-group {
+    position: relative;
+    z-index: 1;
+}
+
+.input-group-append .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Game Card */
+.card {
     transition: transform .2s, box-shadow .2s;
-    border: none;
+    height: 400px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     overflow: hidden;
 }
 
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+.card-price {
+    border-radius: 0 0 0 5px;
 }
 
-.game-card img {
-    transition: transform 0.3s;
+.card-image {
+    overflow: hidden;
+    transition: transform .2s;
 }
 
-.game-card:hover img {
-    transform: scale(1.1);
+.card:hover .card-image {
+    transform: scale(1.05);
 }
 
-.game-search, .game-search-btn, .game-btn {
-    transition: box-shadow .2s, transform .2s;
+.card-body {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-grow: 1;
+    overflow: hidden;
 }
 
-.game-search:focus, .game-search-btn:focus, .game-btn:focus {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
-.game-search-btn:hover, .game-btn:hover {
-    transform: translateY(-2px);
+.btn-sm {
+    padding: 5px 15px;
+    font-size: 0.875rem;
 }
 
-input[type="checkbox"] {
-    margin-right: 5px;
+.game-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
-.search-icon {
-    transition: transform 0.3s;
+.game-card-link:hover {
+    text-decoration: none;
 }
 
-.game-search:focus + .input-group-append .search-icon {
-    transform: rotate(90deg);
-}
-
-.price-slider {
-    width: 100%;
+.col-md-4 {
+    display: flex;
+    justify-content: center;
 }

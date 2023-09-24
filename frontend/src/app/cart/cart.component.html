@@ -1,9 +1,12 @@
 <div class="cart-section">
+
     <!-- Cart Icon -->
     <div class="cart-icon">
         <i class="fa fa-shopping-cart"></i>
-        <span class="cart-count">{{ cartItemsCount$ | async }}</span>
+        <span class="cart-count">{{ (cartService.cartItems$ | async)?.length }}</span>
     </div>
+
+    
 
     <!-- Cart Container -->
     <div class="cart-container">
@@ -11,46 +14,46 @@
 
         <!-- Check if there are items in the cart -->
         <ng-container *ngIf="cartService.cartItems$ | async as cartItems; else emptyCart">
-            <!-- Iterate through the cart items and display each one -->
-            <div class="cart-items">
-                    <!-- ... -->
 
-                    <div class="cart-card" *ngFor="let item of cartItems">
-                        <!-- Game Image -->
-                        <img [src]="item.Game?.image || 'default-image-path.jpg'" alt="Game Image" class="cart-image">
-                        <!-- Game Title -->
-                        <h4>{{ item.Game?.title || 'Game Title' }}</h4>
-                        <!-- Game Description -->
-                        <p>{{ item.Game?.description || 'Game Description' }}</p>
-                        <!-- Game Price -->
-                        <p><strong>Price:</strong> ${{ item.Game?.price }}</p>
-                        <!-- Quantity -->
-                        <div class="quantity-control">
-                            <button (click)="decrementQuantity(item.GameId)">-</button>
-                            <span>{{ item.Quantity }}</span>
-                            <button (click)="incrementQuantity(item.GameId)">+</button>
-                        </div>
-                        <!-- Remove Button -->
-                        <button (click)="removeFromCart(item.GameId)" class="remove-button">Remove</button>
+            <!-- If there are items, display them -->
+            <div class="cart-items">
+                <div class="cart-card" *ngFor="let item of cartItems">
+                    <!-- Game Image with fallback for default image -->
+                    <img [src]="item.Game?.image || 'default-image-path.jpg'" alt="Game Image" class="cart-image">
+                    
+                    <!-- Game Title with fallback for default title -->
+                    <h4>{{ item.Game?.title || 'Game Title' }}</h4>
+                    
+                    <!-- Game Description with fallback for default description -->
+                    <p>{{ item.Game?.description || 'Game Description' }}</p>
+                    
+                    <!-- Game Price -->
+                    <p><strong>Price:</strong> ${{ item.Game?.price }}</p>
+                    
+                    <!-- Quantity Control -->
+                    <div class="quantity-control">
+                        <button (click)="decrementQuantity(item.GameId)">-</button>
+                        <span>{{ item.Quantity }}</span>
+                        <button (click)="incrementQuantity(item.GameId)">+</button>
                     </div>
 
-                    <!-- ... -->
-
+                    <!-- Remove Button -->
+                    <button (click)="removeFromCart(item.GameId)" class="remove-button">Remove</button>
+                </div>
             </div>
-            
-            <!-- Total Amount -->
+
+            <!-- Display total amount with 2 decimal points -->
             <div class="cart-total">
                 <h3>Total Amount: ${{ cartService.getTotalAmount() | number:'1.2-2' }}</h3>
             </div>
 
-            <!-- Checkout Section -->
+            <!-- Checkout Button -->
             <div class="checkout-container">
-                <!-- Updated to not use orderId as it's not provided in the initial code -->
                 <button class="checkout-btn" routerLink="/checkout">Proceed to Checkout</button>
             </div>
         </ng-container>
 
-        <!-- Empty cart message -->
+        <!-- If the cart is empty, display an empty cart message -->
         <ng-template #emptyCart>
             <div class="empty-cart-message">
                 <img src="empty-cart-icon.jpg" alt="Empty Cart Icon">

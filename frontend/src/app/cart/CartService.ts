@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+interface CartItem {
+  Id?: number;
+  GameId: number;
+  Game?: any;  // Consider being more specific than 'any' if possible
+  Quantity: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,8 +18,8 @@ export class CartService {
   constructor() {}
 
   addToCart(item: CartItem): void {
+    console.log("Adding item to cart:", item);
     const currentCartItems = [...this.cartItemsSubject.value];
-    console.log(currentCartItems)
     const existingItem = currentCartItems.find(cartItem => cartItem.GameId === item.GameId);
 
     if (existingItem) {
@@ -82,10 +89,3 @@ export class CartService {
 }
 
 
-// interface for cart
-interface CartItem {
-  Id?: number;
-  GameId: number;
-  Game?: any;  
-  Quantity: number;
-}

@@ -1,64 +1,63 @@
 <div class="container mt-5">
     <h1 class="mb-4 display-4 text-center">Gaming Galaxy</h1>
-
     <div class="row">
-        <!-- Filters for the Game List -->
+        <!-- Filters -->
         <aside class="col-md-3 mb-4">
-            <h5 class="mb-3">Filters</h5>
-
-            <!-- Category Filter -->
-            <div class="mb-4">
-                <h6>Category</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="action">
-                            <label class="form-check-label" for="action">Action</label>
-                        </div>
-                    </li>
-                    <li class="mb-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="adventure">
-                            <label class="form-check-label" for="adventure">Adventure</label>
-                        </div>
-                    </li>
-                    <!-- Add other categories -->
-                </ul>
-            </div>
-
-            <!-- Price Range Filter -->
-            <div class="mb-4">
-                <h6>Price Range</h6>
-                <!-- Consider using a range slider or input fields for min-max pricing -->
+            <div class="sticky-top" style="top: 20px;">
+                <!-- Category Filter -->
+                <div class="mb-4">
+                    <h5>Category</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="action">
+                                <label class="form-check-label" for="action">Action</label>
+                            </div>
+                        </li>
+                        <li class="mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="adventure">
+                                <label class="form-check-label" for="adventure">Adventure</label>
+                            </div>
+                        </li>
+                        <!-- Add other categories -->
+                    </ul>
+                </div>
+                <!-- Price Range Filter -->
+                <div class="mb-4">
+                    <h5>Price Range</h5>
+                    <!-- Placeholder for price range slider or inputs -->
+                </div>
             </div>
         </aside>
-
         <!-- Game List -->
         <div class="col-md-9">
             <!-- Search Bar -->
             <div class="input-group mb-4">
                 <input type="text" class="form-control" placeholder="Search for a game...">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <!-- Game Cards -->
-            <div class="row">
-                <div class="col-md-4 mb-4" *ngFor="let game of games">
-                    <div class="card h-100 shadow-sm">
-                        <img [src]="game.coverImage" class="card-img-top" alt="{{ game.title }}">
-                        <div class="card-body">
-                            <h6 class="card-title">{{ game.title }}</h6>
-                            <p class="card-text">{{ game.description }}</p>
-                            <p class="card-text"><strong>Price:</strong> £{{ game.price }}</p>
-                            <!-- Assuming game.rating is a number between 1 to 5 -->
-                            <!-- You can add rating display logic here -->
-                            <a [routerLink]="['/game', game.id]" class="btn btn-primary btn-sm mt-2">View Details</a>
-                        </div>
-                    </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
+            <!-- Game Grid -->
+            <div class="row">
+                <div class="col-md-4 mb-4" *ngFor="let game of games">
+                    <a [routerLink]="['/game', game.id]" class="game-card-link">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-image position-relative">
+                                <img [src]="game.coverImage" class="card-img-top" alt="{{ game.title }}">
+                                <div class="card-price position-absolute top-0 end-0 bg-primary text-white p-2">{{ game.price }}</div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">{{ game.title }}</h6>
+                                <p class="card-text">{{ game.description | slice:0:60 }}...</p>
+                                <span class="btn btn-sm btn-primary">Details</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

@@ -10,11 +10,11 @@ namespace VideoGameAppBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ShoppingCartController : ControllerBase
+    public class CartController : ControllerBase
     {
         private readonly GameDbContext _context;
 
-        public ShoppingCartController(GameDbContext context)
+        public CartController(GameDbContext context)
         {
             _context = context;
         }
