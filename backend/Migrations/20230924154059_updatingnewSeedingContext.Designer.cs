@@ -12,8 +12,8 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20230924145420_filledinMissingCoverImage")]
-    partial class filledinMissingCoverImage
+    [Migration("20230924154059_updatingnewSeedingContext")]
+    partial class updatingnewSeedingContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "68aec487-8485-463b-9d90-2e1906860a54",
+                            Id = "e254c7aa-b2d2-4be6-bfcd-3fa287cb17e7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -149,8 +149,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "a493a37a-c3a2-4ce7-aa82-faa5494d9e5c",
-                            RoleId = "68aec487-8485-463b-9d90-2e1906860a54"
+                            UserId = "f1c19d73-322e-4708-ab6b-477f71f4442f",
+                            RoleId = "e254c7aa-b2d2-4be6-bfcd-3fa287cb17e7"
                         });
                 });
 
@@ -284,11 +284,11 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a493a37a-c3a2-4ce7-aa82-faa5494d9e5c",
+                            Id = "f1c19d73-322e-4708-ab6b-477f71f4442f",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "b12cd279-d541-4432-90c0-f1f4fbd7f778",
+                            ConcurrencyStamp = "989de1db-609b-4b05-80b8-fcc479f2587c",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -296,20 +296,20 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOmS6M+g7mXbrnGUhE+jreCcb7eP+815dLQ6qlbAbv8sd9HoPp415p8uAQghzhns3A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENSWJlZcVyaM1hgKUcp0mj/Xt+d7yjfVZmZDjlN0PEQkoQPSgRuW+QV2oVGjbABClw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "555d3811-09f4-4da9-b7c6-0303132315cd",
+                            SecurityStamp = "9390df54-9a47-4db3-8e6a-74289ed7f442",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "31db17e7-9331-41a2-9335-09cf1f095e42",
+                            Id = "0628b9bb-d205-4289-a722-1f6b4a020961",
                             AccessFailedCount = 0,
                             AchievementsDb = "",
                             Address = "",
-                            ConcurrencyStamp = "1313772d-25d8-4e63-9e59-95ec03b407a2",
+                            ConcurrencyStamp = "092d085e-88b8-4c3d-a088-bf64bb20e737",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -317,9 +317,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFwUqWoxGtKIeJmxdqNFxdJHV+MkydBU62Jmj1G3ys+ysGeDuoWypkT1j9YA0FrIjQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH0g8G/z7Jp2eV9AX83xyr6W+BagKqWeCLcHefmkqYM3hS65Wq+qAAcr7lhOWkoE/g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d03ec611-8958-4603-881a-8057f0847a21",
+                            SecurityStamp = "3e5f1855-bbfa-4e3a-a1c3-a89117d367c9",
                             TotalGamesPlayed = 0,
                             TwoFactorEnabled = false,
                             UserName = "user"
@@ -411,7 +411,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://media.thenerdstash.com/wp-content/uploads/2022/12/GOG-Winter-Sale.jpg.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3729),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6338),
                             Description = "The Witcher 3: Wild Hunt is a role-playing game set in an open-world fantasy universe.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -422,7 +422,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Witcher 3: Wild Hunt",
                             TrailerUrl = "https://www.youtube.com/watch?v=c0i88t0Kacs",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3733)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6342)
                         },
                         new
                         {
@@ -430,7 +430,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/capsule_sm_120.jpg?t=1677747900",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3756),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6362),
                             Description = "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.",
                             Developer = "Rockstar Games",
                             HasMultiplayerSupport = true,
@@ -441,7 +441,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Red Dead Redemption 2",
                             TrailerUrl = "https://www.youtube.com/watch?v=eaW0tYpxyp0",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3756)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6362)
                         },
                         new
                         {
@@ -449,7 +449,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 3.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk_2077_bztuyy.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3760),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6366),
                             Description = "Cyberpunk 2077 is an open-world action-adventure game set in a dystopian future.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = false,
@@ -460,7 +460,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cyberpunk 2077",
                             TrailerUrl = "https://www.youtube.com/watch?v=game3trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3761)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6367)
                         },
                         new
                         {
@@ -468,7 +468,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566287/H2x1_NSwitch_TheElderScrollsVSkyrim_image1600w_rqc7us.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3764),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6370),
                             Description = "The Elder Scrolls V: Skyrim is an open-world RPG known for its vast fantasy world.",
                             Developer = "Bethesda Game Studios",
                             HasMultiplayerSupport = false,
@@ -479,7 +479,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Elder Scrolls V: Skyrim",
                             TrailerUrl = "https://www.youtube.com/watch?v=game4trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3764)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6371)
                         },
                         new
                         {
@@ -487,7 +487,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566343/minecraft-hero-banner-desktop-01-ps4-en-07jul21_j0ssuf.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3768),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6374),
                             Description = "Minecraft is a sandbox game where players can build and explore blocky worlds.",
                             Developer = "Mojang Studios",
                             HasMultiplayerSupport = true,
@@ -498,7 +498,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minecraft",
                             TrailerUrl = "https://www.youtube.com/watch?v=game5trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3768)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6374)
                         },
                         new
                         {
@@ -506,7 +506,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.5999999999999996,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566384/91lmTAVXgHL._SL1500__wayp4d.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3772),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6379),
                             Description = "Assassin's Creed Valhalla is an action RPG that lets you play as a Viking warrior in medieval England.",
                             Developer = "Ubisoft Montreal",
                             HasMultiplayerSupport = false,
@@ -517,7 +517,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Assassin's Creed Valhalla",
                             TrailerUrl = "https://www.youtube.com/watch?v=game6trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3772)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6379)
                         },
                         new
                         {
@@ -525,7 +525,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/an-image-of-link-in-the-new-zelda-breath-of-the-wild-video-game_r3d9ub.avif",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3827),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6423),
                             Description = "The Legend of Zelda: Breath of the Wild is an action-adventure game set in the expansive world of Hyrule.",
                             Developer = "Nintendo",
                             HasMultiplayerSupport = false,
@@ -536,7 +536,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Legend of Zelda: Breath of the Wild",
                             TrailerUrl = "https://www.youtube.com/watch?v=game7trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3827)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6424)
                         },
                         new
                         {
@@ -544,7 +544,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566452/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg_xkadqv.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3831),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6429),
                             Description = "FIFA 22 is a sports simulation game that brings the excitement of football (soccer) to your gaming console.",
                             Developer = "EA Vancouver",
                             HasMultiplayerSupport = true,
@@ -555,7 +555,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "FIFA 22",
                             TrailerUrl = "https://www.youtube.com/watch?v=game8trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3831)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6429)
                         },
                         new
                         {
@@ -563,7 +563,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3834),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6432),
                             Description = "Horizon Zero Dawn is an action RPG set in a post-apocalyptic world overrun by robotic creatures.",
                             Developer = "Guerrilla Games",
                             HasMultiplayerSupport = false,
@@ -574,7 +574,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Horizon Zero Dawn",
                             TrailerUrl = "https://www.youtube.com/watch?v=game9trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3835)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6432)
                         },
                         new
                         {
@@ -582,7 +582,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566527/iPKatp6VvEFwBwMeYXSwhR-1024-80.jpg_kctslj.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3839),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6437),
                             Description = "DOOM Eternal is a fast-paced first-person shooter where you battle hordes of demons from Hell.",
                             Developer = "id Software",
                             HasMultiplayerSupport = true,
@@ -593,7 +593,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "DOOM Eternal",
                             TrailerUrl = "https://www.youtube.com/watch?v=gFQpxbd9DBg",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3840)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6438)
                         },
                         new
                         {
@@ -601,7 +601,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566572/img08_2x-570x155_mrypo0.png",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3843),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6441),
                             Description = "Among Us is a multiplayer party game where players work together on a spaceship while trying to identify impostors.",
                             Developer = "InnerSloth",
                             HasMultiplayerSupport = true,
@@ -612,7 +612,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2018, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Among Us",
                             TrailerUrl = "https://www.youtube.com/watch?v=gFQpxbd9DBg",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3843)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6441)
                         },
                         new
                         {
@@ -620,7 +620,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.5,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547902/VideoGameShop/Cyberpunk%202077/cyberpunk-2077-game-of-the-year-edition-scaled-e1670012903149_jpzcd6.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3846),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6445),
                             Description = "Cyberpunk 2078 is a futuristic open-world RPG with advanced technology and immersive storytelling.",
                             Developer = "FutureTech Games",
                             HasMultiplayerSupport = true,
@@ -631,7 +631,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2022, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cyberpunk 2078",
                             TrailerUrl = "https://www.youtube.com/watch?v=game12trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3846)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6445)
                         },
                         new
                         {
@@ -639,7 +639,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566642/0000000899.600x338_dk8xkx.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3849),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6448),
                             Description = "Mega Racing Championship is an adrenaline-pumping racing game with high-speed action and stunning graphics.",
                             Developer = "Speedster Studios",
                             HasMultiplayerSupport = true,
@@ -650,7 +650,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2022, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mega Racing Championship",
                             TrailerUrl = "https://www.youtube.com/watch?v=game13trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3850)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6448)
                         },
                         new
                         {
@@ -658,7 +658,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566675/H2x1_NSwitch_BioshockInfiniteTheCompleteEdition_image1600w_ozd1tp.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3853),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6453),
                             Description = "BioShock Infinite is a first-person shooter with a captivating narrative and breathtaking floating cityscapes.",
                             Developer = "Irrational Games",
                             HasMultiplayerSupport = false,
@@ -669,7 +669,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2013, 3, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "BioShock Infinite",
                             TrailerUrl = "https://www.youtube.com/watch?v=game14trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3853)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6453)
                         },
                         new
                         {
@@ -677,7 +677,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3856),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(6456),
                             Description = "Stardew Valley is a charming farming simulation game where you can build the farm of your dreams.",
                             Developer = "ConcernedApe",
                             HasMultiplayerSupport = true,
@@ -688,7 +688,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2016, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Stardew Valley",
                             TrailerUrl = "https://www.youtube.com/watch?v=game15trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3864)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7414)
                         },
                         new
                         {
@@ -696,7 +696,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 0.0,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566287/H2x1_NSwitch_TheElderScrollsVSkyrim_image1600w_rqc7us.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3868),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7433),
                             Description = "The Elder Scrolls VI is an upcoming open-world RPG that takes players to a fantasy realm filled with magic and adventure.",
                             Developer = "Bethesda Game Studios",
                             HasMultiplayerSupport = false,
@@ -707,7 +707,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2023, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Elder Scrolls VI",
                             TrailerUrl = "https://www.youtube.com/watch?v=game16trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3868)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7434)
                         },
                         new
                         {
@@ -715,7 +715,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3871),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7437),
                             Description = "Minecraft is a sandbox game that allows players to build and explore blocky worlds, limited only by their creativity.",
                             Developer = "Mojang Studios",
                             HasMultiplayerSupport = true,
@@ -726,7 +726,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minecraft",
                             TrailerUrl = "https://www.youtube.com/watch?v=game17trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3871)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7438)
                         },
                         new
                         {
@@ -734,7 +734,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566810/resident-evil-village-ps5-screenshot-05-24jul20_dfa6li.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3876),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7451),
                             Description = "Resident Evil Village is a survival horror game that plunges players into a mysterious village filled with supernatural threats.",
                             Developer = "Capcom",
                             HasMultiplayerSupport = false,
@@ -745,7 +745,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2021, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Resident Evil Village",
                             TrailerUrl = "https://www.youtube.com/watch?v=game18trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3876)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7451)
                         },
                         new
                         {
@@ -753,7 +753,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 4.5999999999999996,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3879),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7455),
                             Description = "Assassin's Creed: Odyssey is an action RPG set in ancient Greece, where you embark on an epic journey as a mercenary.",
                             Developer = "Ubisoft",
                             HasMultiplayerSupport = false,
@@ -764,7 +764,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2018, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Assassin's Creed: Odyssey",
                             TrailerUrl = "https://www.youtube.com/watch?v=game19trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3879)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7455)
                         },
                         new
                         {
@@ -772,7 +772,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547906/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/194522_1357656.bmp.1500x843_q95_crop-smart_upscale_yqaufa.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3882),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7458),
                             Description = "The Last of Us Part II is a gripping action-adventure game that continues the story of Ellie in a post-apocalyptic world.",
                             Developer = "Naughty Dog",
                             HasMultiplayerSupport = true,
@@ -783,7 +783,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Last of Us Part II",
                             TrailerUrl = "https://www.youtube.com/watch?v=game20trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3883)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7459)
                         },
                         new
                         {
@@ -791,7 +791,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547913/VideoGameShop/Animal%20Crossing-%20New%20Horizons/uQgKvtbaN94TWQyn9HyHv_rw3wmx.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3886),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7462),
                             Description = "Civilization VI is a turn-based strategy game that allows you to build and lead your own civilization through the ages.",
                             Developer = "Firaxis Games",
                             HasMultiplayerSupport = true,
@@ -802,7 +802,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2016, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Civilization VI",
                             TrailerUrl = "https://www.youtube.com/watch?v=game21trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3887)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7463)
                         },
                         new
                         {
@@ -810,7 +810,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547904/VideoGameShop/Halo%20Infinite/halo_infinite_hope_nogun_keyart_horiz_1120-d408b3ea15194141bf68183246babe2e_x5vjdo.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3890),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7466),
                             Description = "Halo Infinite is a first-person shooter that continues the legendary Halo series with a new chapter in Master Chief's story.",
                             Developer = "343 Industries",
                             HasMultiplayerSupport = true,
@@ -821,7 +821,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2021, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Halo Infinite",
                             TrailerUrl = "https://www.youtube.com/watch?v=game22trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3890)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7466)
                         },
                         new
                         {
@@ -829,7 +829,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566452/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg_xkadqv.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3893),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7469),
                             Description = "FIFA 24 is the latest installment of the popular soccer simulation game, featuring updated teams, stadiums, and gameplay.",
                             Developer = "EA Sports",
                             HasMultiplayerSupport = true,
@@ -840,7 +840,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2023, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "FIFA 24",
                             TrailerUrl = "https://www.youtube.com/watch?v=game23trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3893)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7470)
                         },
                         new
                         {
@@ -848,7 +848,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/HO8vkO9pfXhwbHi5WHECQJdN_orvh7x.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3896),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7473),
                             Description = "Horizon: Zero Dawn is an action RPG set in a post-apocalyptic world inhabited by robotic creatures, offering an engaging storyline.",
                             Developer = "Guerrilla Games",
                             HasMultiplayerSupport = false,
@@ -859,7 +859,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Horizon: Zero Dawn",
                             TrailerUrl = "https://www.youtube.com/watch?v=game24trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3897)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7473)
                         },
                         new
                         {
@@ -867,7 +867,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 4,
                             AverageRating = 4.5,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547903/VideoGameShop/Cyberpunk%202077/Cyberpunk-2077-witcher-map_uj800z.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3935),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7541),
                             Description = "Cyberpunk 2078 is a futuristic open-world RPG set in a cyber-enhanced world where you play as a mercenary navigating the city of Night City.",
                             Developer = "CD Projekt Red",
                             HasMultiplayerSupport = true,
@@ -878,7 +878,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2022, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cyberpunk 2078",
                             TrailerUrl = "https://www.youtube.com/watch?v=game25trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3935)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7541)
                         },
                         new
                         {
@@ -886,7 +886,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 0.0,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/The%20Legend%20of%20Zelda-%20Breath%20of%20the%20Wild/an-image-of-link-in-the-new-zelda-breath-of-the-wild-video-game_r3d9ub.avif",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3939),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7546),
                             Description = "The Legend of Zelda: Breath of the Wild 2 is the highly anticipated sequel to the acclaimed action-adventure game, offering new adventures in the kingdom of Hyrule.",
                             Developer = "Nintendo",
                             HasMultiplayerSupport = false,
@@ -897,7 +897,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2023, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Legend of Zelda: Breath of the Wild 2",
                             TrailerUrl = "https://www.youtube.com/watch?v=game26trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3939)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7546)
                         },
                         new
                         {
@@ -905,7 +905,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.9000000000000004,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566716/-1630837682024_bopaae.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3943),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7549),
                             Description = "Stardew Valley is a farming simulation game that allows players to build and customize their own farm, interact with villagers, and enjoy rural life.",
                             Developer = "ConcernedApe",
                             HasMultiplayerSupport = true,
@@ -916,7 +916,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2016, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Stardew Valley",
                             TrailerUrl = "https://www.youtube.com/watch?v=game27trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3943)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7549)
                         },
                         new
                         {
@@ -924,7 +924,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 1,
                             AverageRating = 4.7000000000000002,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1695566343/minecraft-hero-banner-desktop-01-ps4-en-07jul21_j0ssuf.webp",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3947),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7553),
                             Description = "Minecraft: Dungeons is an action-adventure game set in the blocky world of Minecraft, featuring dungeon crawling and exploration.",
                             Developer = "Mojang Studios",
                             HasMultiplayerSupport = true,
@@ -935,7 +935,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2020, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minecraft: Dungeons",
                             TrailerUrl = "https://www.youtube.com/watch?v=game28trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3947)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7553)
                         },
                         new
                         {
@@ -943,7 +943,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 3,
                             AverageRating = 0.0,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547913/VideoGameShop/Animal%20Crossing-%20New%20Horizons/uQgKvtbaN94TWQyn9HyHv_rw3wmx.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3950),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7557),
                             Description = "Overwatch 2 is a team-based first-person shooter with an engaging story, new heroes, and updated gameplay mechanics.",
                             Developer = "Blizzard Entertainment",
                             HasMultiplayerSupport = true,
@@ -954,7 +954,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Overwatch 2",
                             TrailerUrl = "https://www.youtube.com/watch?v=game29trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3950)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7557)
                         },
                         new
                         {
@@ -962,7 +962,7 @@ namespace VideoGameBackend.Migrations
                             AgeRatingId = 2,
                             AverageRating = 4.7999999999999998,
                             CoverImage = "https://res.cloudinary.com/danedskby/image/upload/v1687547912/VideoGameShop/DemonSoul/gAP2DGRWpFSehL2GDrcsPL_ienhqh.jpg",
-                            CreatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3953),
+                            CreatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7560),
                             Description = "Subnautica is an underwater adventure game where you explore an alien ocean, craft equipment, and survive in a hostile environment.",
                             Developer = "Unknown Worlds Entertainment",
                             HasMultiplayerSupport = false,
@@ -973,7 +973,7 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2018, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Subnautica",
                             TrailerUrl = "https://www.youtube.com/watch?v=game30trailerurl",
-                            UpdatedAt = new DateTime(2023, 9, 24, 14, 54, 19, 424, DateTimeKind.Utc).AddTicks(3953)
+                            UpdatedAt = new DateTime(2023, 9, 24, 15, 40, 58, 887, DateTimeKind.Utc).AddTicks(7560)
                         });
                 });
 
