@@ -50,50 +50,42 @@ export class GameDetailComponent implements OnInit {
     }
     const gameId = +id;
   
-    this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`)
-      .subscribe(
-        data => {
-          console.log('API Response:', data); // Log the API response for debugging
-  
-          // Process and set DLCs
-          this.dlcs = data.dlCs ? data.dlCs.map((dlcData: any) => ({
-            id: dlcData.id,
-            dlcName: dlcData.dlcName,
-            releaseDate: new Date(dlcData.releaseDate),
-            price: dlcData.price,
-            description: dlcData.description,
-            gameId: dlcData.gameId,
-            developer: dlcData.developer,
-            publisher: dlcData.publisher,
-            dlcGallery: []
-            // Other DLC properties
-          })) : [];
-  
-          // Set other properties of selectedGame
-          this.selectedGame = {
-            ...data,
-            gameImages: data.gameImages ? data.gameImages.$values : [],
-            ageRating: data.ageRating,
-            averageRating: data.averageRating,
-            gameGameTags: data.gameGameTags ? data.gameGameTags.$values : [],
-            gameGenres: data.gameGenres ? data.gameGenres.$values : [],
-            gameLanguages: data.gameLanguages ? data.gameLanguages.$values : [],
-            gamePlatforms: data.gamePlatforms ? data.gamePlatforms.$values : [],
-            dlcs: this.dlcs, // Set the processed DLCs here
-          };
-  
-          console.log('Processed Game Data:', this.selectedGame); // Log the selectedGame for debugging
-  
-          this.cdr.detectChanges();
-        },
-        error => {
-          console.error('There was an error fetching the game:', error);
-          this.handleError(error);
-        }
-      );
-  }
-  
+this.http.get<any>(`${environment.apiBaseUrl}/api/Game/${gameId}`).subscribe(
+  data => {
+    console.log('API Response:', data);
 
+    // Process and set DLCs
+    this.dlcs = data.dlCs ? data.dlCs.map((dlcData: any) => ({
+      id: dlcData.id,
+      dlcName: dlcData.dlcName,
+      releaseDate: new Date(dlcData.releaseDate),
+      price: dlcData.price,
+      description: dlcData.description,
+      gameId: dlcData.gameId,
+      developer: dlcData.developer,
+      publisher: dlcData.publisher,
+      dlcGallery: []
+      // Other DLC properties
+    })) : [];
+
+    // Check if the properties exist in the API response and assign them
+    if (data.gameGameTags && data.gameGenres && data.gameLanguages && data.gamePlatforms) {
+      this.selectedGame = {
+        ...data
+      };
+
+      console.log('Processed Game Data:', this.selectedGame);
+      this.cdr.detectChanges();
+    } else {
+      console.error('One or more required properties are missing in the API response.');
+    }
+  },
+  error => {
+    console.error('There was an error fetching the game:', error);
+    this.handleError(error);
+  }
+);
+  }
 
   private handleError(error: any) {
     this.errorMessage = 'There was an issue fetching the game. Please try again later.';

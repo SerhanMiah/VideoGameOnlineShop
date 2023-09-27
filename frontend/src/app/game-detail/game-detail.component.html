@@ -64,44 +64,60 @@
     </section>
 
         <!-- Game Info Section -->
-    <section class="game-info-section">
-
-        <!-- Tags, Genre, Languages, Platform -->
-        <div class="row justify-content-start mb-3">
-            <div class="col-12">
-                <p>
-                    <strong>Tags:</strong>
-                    <span *ngFor="let tag of selectedGame.gameGameTags; let last = last">
-                        {{ tag.gameTag.tagName }}
-                        <span *ngIf="!last">, </span>
-                    </span>
-                </p>
-        
-                <p>
-                    <strong>Genre:</strong>
-                    <ng-container *ngFor="let genreObj of selectedGame.gameGenres; let last = last">
-                        {{ genreObj.genre.name }}
-                        <span *ngIf="!last">, </span>
-                    </ng-container>
-                </p>
-        
-                <p>
-                    <strong>Languages:</strong>
-                    <ng-container *ngFor="let language of gameLanguages; let last = last">
-                        {{ language.language.languageName }}
-                        <span *ngIf="!last">, </span>
-                    </ng-container>
-                </p>
-        
-                <p>
-                    <strong>Platform:</strong>
-                    <ng-container *ngFor="let platformObj of selectedGame.gamePlatforms; let last = last">
-                        {{ platformObj.platform.name }}
-                    <span *ngIf="!last">, </span>
-                    </ng-container>
-                </p>
+        <section class="game-info-section">
+            <!-- Tags -->
+            <div class="row justify-content-start mb-3">
+                <div class="col-12">
+                    <p>
+                        <strong>Tags:</strong>
+                        <span *ngFor="let tag of selectedGame.gameGameTags; let last = last">
+                            {{ tag.gameTag.tagName }}
+                            <span *ngIf="!last">, </span>
+                        </span>
+                    </p>
+                </div>
             </div>
-        </div>
+        
+            <!-- Genre -->
+            <div class="row justify-content-start mb-3">
+                <div class="col-12">
+                    <p>
+                        <strong>Genre:</strong>
+                        <span *ngFor="let genreObj of selectedGame.gameGenres; let last = last">
+                            {{ genreObj.genre.name }}
+                            <span *ngIf="!last">, </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Languages -->
+            <div class="row justify-content-start mb-3">
+                <div class="col-12">
+                    <p>
+                        <strong>Languages:</strong>
+                        <ng-container *ngFor="let languageObj of selectedGame.gameLanguages; let last = last">
+                            {{ languageObj.language }}
+                            <span *ngIf="!last">, </span>
+                        </ng-container>
+                    </p>
+                    
+                </div>
+            </div>
+        
+            <!-- Platform -->
+            <div class="row justify-content-start mb-3">
+                <div class="col-12">
+                    <p>
+                        <strong>Platform:</strong>
+                        <span *ngFor="let platformObj of selectedGame.gamePlatforms; let last = last">
+                            {{ platformObj.platform.name }}
+                            <span *ngIf="!last">, </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
         
 
         <!-- Game Details & Description -->
@@ -154,7 +170,7 @@
                 </div>
             </div>
         </div>
-    </section>
+
 
 
     
@@ -169,8 +185,7 @@
                         <div class="card-body">
                             <h4 class="card-title">{{ dlc.dlcName }}</h4>
                             <p class="card-text dlc-price text-success font-weight-bold">{{ dlc?.price | currency }}</p>
-                            <!-- Uncomment the button if you want the details functionality -->
-                            <!-- <button (click)="viewDlcDetails(dlc.id)" class="btn btn-primary mt-3">Details</button> -->
+                            
                         </div>
                     </div>
                 </div>

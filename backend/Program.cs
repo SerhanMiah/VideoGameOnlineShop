@@ -57,12 +57,11 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.WithOrigins("http://localhost:4200", "https://video-game-online-shop.vercel.app")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
-
 
 builder.Services.AddControllers().AddApplicationPart(typeof(CartController).Assembly);
 

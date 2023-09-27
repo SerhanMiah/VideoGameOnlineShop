@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CartItem } from './cart.component';
 
-interface CartItem {
-  Id?: number;
-  GameId: number;
-  Game?: any;  // Consider being more specific than 'any' if possible
-  Quantity: number;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -77,6 +72,7 @@ export class CartService {
   }
 
   setCartItems(items: CartItem[]): void {
+    console.log("Setting cart items:", items);
     this.cartItemsSubject.next(items);
   }
   
