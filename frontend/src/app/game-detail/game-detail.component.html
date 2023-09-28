@@ -181,7 +181,7 @@
             <div class="dlc-list row">
                 <div *ngFor="let dlc of selectedGame.dlcs" class="dlc-item col-md-4 mb-4">
                     <div class="card shadow-sm">
-                        <!-- <img [src]="dlc.dlcGallery[0]?.imageUrl" alt="{{dlc?.dlcName}}" class="card-img-top"> -->
+                        <img [src]="dlc.dlcGallery[0]?.imageUrl" alt="{{dlc?.dlcName}}" class="card-img-top">
                         <div class="card-body">
                             <h4 class="card-title">{{ dlc.dlcName }}</h4>
                             <p class="card-text dlc-price text-success font-weight-bold">{{ dlc?.price | currency }}</p>
@@ -192,7 +192,9 @@
             </div>
             <div *ngIf="selectedGame.dlcs.length == 0" class="no-dlc text-center mt-4">
                 <p class="text-muted">No additional content or DLCs available for this game at the moment.</p>
-            </div>
+             </div>
+             
+            
         </section>
 
     </div>

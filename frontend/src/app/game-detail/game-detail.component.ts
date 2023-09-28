@@ -14,7 +14,7 @@ import { environment } from '../../environment/environment';
   styleUrls: ['./game-detail.component.css'],
 })
 export class GameDetailComponent implements OnInit {
-  selectedGame: Game | undefined;
+  selectedGame: Game | null = null;
   errorMessage: string | undefined;
   selectedQuantity: number = 1;
   cartItems: Array<{ Game: Game; Quantity: number }> = [];

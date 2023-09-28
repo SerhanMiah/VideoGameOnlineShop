@@ -335,7 +335,6 @@ IdentityUser - ApplicationUser Model: To manage user-related data, I utilized th
         public virtual Billing? DefaultBillingDetails { get; set; }
 
     }
-}
 
 ```
   
@@ -378,6 +377,9 @@ The DbSet<TEntity> represents a collection of entities in the context that can b
 
 For instance, in one of my controllers:
 
+In this example, I utilized LINQ queries to effortlessly establish relationships between different models and enrich the application with advanced features. The query retrieves all games along with their related images and DLCs, showcasing the power and simplicity of combining LINQ with Entity Framework.
+
+
 Consider this example from my game controller:
 
 ```csharp
@@ -395,8 +397,7 @@ Consider this example from my game controller:
             return gamesWithImagesAndDLCs;
         }
 ```
-In this example, I utilized LINQ queries to effortlessly establish relationships between different models and enrich the application with advanced features. The query retrieves all games along with their related images and DLCs, showcasing the power and simplicity of combining LINQ with Entity Framework.
----
+
 
 **Controller Development and Initial Tests**: Grounded in my preliminary designs, I embarked on constructing controllers tailored to address web requests. My starting point revolved around formulating GET requests. This soon expanded to crafting unique endpoints that catered to all conceivable game-related functionalities, including the full spectrum of CRUD operations. 
 
@@ -487,9 +488,8 @@ Insomia GET Test:
                     AgeRatingId = 2,
                     CoverImage = "https://www.cyberpunk.net/build/images/home/title-c-logo-8d1c4e3341.svg"
                 },
+            }
               // add more games.
-
-
 ```
 
 ---
@@ -511,11 +511,34 @@ This phase, though rigorous, has set a sturdy foundation for our application. Wi
 
 ### Phase 3: Bridging Backend with Frontend:
 
-In this phase, I integrated our backend services with the frontend interface. I employed Angular—a component-based framework—to ensure seamless communication with our ASP.NET backend.
+During this phase, I merged the frontend interface with our backend services, leveraging Angular—a component-centric framework—for smooth interaction with our ASP.NET backend. Upon nearing completion of the seeding data, I established a new connection string to the Azure SQL database. This database is designed to house the seeding data for our video game applications, as well as associated fields such as users, games, DLCs, genres, and more.
 
-**Seeding & Initial Tests**: I initiated the process by populating our system with test data derived from the video game models and their associated relationships. Using tools like Insomnia, I verified if the application correctly accessed information via designated endpoints and HTTP requests.
+**Data Seeding & Initial Tests**:  I began by filling our system with test data, drawing from the video game models and their related elements. Using tools like Insomnia, I checked if the application aptly fetched information through the prescribed endpoints and HTTP methods. After setting up the connection using Azure's provided credentials, I browsed the data through MS SQL Server Management Studio. My goal was to run SQL queries on a local setup while also having the capability to switch between a local and cloud-based environment during the application's runtime.
 
-**API Development**: Using ASP.NET, I developed RESTful APIs to bridge the gap between our frontend and backend. This included endpoints for every video game function, user interactions, and specific features like user login, registration, profile management, and JWT token generation for user authentication.
+***Test Deployment***: After completing the data seeding, I embarked on testing the deployment of both frontend and backend modules. I utilized Vercel for deploying the frontend. However, the backend deployment encountered a hiccup. I initially eyed Azure Web Apps to host the backend and access the data via a custom domain, but faced integration issues. This led me to consider Heroku as an alternative, and I successfully deployed the backend there.
+
+```JS
+
+    // Enviorment to test locally
+    export const environment = {
+      production: false,
+      apiBaseUrl: 'http://localhost:5177'
+    };
+
+```
+
+```JS
+
+    // Enviorment to test cloud
+    export const environment = {
+      production: true,
+      apiBaseUrl: 'https://videogameapp-0c95fe649a4c.herokuapp.com'
+    };
+
+```
+
+
+**API Development**: With ASP.NET at the helm, I crafted RESTful APIs that served as the bridge connecting our frontend and backend. These APIs encompassed functionalities like video game operations, user actions, and unique capabilities such as user sign-in, sign-up, profile modifications, and generating JWT tokens for user verification. After setting up the new domain for the database, I tested the domain's compatibility with our application. On the frontend, I formulated an environment component to house both the local and Heroku backend connections, ensuring easy transition between the two during future development phases. 
 
 **Endpoint Organization**: I structured our endpoints within the Controller section, categorizing them to maintain clarity. Developing the Auth controller posed some challenges, particularly in integrating JWT tokens for authentication.
 
@@ -555,6 +578,7 @@ During the deployment phase of our website, I encountered challenges with Azure 
 * Successful Integration: Bringing together a C# backend and an Angular frontend was no small feat. However, my meticulous planning and design made integration smoother than anticipated.
 * Updating the Cart when a registered user is logged in and hits the buy button in the game detail component page.
 * Having a greater understanding on how OOP works and how it is used both in the frontend and backend. 
+* Sucessfully able to add to Cart
 
 
 
@@ -563,9 +587,8 @@ During the deployment phase of our website, I encountered challenges with Azure 
 ### Challenges
 * TypeScript Learning Curve: Transitioning from JS to TS presented initial hurdles, especially around strict typing and interfaces.
 * Learning TS and Angular while making this application was incredibly changling. From more experience developers I was told not to use any, however in certain situation this became impossible for my skillset and looking develop my skills futher using TS for future projects
-
-
-
+* One of the real issues I had when making this app is the serializer ans deserializers as I had problem retrieving the data from the backend to be visible in the frontend.
+* unable to get the add review button working due to time constraints and would consider going back to this project at a later date. 
 
 
 ### Bugs
