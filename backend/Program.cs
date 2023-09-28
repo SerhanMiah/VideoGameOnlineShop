@@ -57,7 +57,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "https://video-game-online-shop.vercel.app")
+        policy.WithOrigins("http://localhost:4200", "https://video-game-online-shop.vercel.app", "https://techstackedgames.vercel.app")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
