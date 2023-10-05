@@ -2,6 +2,7 @@
 
 An immersive e-commerce platform dedicated to video game enthusiasts. Crafted with precision using a blend of powerful technologies like ASP.NET, Angular, and TypeScript, and designed with sleek UI to provide an engaging user experience.
 
+https://techstackedgames.vercel.app/home
 
 
 ![game-screenshot](./frontend/src/screenshots/homepage.png)
